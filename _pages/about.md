@@ -5,7 +5,7 @@ excerpt: "About me"
 author_profile: true
 redirect_from: 
   - /about/
-	- /about.html
+  - /about.html
 ---
 
 I am currently a research intern in KU, Copenhagen University. My main focus is to deal with stochastic shape analysis.
