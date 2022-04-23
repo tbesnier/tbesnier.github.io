@@ -11,49 +11,52 @@ redirect_from:
 
 Education
 ======
-* B.S. in GitHub, GitHub University, 2012
-* M.S. in Jekyll, GitHub University, 2014
-* Ph.D in Version Control Theory, GitHub University, 2018 (expected)
+* B.S. in Mathematics, Université de Lille 1, 2019
+* M.S. in Engineering, Centrale Lille Institut, 2022
+* M.S. in Mathematics, Université de Lille 1, 2022
 
 Work experience
 ======
-* Summer 2015: Research Assistant
-  * Github University
-  * Duties included: Tagging issues
-  * Supervisor: Professor Git
+* April 2022 - Current: Research intern
+  * KU, Copenhagen University
+  * Topics: Shape analysis, stochastic diffusion, phylogenetics
+  * Supervisor: Stefan Horst Sommer
 
-* Fall 2015: Research Assistant
-  * Github University
-  * Duties included: Merging pull requests
-  * Supervisor: Professor Hub
+* September 2020 - January 2021: Data scientist intern
+  * Electro-dépôt
+  * Duties included: Client segmentation, zipcode delivery management
+  * Supervisor: Jiayang Gao
+
+* February 2020 - September 2020: Data analyst intern
+  * Electro-dépôt
+  * Duties included: Dashboard creation and maintenance, data preprocessing
+  * Supervisor: Jiayang Gao
   
 Skills
 ======
-* Skill 1
-* Skill 2
-  * Sub-skill 2.1
-  * Sub-skill 2.2
+* Mathematic knowledge
+  * Optimization
+  * Geometry
+  * Stochastic processes
+  * Functional analysis and topology
+* Machine learning programming in Python
+  * Pytorch
+  * Tensorflow
   * Sub-skill 2.3
-* Skill 3
+* Data handling and processing
+  * Pandas
+  * SQL (Postgr), SparkSQL
+* Data visualization
+  * Power BI
 
 Publications
 ======
-  <ul>{% for post in site.publications %}
-    {% include archive-single-cv.html %}
-  {% endfor %}</ul>
   
-Talks
+Certifications
 ======
-  <ul>{% for post in site.talks %}
-    {% include archive-single-talk-cv.html %}
-  {% endfor %}</ul>
-  
-Teaching
+* Deep learning specialization from deeplearning.ai
+
+Miscellaneous
 ======
-  <ul>{% for post in site.teaching %}
-    {% include archive-single-cv.html %}
-  {% endfor %}</ul>
-  
-Service and leadership
-======
-* Currently signed in to 43 different slack teams
+* Sports: running, bodyweight training
+* Music: Guitar, piano
