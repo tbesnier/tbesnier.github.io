@@ -81,7 +81,7 @@ analytics:
 # Site Author
 author:
   name             : "Thomas Besnier"
-  avatar           : "profile.png"
+  avatar           : "https://raw.githubusercontent.com/tbesnier/tbesnier.github.io/master/photo.jpg"
   bio              : "Research scientist in shape analysis"
   location         : "Copenhagen"
   employer         :
