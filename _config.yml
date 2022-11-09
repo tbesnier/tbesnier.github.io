@@ -10,7 +10,7 @@ locale                   : "en-US"
 title                    : "Thomas Besnier"
 title_separator          : "-"
 name                     : &name "Thomas Besnier"
-description              : &description "Research scientist in applied mathematics and deep learning"
+description              : &description "Research scientist in deep learning and applied mathematics"
 url                      : https://tbesnier.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "tbesnier/tbesnier.github.io"
@@ -82,8 +82,8 @@ analytics:
 author:
   name             : "Thomas Besnier"
   avatar           : "https://raw.githubusercontent.com/tbesnier/tbesnier.github.io/master/photo.jpg"
-  bio              : "Research scientist in shape analysis"
-  location         : "Copenhagen"
+  bio              : "PhD student in geometric deep learning
+  location         : "Lille"
   employer         :
   pubmed           :
   googlescholar    : "http://yourfullgooglescholarurl.com"
@@ -102,7 +102,7 @@ author:
   instagram        :
   impactstory      : #"https://profiles.impactstory.org/u/xxxx-xxxx-xxxx-xxxx"
   lastfm           :
-  linkedin         : https://www.linkedin.com/in/thomas-besnier-b65b74183/
+  linkedin         : https://www.linkedin.com/in/thomas-besnier-b65b74183
   orcid            :
   pinterest        :
   soundcloud       :

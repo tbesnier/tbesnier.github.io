@@ -8,15 +8,17 @@ redirect_from:
   - /about.html
 ---
 
-I am currently a research intern in KU, Copenhagen University. My main focus is to deal with stochastic shape analysis.
+I am currently a PhD student in Computer Science at the University of Lille, in France. 
+My main focus is on geometry processing with deep learning, 
+but I am interested in everything related to shapes and simulations.
 
 Specialization
 ======
 ### Mathematics
-Probabilty theory, functional analysis, stochastic processes, riemannian geometry.
+Probabilty theory, functional analysis, stochastic processes, Riemannian geometry.
 
 ### Machine learning
-Optimization, geometric deep learning, generative model.
+Optimization, Geometric deep learning, Generative model.
 
 Selected work
 ======
