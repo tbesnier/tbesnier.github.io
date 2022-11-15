@@ -52,12 +52,3 @@ Skills
 Publications
 ======
 Pierson, E., Besnier, T., Daoudi, M., & Arguillère, S. (2022). Parameterization Robustness of 3D Auto-Encoders.
-
-Certifications
-======
-* Deep learning specialization from deeplearning.ai
-
-Miscellaneous
-======
-* Sports: running, bodyweight training
-* Music: Guitar, piano
