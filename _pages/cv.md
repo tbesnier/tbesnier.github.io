@@ -42,7 +42,6 @@ Skills
 * Machine learning programming in Python
   * Pytorch
   * Tensorflow
-  * Sub-skill 2.3
 * Data handling and processing
   * Pandas
   * SQL (Postgr), SparkSQL
