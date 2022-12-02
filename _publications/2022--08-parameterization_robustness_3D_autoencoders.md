@@ -3,7 +3,7 @@ title: "Parameterization robustness of 3D auto-encoders"
 collection: publications
 permalink: /publication/2009-10-01-paper-title-number-1
 date: 2022-08-01
-venue: 'Eurographics Workshop on 3D Object Retrieval (2022)'
+venue: 'Eurographics Workshop on 3D Object Retrieval'
 citation: 'Pierson, Emery & Besnier, Thomas & Daoudi, Mohamed & Arguillère, Sylvain (2022). "Parameterization robustness of 3D auto-encoders" <i>Eurographics Workshop on 3D Object Retrieval (2022) 1</i>.'
 ---
 Pierson, Emery & Besnier, Thomas & Daoudi, Mohamed & Arguillère, Sylvain (2022). "Parameterization robustness of 3D auto-encoders" <i>Eurographics Workshop on 3D Object Retrieval (2022) 1</i>.
