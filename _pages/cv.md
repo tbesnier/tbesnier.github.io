@@ -17,19 +17,19 @@ Education
 
 Work experience
 ======
-* April 2022 - Current: Research intern
+* November 2022 - Current: PhD candidate in Computer Science
+  * University of Lille
+  * Topics: Geometric deep learning, human body analysis
+  * Supervisors: Mohamed Daoudi, Sylvain Arguillère
+
+* April 2022 - September 2022: Research intern
   * KU, Copenhagen University
   * Topics: Shape analysis, stochastic diffusion, phylogenetics
   * Supervisor: Stefan Horst Sommer
 
-* September 2020 - January 2021: Data scientist intern
+* February 2020 - January 2021: Data scientist intern
   * Electro-dépôt
-  * Duties included: Client segmentation, zipcode delivery management
-  * Supervisor: Jiayang Gao
-
-* February 2020 - September 2020: Data analyst intern
-  * Electro-dépôt
-  * Duties included: Dashboard creation and maintenance, data preprocessing
+  * Duties included: Client segmentation, zipcode delivery management, dashboards creation
   * Supervisor: Jiayang Gao
   
 Skills
