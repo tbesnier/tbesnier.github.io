@@ -26,3 +26,4 @@ Master's thesis: _On reparameterization invariance and
 applications to geometric neural
 networks_ (2022) [Download here](https://github.com/tbesnier/tbesnier.github.io/raw/master/files/Master_s_thesis.pdf)
 
+![image info](https://github.com/tbesnier/tbesnier.github.io/raw/master/images/figures/masters_thesis_fig.png)
