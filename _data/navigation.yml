@@ -5,6 +5,9 @@ main:
     
   - title: "CV"
     url: /cv/
+
+  - title: "Notes"
+    url: /notes/
     
   - title: "Other"
     url: /other/
