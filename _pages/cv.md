@@ -50,4 +50,4 @@ Skills
 
 Publications
 ======
-Pierson, E., Besnier, T., Daoudi, M., & Arguillère, S. (2022). Parameterization Robustness of 3D Auto-Encoders.
+Pierson, E., Besnier, T., Daoudi, M., & Arguillère, S. (2022). Parameterization Robustness of 3D Auto-Encoders. _Eurographics Workshop on 3D Object Retrieval_
