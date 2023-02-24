@@ -7,7 +7,7 @@ redirect_from:
   - /resume
 ---
 
-{% include base_path %}
+<h1 id="page-title">Resume <a aria-hidden="true" href="../files/cv.pdf"></a></h1>
 
 Education
 ======
