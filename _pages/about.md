@@ -15,7 +15,7 @@ but I am interested in everything related to shapes and simulations.
 Specialization
 ======
 ### Mathematics
-Probabilty theory, functional analysis, stochastic processes, Riemannian geometry.
+Probability theory, functional analysis, stochastic processes, Riemannian geometry.
 
 ### Machine learning
 Optimization, Geometric deep learning, Generative model.
