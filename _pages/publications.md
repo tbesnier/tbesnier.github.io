@@ -39,3 +39,8 @@ author_profile: true
   {% endif %}
 {% endfor %}
 
+<div class="column right" style="background-color:ffff;">
+					<p><b>Fully Convolutional Mesh Autoencoder Using Efficient Spacially Varying Kernals</b>
+						<br><b>Yi Zhou</b>, Chenglei Wu, Zimo Li, Chen Cao, Yuting Ye, Jason Saragih, Hao Li, Yaser Sheikh
+						<br><em>Neurips 2020</em> [<a href="https://arxiv.org/pdf/2006.04325.pdf">paper</a>]  [<a href="project_vcmeshcnn/vcmeshcnn.html">project page</a>] 
+				</div>
