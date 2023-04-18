@@ -40,6 +40,6 @@ author_profile: true
 {% endfor %}
 
 
-<p><b>Parameterization invariant encoding of meshes</b>
-<br>[<a href="/projects/project_vcmeshcnn/vcmeshcnn.html">project page</a>]
+<!-- <p><b>Parameterization invariant encoding of meshes</b>
+<br>[<a href="/projects/project_vcmeshcnn/vcmeshcnn.html">project page</a>] -->
 
