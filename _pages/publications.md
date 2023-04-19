@@ -41,5 +41,5 @@ author_profile: true
 
 
 <!-- <p><b>Parameterization invariant encoding of meshes</b>
-<br>[<a href="/projects/project_vcmeshcnn/vcmeshcnn.html">project page</a>] -->
+<br>[<a href="/projects/project_pie/pie.html">project page</a>] -->
 
