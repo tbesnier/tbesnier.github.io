@@ -10,7 +10,7 @@ redirect_from:
 
 I am currently a PhD student in Computer Science at the University of Lille, in France. 
 My main focus is on geometry processing with deep learning, 
-but I am interested in everything related to shapes and simulations.
+but I am interested in everything related to shape analysis and 3D modeling.
 
 Specialization
 ======
