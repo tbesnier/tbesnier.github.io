@@ -11,9 +11,9 @@ redirect_from:
 
 Education
 ======
-* B.S. in Mathematics, Université de Lille 1, 2019
+* B.S. in Mathematics, Université de Lille, 2019
 * M.S. in Engineering, Centrale Lille Institut, 2022
-* M.S. in Mathematics, Université de Lille 1, 2022
+* M.S. in Mathematics, Université de Lille, 2022
 
 Work experience
 ======
@@ -34,7 +34,7 @@ Work experience
   
 Skills
 ======
-* Mathematic knowledge
+* Mathematics
   * Optimization
   * Geometry
   * Stochastic processes
@@ -48,4 +48,6 @@ Skills
 
 Publications
 ======
-Pierson, E., Besnier, T., Daoudi, M., & Arguillère, S. (2022). Parameterization Robustness of 3D Auto-Encoders. _Eurographics Workshop on 3D Object Retrieval_
+Pierson, Emery, Besnier, Thomas, Daoudi, Mohamed, & Arguillère, Sylvain. Parameterization Robustness of 3D Auto-Encoders. _Eurographics Workshop on 3D Object Retrieval (2022)_
+
+Baker, Elizabeth & Besnier, Thomas & Sommer, Stefan. "A function space perspective on stochastic shape evolution" _Scandinavian Conference on Image Analysis (2023)_
