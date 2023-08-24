@@ -8,6 +8,7 @@ redirect_from:
 ---
 
 {% include base_path %}
+Download .pdf version [here](https://github.com/tbesnier/tbesnier.github.io/raw/master/files/Academic_CV.pdf)
 
 Education
 ======
