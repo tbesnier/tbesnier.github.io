@@ -7,6 +7,7 @@
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-vI5RN2I0xmzutbcMqfTtiVxzpfx+PqqyKqBzYMgYiuK2Nzrnl+pGrTnFgX53vlFl1v9bXEAt3b5xLk9G+aCGZA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="./style.css">
 
     <title>Scantalk: Talking Heads from Unregistered Scans</title>
@@ -22,7 +23,7 @@
     </script>
   </head>
   <body class="bg-white">
-      <div class="container container-small pb-5">
+      <div class="container container-large pb-5">
           <div class="row pt-4 pb-3 justify-content-center">
               <div class="col-12 pt-1">
                   <h2 class="text-center">Scantalk: Talking Heads from Unregistered Scans</h2>
@@ -56,16 +57,18 @@
             </a>
             <a href="https://github.com/tbesnier/ScanTalk" class="button">
                 <span class="icon">
-                    <i class="ai ai-github"></i> Github
+                    <i class="fab fa-github"></i> Github
                 </span>
-            </a>
+                </a>
+
+
           </div>
       <!--  end links  -->
 
           <div class="text-center mb-2">
               <img src="eye_catch_.png" alt="Model architecture" class="rounded" style="width:100%;">
           </div>
-          <hr>
+          <br>
           <div class="row">
               <div class="col-12">
                   <h4>Abstract</h4>
@@ -75,19 +78,18 @@
                         fixed topologies, wherein point-wise correspondence is established, and
                         the number and order of points remains consistent across all identities
                         the model can animate. In this work, we present ScanTalk, a novel
-                        framework capable of animating 3D faces in arbitrary topologies includ-
-                        ing scanned data. Our approach relies on the DiffusionNet architecture
+                        framework capable of animating 3D faces in arbitrary topologies including
+                        scanned data. Our approach relies on the DiffusionNet architecture
                         to overcome the fixed topology constraint, offering promising avenues
                         for more flexible and realistic 3D animations. By leveraging the power
                         of DiffusionNet, ScanTalk not only adapts to diverse facial structures
-                        but also maintains fidelity when dealing with scanned data, thereby en-
-                        hancing the authenticity and versatility of generated 3D talking heads.
+                        but also maintains fidelity when dealing with scanned data, thereby enhancing
+                        the authenticity and versatility of generated 3D talking heads.
                         Through comprehensive comparisons with state-of-the-art methods, we
-                        validate the efficacy of our approach, demonstrating its capacity to gen-
-                        erate realistic talking heads comparable to existing techniques. While our
+                        validate the efficacy of our approach, demonstrating its capacity to generate
+                        realistic talking heads comparable to existing techniques. While our
                         primary objective is to develop a generic method free from topological
-                        constraints, all state-of-the-art methodologies are bound by such limita-
-                        tions.</p>
+                        constraints, all state-of-the-art methodologies are bound by such limitations.</p>
               </div>
           </div>
           <hr>
@@ -102,9 +104,14 @@
           <hr>
           <div class="row">
               <div class="col-12">
-                  <h4 class="mb-3">Video</h4>
+                  <h4 class="mb-3">Examples</h4>
+              </div>
+              <div class="gif-container">
+                <img src="scan.gif" alt="GIF 1">
+                <img src="arnold.gif" alt="GIF 2">
               </div>
           </div>
+
           <!--<div class="row justify-content-md-center">
               <div class="col-11">
                   <div class="embed-responsive embed-responsive-16by9">

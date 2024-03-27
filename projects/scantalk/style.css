@@ -40,23 +40,23 @@
 
 body {
 		font-family: 'Avenir', sans-serif;
-		font-size: 14px;
+		font-size: 16px;
 }
+
 @media (min-width: 1200px) {
-		.container-small {
-				width: 960px;
-		}
+    .container-small {
+        width: 960px;
+    }
+    .container-large {
+        width: 1100px;
+    }
 }
-.container-small {
-		max-width: 100%;
+
+.container-small, .container-large {
+    max-width: 100%;
 }
-a:link, a:visited {
-		color: #ea8e0e;
-}
-a:link:active, a:visited:active {
-		color: #ea8e0e;
-		text-decoration: underline;
-}
+
+
 .hover-icon:hover {
 		transform:scale(1.2);
 }
@@ -113,9 +113,10 @@ pre {
     margin: 0 20px; /* Adjust spacing between buttons */
     padding: 10px 20px;
     background-color: #333;
+    font-size: 36px;
     color: white;
     text-decoration: none;
-    border-radius: 5px;
+    border-radius: 20px;
     border: none;
     cursor: pointer;
 }
@@ -123,3 +124,21 @@ pre {
 .button:hover {
     background-color: #777;
 }
+
+.gif-container {
+    text-align: center;
+    overflow: hidden;
+  }
+
+.gif-container img {
+    display: inline-block;
+    max-width: 45%; /* Adjust maximum width as needed */
+    height: auto; /* Maintain aspect ratio */
+    margin: 0 10px; /* Adjust spacing between GIFs */
+  }
+
+hr {
+    border: none; /* Remove default border */
+    height: 2px; /* Set height of the line */
+    background-color: #ccc; /* Set color of the line */
+    margin: 50px 20px; /* Add margin above and below the line */
