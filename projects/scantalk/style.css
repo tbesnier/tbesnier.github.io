@@ -144,11 +144,10 @@ hr {
     margin: 50px 20px; /* Add margin above and below the line */
 
 .video-container {
-            width: 50%; /* Adjust as needed */
-            float: left;
-            margin-right: 5px; /* Adjust the gap between videos */
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px; /* Adjust as needed */
         }
 .video-container video {
-    width: 100%;
-    height: auto;
+    width: 48%; /* Adjust as needed */
 }
