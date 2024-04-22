@@ -142,12 +142,3 @@ hr {
     height: 2px; /* Set height of the line */
     background-color: #ccc; /* Set color of the line */
     margin: 50px 20px; /* Add margin above and below the line */
-
-.video-container {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 10px; /* Adjust as needed */
-        }
-.video-container video {
-    width: 48%; /* Adjust as needed */
-}
