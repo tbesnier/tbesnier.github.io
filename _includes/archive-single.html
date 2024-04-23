@@ -48,7 +48,7 @@
 
     {% if post.excerpt and site.read_more != 'enabled' %}
       {% if post.excerpt and site.read_more != 'enabled' %}
-        <img src=thumbnail>
+        <img src="{{thumbnail}}">
         <p class="archive__item-excerpt" itemprop="description">{{ post.excerpt | markdownify }}</p>
       {% endif %}
     {% elsif post.excerpt and site.read_more == 'enabled' %}
