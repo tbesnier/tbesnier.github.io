@@ -48,10 +48,10 @@
 
     {% if post.thumbnail %}
         <p>{{ thumbnail }}</p>
-      {% endif %}
+    {% endif %}
+
     {% if post.excerpt and site.read_more != 'enabled' %}
       {% if post.thumbnail %}
-        <img src={{ post.thumbnail }}>
         <p class="archive__item-excerpt" itemprop="description">{{ post.excerpt | markdownify }}</p>
       {% endif %}
     {% endif %}
