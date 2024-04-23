@@ -15,13 +15,15 @@ but I am interested in everything related to shape analysis and 3D modeling.
 Specialization
 ======
 ### Mathematics
-Probability theory, functional analysis, stochastic processes, Riemannian geometry.
+Probability theory, functional analysis, stochastic processes, riemannian geometry.
 
 ### Machine learning
-Optimization, Geometric deep learning, Generative model.
+Optimization, Geometric deep learning, Generative modelS.
 
 Selected work
 ======
+
+
 **Master's thesis**: _On reparameterization invariance and
 applications to geometric neural
 networks_ (2022) [Download here](https://github.com/tbesnier/tbesnier.github.io/raw/master/files/Master_s_thesis.pdf)
