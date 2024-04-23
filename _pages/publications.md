@@ -40,6 +40,3 @@ author_profile: true
 {% endfor %}
 
 
-<!-- <p><b>Parameterization invariant encoding of meshes</b>
-<br>[<a href="/projects/project_pie/pie.html">project page</a>] -->
-
