@@ -6,6 +6,10 @@
   {% assign teaser = site.teaser %}
 {% endif %}
 
+{% if post.thumbnail %}
+  {% assign thumbnail = post.thumbnail %}
+{% endif %}
+
 {% if post.id %}
   {% assign title = post.title | markdownify | remove: "<p>" | remove: "</p>" %}
 {% else %}
@@ -43,7 +47,10 @@
         {% endif %}/-->
 
     {% if post.excerpt and site.read_more != 'enabled' %}
-    <p class="archive__item-excerpt" itemprop="description">{{ post.excerpt | markdownify }}</p>
+      {% if post.excerpt and site.read_more != 'enabled' %}
+        <img src={{ thumbnail }}>
+        <p class="archive__item-excerpt" itemprop="description">{{ post.excerpt | markdownify }}</p>
+      {% endif %}
     {% elsif post.excerpt and site.read_more == 'enabled' %}
     <p class="archive__item-excerpt" itemprop="description"><p>{{ post.excerpt | markdownify | remove: '<p>' | remove: '</p>' }}<strong><a href="{{ base_path }}{{ post.url }}" rel="permalink"> Read more</a></strong></p></p>
     {% endif %}
