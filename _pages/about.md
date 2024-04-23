@@ -18,7 +18,7 @@ Specialization
 Probability theory, functional analysis, stochastic processes, riemannian geometry.
 
 ### Machine learning
-Optimization, Geometric deep learning, Generative modelS.
+Optimization, Geometric deep learning, Generative models.
 
 Selected work
 ======
