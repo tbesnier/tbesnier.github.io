@@ -15,6 +15,4 @@ In particular, we'll be using :
 * Bagging and random forest techniques
 * Boosting techniques (ADABoost and XGBoost)
 
-Heading 1
-======
 
