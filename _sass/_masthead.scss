@@ -15,7 +15,6 @@
   &__inner-wrap {
     @include container;
     @include clearfix;
-    background-color: black;
     padding: 1em 1em 1em;
     font-family: $sans-serif-narrow;
 
@@ -24,12 +23,10 @@
     }
 
     nav {
-      background-color: black;
       z-index: 10;
     }
 
     a {
-      background-color: black;
       text-decoration: none;
     }
   }
@@ -37,6 +34,7 @@
 
 .masthead__menu {
   ul {
+    background-color: black;
     margin: 0;
     padding: 0;
     clear: both;
