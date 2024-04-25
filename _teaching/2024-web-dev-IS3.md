@@ -8,7 +8,7 @@ date: 2024-03-01
 location: "Lille, France"
 ---
 
-This is a description of a teaching experience. You can use markdown like any other post.
+HTML, CSS, Javascript,...
 
 Heading 1
 ======
