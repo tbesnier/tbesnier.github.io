@@ -185,7 +185,7 @@
     text-decoration: none;
 
     &:hover {
-      color: $masthead-link-color-hover;
+      color: $code-background-color-dark;
     }
   }
 
@@ -196,7 +196,7 @@
     padding: 0 0.5rem;
     border: 0;
     outline: none;
-    background-color: $code-background-color-dark;
+    background-color: black;
     color: #fff;
     cursor: pointer;
   }
