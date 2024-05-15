@@ -1,0 +1,57 @@
+---
+title: 'Séries Temporelles : fiche TP1'
+author: "Thomas Besnier, Wilfried Heyse"
+output:
+  html_document:
+    df_print: paged
+editor_options:
+  chunk_output_type: console
+---
+
+```{r, echo = FALSE}
+knitr::opts_chunk$set(echo=TRUE, eval=FALSE, message = FALSE)
+```
+
+
+# Données Varicelle 
+Récupérer le fichier contenant le nombre de cas de varicelle mensuel relevés à New-York de janvier 1931 à juin 1972.
+
+1. Créer un objet de type série temporelle contenant cette série. Représenter graphiquement la série.
+
+2. Analyser qualitativement cette série, c’est-à-dire repérer d’éventuelles tendance et/ou saisonnalité (changer d’échelle si besoin).
+
+3. Quel est le nombre de cas de varicelles mensuel moyen ?
+
+4. Tracer les 25 premières auto-corrélations. Intérpreter ces résultats. Que représentent les traits pointillés horizontaux sur le graphique de l’auto-corrélation.
+
+5. Tracer sur un même graphique, les évolutions mensuelles du nombre de cas de varicelle pour chaque année.
+
+6. Tracer sur un graphique l’évolution annuelle du nombre de cas de varicelle.
+
+7. Ces deux dernières questions vous permettent-elles d’améliorer vos conclusions de la question 2 ?
+
+
+# Simulations de séries temporelles
+
+On appelle bruit blanc gaussien une suite de variables aléatoires indépendantes et identiquement distribuées $\epsilon_t$ de loi normale centrée réduite.
+
+1. Quelle est la fonction d’auto-corrélation d’un bruit blanc ?
+
+2. Simuler un bruit blanc gaussien de taille 100, et représenter le graphiquement.
+
+3. Tracer la fonction d’auto-corrélation.
+
+4. Recommencer les deux questions précédentes et observer la variabilité des résultats. Jouer sur la longueur de la série.
+
+5. Simuler maintenant la série temporelle $X(t) = 0.5t + 2\epsilon_t$ avec $\epsilon_t ∼ \mathcal{N}(0, 1)$ (taille 100).
+
+6. Représenter graphiquement la série et interpréter-la qualitativement.
+
+7. Représentez l'autocorrélogramme de la série et cherchez-y les indices de la tendance. (On pourra faire varier le nombre d'observations)
+
+8. Faites de même pour $X(t)=\epsilon_t + 3cos(t\frac{\pi}{6})$ avec $\epsilon_t ∼ \mathcal{N}(0, 1)$. 
+
+9. Faites de même pour $X(t)=0.5t + \epsilon_t + 3cos(t\frac{\pi}{6})$ avec $\epsilon_t ∼ \mathcal{N}(0, 1)$. 
+
+
+
