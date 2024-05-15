@@ -1,10 +1,10 @@
 ---
-title: "Web development"
+title: "Time Series analysis"
 collection: teaching
-type: "Undergraduate course"
-permalink: /teaching/2024-web-dev-IS3
+type: "Graduate course"
+permalink: /teaching/2024-web-dev-IS2A5
 venue: "Polytech Lille, Computer science & statistics"
-date: 2024-03-01
+date: 2024-05-01
 location: "Lille, France"
 ---
 
