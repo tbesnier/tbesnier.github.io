@@ -43,14 +43,14 @@
         {% endif %}
         alt="{% if s.image_alt %}{{ s.image_alt }}{% endif %}">
       {% endif %}
-      {% if s.title %}<h3><div class="cube">
+      {% if s.title %}<div class="cube">
         <div class="face front"></div>
         <div class="face back"></div>
         <div class="face right"></div>
         <div class="face left"></div>
         <div class="face top"></div>
         <div class="face bottom"></div>
-    </div><{{ s.title }}</h3>{% endif %}
+    </div><h3><{{ s.title }}</h3>{% endif %}
       {% if s.text %}{{ s.text | markdownify }}{% endif %}
     {% endfor %}
     {% if page.sidebar.nav %}
