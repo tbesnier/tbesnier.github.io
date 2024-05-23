@@ -1,0 +1,334 @@
+---
+title: 'Séries Temporelles : fiche TP4'
+author: "Thomas Besnier, Wilfried Heyse"
+output:
+  html_document:
+    df_print: paged
+  pdf_document: default
+editor_options:
+  chunk_output_type: console
+---
+
+```{r, echo = FALSE, message=FALSE}
+knitr::opts_chunk$set(echo=TRUE, eval=TRUE, message = FALSE)
+library(ggplot2)
+library(dplyr)
+library(tidyr)
+library(plotly)
+```
+
+
+# Etude de processus stationnaires ARMA
+
+Nous étudions la série chronologique disponible dans le fichier `AR.txt` contenant un processus AR. 
+
+```{r}
+modele<-list(ar=(c(1,-1/4)))
+n=500
+x=arima.sim(modele,n)
+write(as.vector(x), file = "AR.txt", ncolumns = 1)
+```
+
+
+1. Observer les auto-corrélations empiriques (partielles ou non). Retrouvez les indices sur le type de processus.
+
+```{r}
+plot(x)
+acf(x)
+pacf(x)
+
+
+data_serie <- data.frame(temps = 1:length(x), serie = x)
+ggplot(data_serie, aes(x = temps, y = serie)) +
+    geom_line()
+
+conf.level <- 0.95
+ciline <- qnorm((1 - conf.level)/2)/sqrt(length(data_serie$serie))
+bacf <- acf(data_serie$serie, plot = FALSE)
+bacfdf <- with(bacf, data.frame(lag, acf))
+
+ggplot(data = bacfdf, aes(x = lag, y = acf)) +
+       geom_hline(aes(yintercept = 0)) +
+        geom_hline(aes(yintercept = -ciline), color = "blue", lty = 'dashed') +
+        geom_hline(aes(yintercept = ciline), color = "blue", lty = 'dashed') +
+       geom_segment(mapping = aes(xend = lag, yend = 0)) 
+
+conf.level <- 0.95
+ciline <- qnorm((1 - conf.level)/2)/sqrt(length(data_serie$serie))
+bacf <- pacf(data_serie$serie, plot = FALSE)
+bacfdf <- with(bacf, data.frame(lag, acf))
+
+ggplot(data = bacfdf, aes(x = lag, y = acf)) +
+       geom_hline(aes(yintercept = 0)) +
+        geom_hline(aes(yintercept = -ciline), color = "blue", lty = 'dashed') +
+        geom_hline(aes(yintercept = ciline), color = "blue", lty = 'dashed') +
+       geom_segment(mapping = aes(xend = lag, yend = 0)) +
+  ylab("pACF")
+
+```
+
+Pour AR(2) -> ACF décroissante exponentiellement et pACF 2 pics différents de 0. 
+
+
+2. Estimez les coefficients du processus (on pourra utiliser la fonction `arima` sous R ou `ARIMA` disponible dans `statsmodels.tsa.arima.model` sous Python)
+
+```{r}
+modele <- arima(data_serie$serie, order = c(2,0,0))
+modele$coef
+```
+
+Le processus s'écrit donc $X_t = `r round(modele$coef[1],2)` X_{t-1} + `r round(modele$coef[2],2)` X_{t-2} + \epsilon_t$ avec $\epsilon_t$ un bruit blanc. 
+
+3. Pour le processus AR, sachant que les coefficients choisits pour simuler le processus étaient 1 et $-\frac{1}{4}$, le processus était-il bien stationnaire ? 
+
+Oui, le polynome caractériqtique associé est $A(z) = 1-1z^1-(-\frac{1}{4})z^2$ dont la racine, 2, est de module strictement supérieur à 1.
+
+
+4. En vous basant sur l'analyse des résidus, la modélisations semble-t-elle fidèle aux données ? 
+
+```{r}
+Box.test(modele$residuals, lag = 20)
+```
+
+On accepte $H_0$ donc on valide que les résidus sont un bruit blanc. 
+
+
+
+5. Effectuez le même travail sur les processus des fichiers `MA.txt` et `ARMA.txt` 
+
+```{r}
+modele<-list(ma=(c(1/1,1/2,1/3)))
+x=arima.sim(modele,n)
+
+write(as.vector(x), file = "MA.txt", ncolumns = 1)
+
+data_serie <- data.frame(temps = 1:length(x), serie = x)
+ggplot(data_serie, aes(x = temps, y = serie)) +
+    geom_line()
+
+conf.level <- 0.95
+ciline <- qnorm((1 - conf.level)/2)/sqrt(length(data_serie$serie))
+bacf <- acf(data_serie$serie, plot = FALSE)
+bacfdf <- with(bacf, data.frame(lag, acf))
+
+ggplot(data = bacfdf, aes(x = lag, y = acf)) +
+       geom_hline(aes(yintercept = 0)) +
+        geom_hline(aes(yintercept = -ciline), color = "blue", lty = 'dashed') +
+        geom_hline(aes(yintercept = ciline), color = "blue", lty = 'dashed') +
+       geom_segment(mapping = aes(xend = lag, yend = 0)) 
+
+conf.level <- 0.95
+ciline <- qnorm((1 - conf.level)/2)/sqrt(length(data_serie$serie))
+bacf <- pacf(data_serie$serie, plot = FALSE)
+bacfdf <- with(bacf, data.frame(lag, acf))
+
+ggplot(data = bacfdf, aes(x = lag, y = acf)) +
+       geom_hline(aes(yintercept = 0)) +
+        geom_hline(aes(yintercept = -ciline), color = "blue", lty = 'dashed') +
+        geom_hline(aes(yintercept = ciline), color = "blue", lty = 'dashed') +
+       geom_segment(mapping = aes(xend = lag, yend = 0)) +
+  ylab("pACF")
+```
+
+Pour MA(3) -> pACF décroissante exponentiellement et ACF 3 pics différents de 0.
+
+```{r}
+modele <- arima(data_serie$serie, order = c(0,0,3))
+modele$coef
+```
+
+Le processus s'écrit donc $X_t = `r round(modele$coef[1],2)` \epsilon_{t-1} + `r round(modele$coef[2],2)` \epsilon_{t-2} + `r round(modele$coef[3],2)` \epsilon_{t-3} + \epsilon_t$ avec $\epsilon_t$ un bruit blanc. 
+
+```{r}
+Box.test(modele$residuals, lag = 20)
+```
+
+
+```{r}
+modele<-list(ar = c(1,-1/2), ma=(c(1/1,1/2,1/3)))
+x=arima.sim(modele,n)
+
+write(as.vector(x), file = "ARMA.txt", ncolumns = 1)
+
+data_serie <- data.frame(temps = 1:length(x), serie = x)
+ggplot(data_serie, aes(x = temps, y = serie)) +
+    geom_line()
+
+conf.level <- 0.95
+ciline <- qnorm((1 - conf.level)/2)/sqrt(length(data_serie$serie))
+bacf <- acf(data_serie$serie, plot = FALSE)
+bacfdf <- with(bacf, data.frame(lag, acf))
+
+ggplot(data = bacfdf, aes(x = lag, y = acf)) +
+       geom_hline(aes(yintercept = 0)) +
+        geom_hline(aes(yintercept = -ciline), color = "blue", lty = 'dashed') +
+        geom_hline(aes(yintercept = ciline), color = "blue", lty = 'dashed') +
+       geom_segment(mapping = aes(xend = lag, yend = 0)) 
+
+conf.level <- 0.95
+ciline <- qnorm((1 - conf.level)/2)/sqrt(length(data_serie$serie))
+bacf <- pacf(data_serie$serie, plot = FALSE)
+bacfdf <- with(bacf, data.frame(lag, acf))
+
+ggplot(data = bacfdf, aes(x = lag, y = acf)) +
+       geom_hline(aes(yintercept = 0)) +
+        geom_hline(aes(yintercept = -ciline), color = "blue", lty = 'dashed') +
+        geom_hline(aes(yintercept = ciline), color = "blue", lty = 'dashed') +
+       geom_segment(mapping = aes(xend = lag, yend = 0)) +
+  ylab("pACF")
+```
+
+Pour ARMA(2,3) -> ACF 3-2 pic différent de 0 et ACF 2-3 pic différent de 0. (En pratique les graphes ne sont pas très parlant)
+Si doutes -> estimer plusieurs modèles et minimiser l'AIC. 
+
+```{r}
+modele <- arima(data_serie$serie, order = c(2,0,3))
+modele$coef
+```
+
+Le processus s'écrit donc $X_t = `r round(modele$coef[1],2)` X_{t-1} + `r round(modele$coef[2],2)` X_{t-2} + `r round(modele$coef[3],2)` \epsilon_{t-1} + `r round(modele$coef[4],2)` \epsilon_{t-2} + `r round(modele$coef[5],2)` \epsilon_{t-3} + \epsilon_t$ avec $\epsilon_t$ un bruit blanc. 
+
+```{r}
+Box.test(modele$residuals, lag = 20)
+```
+
+
+# Prédiction d'un processus 
+
+```{r}
+modele<-list(ar = c(1,-1/2), ma=(c(1/1,1/2,1/3)))
+n <- 300
+x=arima.sim(modele,n) + 0.5*1:n
+write(as.vector(x), file = "Exercice2.txt", ncolumns = 1)
+```
+
+1. Ce processus vous semble-t-il modélisable par un processus ARMA ?
+
+```{r}
+data_serie <- data.frame(temps = 1:length(x), serie = x)
+ggplot(data_serie, aes(x = temps, y = serie)) +
+    geom_line()
+```
+
+Non, le processus est clairement non-stationnaire. 
+
+2. On travaille désormais avec la série obtenue avec la méthode des différences à la série. Combien de fois faut-il appliquer la méthode ici ?
+
+Une seule fois car tendance linéaire. 
+
+```{r}
+x1=diff(data_serie$serie, lag=1, difference=1)
+
+data_serie$serie_diff <- c(x1,NA)
+
+ggplot(data_serie, aes(x = temps, y = serie_diff)) +
+    geom_line()
+```
+
+
+3. En observant les auto-corrélations empiriques et auto-corrélations partielles empiriques, proposer des modèles AR(p), MA(q) ou ARMA(p,q) d’ordre faible pour modéliser cette série.
+
+```{r}
+conf.level <- 0.95
+ciline <- qnorm((1 - conf.level)/2)/sqrt(length(data_serie[-nrow(data_serie),]$serie_diff))
+bacf <- acf(data_serie[-nrow(data_serie),]$serie_diff, plot = FALSE)
+bacfdf <- with(bacf, data.frame(lag, acf))
+
+ggplot(data = bacfdf, aes(x = lag, y = acf)) +
+       geom_hline(aes(yintercept = 0)) +
+        geom_hline(aes(yintercept = -ciline), color = "blue", lty = 'dashed') +
+        geom_hline(aes(yintercept = ciline), color = "blue", lty = 'dashed') +
+       geom_segment(mapping = aes(xend = lag, yend = 0)) 
+
+conf.level <- 0.95
+ciline <- qnorm((1 - conf.level)/2)/sqrt(length(data_serie[-nrow(data_serie),]$serie_diff))
+bacf <- pacf(data_serie[-nrow(data_serie),]$serie_diff, plot = FALSE)
+bacfdf <- with(bacf, data.frame(lag, acf))
+
+ggplot(data = bacfdf, aes(x = lag, y = acf)) +
+       geom_hline(aes(yintercept = 0)) +
+        geom_hline(aes(yintercept = -ciline), color = "blue", lty = 'dashed') +
+        geom_hline(aes(yintercept = ciline), color = "blue", lty = 'dashed') +
+       geom_segment(mapping = aes(xend = lag, yend = 0)) +
+  ylab("pACF")
+
+
+data_modele <- data.frame(AR_p=NA, MA_q=NA, AIC=NA)
+for(p in 0:3)
+{
+  for(q in 0:3)
+  {
+    data_modele[nrow(data_modele)+1,] <- c(p,q,arima(data_serie$serie_diff, order = c(p,0,q))$aic)
+  }
+}
+
+```
+
+L'AIC est minimisé pour le modèle ARMA(`r data_modele[which.min(data_modele$AIC),1]`, `r data_modele[which.min(data_modele$AIC),2]`). 
+
+4. Estimer les paramètres du modèle sélectionné.
+
+```{r}
+modele <- arima(data_serie$serie_diff, order = c(data_modele[which.min(data_modele$AIC),1],0,data_modele[which.min(data_modele$AIC),2]))
+modele$coef
+```
+
+Le processus s'écrit donc $X_t = `r round(modele$coef[1],2)` X_{t-1} + `r round(modele$coef[2],2)` X_{t-2} + `r round(modele$coef[3],2)` \epsilon_{t-1} + `r round(modele$coef[4],2)` \epsilon_{t-2} + \epsilon_t$ avec $\epsilon_t$ un bruit blanc. 
+
+5. Analysez les résidus.
+
+```{r}
+Box.test(modele$residuals, lag = 20)
+```
+
+
+6. Donnez une prévision pour les 20 temps suivants de la série et représentez vos prévisions.
+
+Prévision pour le modèle ARMA
+```{r}
+pred_arma <- predict(modele, 20)$pred
+```
+
+Ne pas oublier la tendance ! 
+
+```{r}
+A <- lm(data = data_serie, formula = serie ~ temps)
+
+data_serie$tendance <- A$coefficients[2]*data_serie$temps + A$coefficients[1]
+
+new_t <- (data_serie$temps[nrow(data_serie)]+1):(data_serie$temps[nrow(data_serie)]+20)
+pred <- A$coefficients[2]*new_t + A$coefficients[1] + pred_arma
+
+data_prevision <- data.frame(temps = new_t, serie = as.vector(pred), serie_diff = NA, tendance = NA, type = "prevision")
+data_serie$type <- "serie"
+
+
+ggplot(data_serie, aes(x = temps, y = serie)) +
+    geom_line() +
+    geom_line(data = data_prevision, mapping = aes(x = temps, y = serie), color = 'red')
+
+```
+
+
+
+# Précipitations mensuelles à San Fransisco entre 1932 et 1966
+
+Récupérer le fichier contenant les précipitations mensuelles relevées à San Fransisco entre 1932 et 1966.
+
+
+1. La série semble-t-elle stationnaire ?
+
+
+2. On propose de modéliser la série avec un SARIMA(2,0,0,12). Rappelez les caractéristiques de ce modèle 
+
+3. Estimer le modèle SARIMA(2,0,0,12). Afficher et tester les résidus.
+
+
+4. Prévoir les précipitations de 1964, 1965 et 1966 à partir de ce modèle et représentez les.
+
+
+
+
+
+
+
