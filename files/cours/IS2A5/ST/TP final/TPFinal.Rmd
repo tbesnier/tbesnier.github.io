@@ -1,0 +1,43 @@
+---
+title: 'Séries Temporelles : TP Final'
+author: "Thomas Besnier, Wilfried Heyse"
+output:
+  html_document:
+    df_print: paged
+  pdf_document: default
+editor_options:
+  chunk_output_type: console
+---
+
+```{r, echo = FALSE, message=FALSE, eval=FALSE}
+knitr::opts_chunk$set(echo=TRUE, eval=TRUE, message = FALSE)
+library(ggplot2)
+library(dplyr)
+library(tidyr)
+library(plotly)
+
+
+```
+
+
+Vous avez 4 heures pour modéliser et prédire la série temporelle disponible dans le fichier `TPFinal.txt`.
+
+## Analyse et modélisation
+
+Vous rédigerez un **rapport au format `.pdf`** dans lequel vous commenterez et justifierez vos choix modélisation. L'objectif de ce rapport est de faire état de vos connaissances en matière de modélisation de séries temporelles. Vous utiliserez donc les outils étudiés en cours et TP, vous décrirez l'utilité des outils utilisés (pourquoi cet outil est utilisé et qu'en attendez vous) vous **commenterez les résultats** obtenus et vous justifierez vos choix de modélisation. Vous laisserez apparentes vos tentatives infructueuses et vous les commenterez (pourquoi cette tentative n'a pas été fructueuse et en quoi vous a-t-elle aidé à avancer). 
+
+Vous serez notés sur la qualité de rédaction de votre rapport, votre capacité à mener à bien une modélisation, votre maîtrise des outils utilisés ainsi que la pertinence de vos analyses et justifications.
+
+## Prévision
+
+Dans ce fichier, les 30 dernières observations ont été retirées. **Vous devrez fournir une prévision** sous forme de fichier `.txt` contenant **30 prévisions** de la série, chaque prévision étant sur une ligne différente (format identique au fichier de données). Un classement sera alors établit en fonction de l'erreur commise sur ces 30 prévisions et un bonus de points dégressif sera accordé en fonction du classement (1er = +3 points, 2nd = +2.75 points, 3ème = 2.5 points, ...).
+
+## Rendu
+
+Les noms de votre rapport et de vos prévisions seront de la forme `NOM_Prenom_Rapport.pdf` et `NOM_Prenom_Prevision.txt` et vous les enverrez par mail à  [thomas.besnier@univ-lille.fr et wilfried.heyse@polytech-lille.fr](mailto:thomas.besnier@univ-lille.fr,wilfried.heyse@polytech-lille.fr?subject=[IS2A5][ST] TP Final) **avant 18h** (heure de réception du mail faisant foi !). 
+
+Bonne chance ! 
+
+
+
+
