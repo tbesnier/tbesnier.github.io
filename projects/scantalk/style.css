@@ -142,3 +142,16 @@ hr {
     height: 2px; /* Set height of the line */
     background-color: #ccc; /* Set color of the line */
     margin: 50px 20px; /* Add margin above and below the line */
+
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+    width: 80%;
+    max-width: 800px;
+}
+
+.video-grid video {
+    width: 100%;
+    height: auto;
+}
