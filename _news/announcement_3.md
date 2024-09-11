@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-Attending ECCV in Milan ! :sparkles: :smile:
+Attending ECCV in Milan to present _ScanTalk: 3D Talking Heads from Unregistered Scans_ !
