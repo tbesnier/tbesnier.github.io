@@ -10,6 +10,3 @@ related_publications: true
 
 Cours dispensé à Polytech Lille, Master 2.
 
-
-
-{% endraw %}
