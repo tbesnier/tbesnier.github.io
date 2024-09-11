@@ -1,0 +1,157 @@
+@font-face {
+  font-family: 'Avenir';
+  font-weight: 300;
+  font-style: normal;
+  src: local('Avenir Book'), local('Avenir-300'),
+    url('Avenir/Avenir-Book.eot') format('embedded-opentype'),
+    url('Avenir/Avenir-Book.woff') format('woff'),
+    url('Avenir/Avenir-Book.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Avenir';
+  font-weight: 500;
+  font-style: normal;
+  src: local('Avenir Medium'), local('Avenir-500'),
+    url('Avenir/Avenir-Medium.eot') format('embedded-opentype'),
+    url('Avenir/Avenir-Medium.woff') format('woff'),
+    url('Avenir/Avenir-Medium.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Avenir';
+  font-weight: 700;
+  font-style: normal;
+  src: local('Avenir Heavy'), local('Avenir-700'),
+    url('Avenir/Avenir-Heavy/Avenir-Heavy.eot') format('embedded-opentype'),
+    url('Avenir/Avenir-Heavy/Avenir-Heavy.woff') format('woff'),
+    url('Avenir/Avenir-Heavy/Avenir-Heavy.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Avenir';
+  font-weight: 900;
+  font-style: normal;
+  src: local('Avenir Black'), local('Avenir-900'),
+    url('Avenir/Avenir-Black/Avenir-Black.eot') format('embedded-opentype'),
+    url('Avenir/Avenir-Black/Avenir-Black.woff') format('woff'),
+    url('Avenir/Avenir-Black/Avenir-Black.ttf') format('truetype');
+}
+
+body {
+		font-family: 'Avenir', sans-serif;
+		font-size: 16px;
+}
+
+@media (min-width: 1200px) {
+    .container-small {
+        width: 960px;
+    }
+    .container-large {
+        width: 1100px;
+    }
+}
+
+.container-small, .container-large {
+    max-width: 100%;
+}
+
+
+.hover-icon:hover {
+		transform:scale(1.2);
+}
+h2 {
+  font-weight: 700;
+}
+h4 {
+	font-weight: bolder;
+}
+.popover {
+		max-width: 100%; /* Max Width of the popover (depending on the container!) */
+}
+.layered-paper-big { /* modified from: http://css-tricks.com/snippets/css/layered-paper/ */
+	box-shadow:
+					0px 0px 1px 1px rgba(0,0,0,0.35), /* The top layer shadow */
+					5px 5px 0 0px #fff, /* The second layer */
+					5px 5px 1px 1px rgba(0,0,0,0.35), /* The second layer shadow */
+					10px 10px 0 0px #fff, /* The third layer */
+					10px 10px 1px 1px rgba(0,0,0,0.35), /* The third layer shadow */
+					15px 15px 0 0px #fff, /* The fourth layer */
+					15px 15px 1px 1px rgba(0,0,0,0.35), /* The fourth layer shadow */
+					20px 20px 0 0px #fff, /* The fifth layer */
+					20px 20px 1px 1px rgba(0,0,0,0.35), /* The fifth layer shadow */
+					25px 25px 0 0px #fff, /* The fifth layer */
+					25px 25px 1px 1px rgba(0,0,0,0.35); /* The fifth layer shadow */
+	margin-left: 10px;
+	margin-right: 45px;
+}
+ul{list-style-type:circle;}
+pre {
+	margin: 0;
+}
+
+.coloured-slider {
+  --divider-color: #ea8e0e;
+  --default-handle-color: #ea8e0e;
+}
+.custom-animated-handle {
+  transition: transform 0.2s;
+}
+
+.slider-with-animated-handle:hover .custom-animated-handle {
+  transform: scale(1.2);
+}
+
+.button-container {
+    text-align: center;
+    margin-top: 1px;
+    margin-bottom: 50px;/* Adjust as needed */
+}
+
+.button {
+    display: inline-block;
+    margin: 0 20px; /* Adjust spacing between buttons */
+    padding: 10px 20px;
+    background-color: #333;
+    font-size: 36px;
+    color: white;
+    text-decoration: none;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: #777;
+}
+
+.gif-container {
+    text-align: center;
+    overflow: hidden;
+  }
+
+.gif-container img {
+    display: inline-block;
+    max-width: 45%; /* Adjust maximum width as needed */
+    height: auto; /* Maintain aspect ratio */
+    margin: 0 10px; /* Adjust spacing between GIFs */
+  }
+
+hr {
+    border: none; /* Remove default border */
+    height: 2px; /* Set height of the line */
+    background-color: #ccc; /* Set color of the line */
+    margin: 50px 20px; /* Add margin above and below the line */
+
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+    width: 80%;
+    max-width: 800px;
+}
+
+.video-grid video {
+    width: 100%;
+    height: auto;
+}
