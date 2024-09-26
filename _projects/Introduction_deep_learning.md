@@ -10,4 +10,4 @@ related_publications: true
 
 Cours dispensé à Polytech Lille, Master 2.
 
-[Download PDF](../assets/pdf/courses_slides/deep_learning/part1.pdf)
+[Download PDF](../../assets/pdf/courses_slides/deep_learning/part1.pdf)
