@@ -37,12 +37,23 @@
       "institution": "University of Lille, Lille, France",
       "location": "Lille, France",
       "url": "https://www.univ-lille.fr/",
-      "area": "Software Development",
+      "area": "Computer Science Research",
       "studyType": "PhD",
       "startDate": "2022-11-01",
       "endDate": "2025-10-31",
       "score": "10",
       "courses": ["Deep learning", "Differential geometry of surfaces"]
+    },
+    {
+      "institution": "University of Lille, Lille, France",
+      "location": "Lille, France",
+      "url": "https://ecole.centralelille.fr/en/",
+      "area": "Engineering",
+      "studyType": "M.Sc.",
+      "startDate": "2018-10-01",
+      "endDate": "2022-10-31",
+      "score": "10",
+      "courses": ["Applied Mathematics", "Machine learning", "Statistics"]
     }
   ],
   "publications": [
