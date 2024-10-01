@@ -54,6 +54,17 @@
       "endDate": "2022-10-31",
       "score": "10",
       "courses": ["Applied Mathematics", "Machine learning", "Statistics"]
+    },
+    {
+      "institution": "University of Lille, Lille, France",
+      "location": "Lille, France",
+      "url": "https://www.univ-lille.fr/",
+      "area": "Mathematics",
+      "studyType": "M.Sc.",
+      "startDate": "2018-10-01",
+      "endDate": "2022-10-31",
+      "score": "10",
+      "courses": ["Stochastic processes", "Functional analysis", "Differential geometry"]
     }
   ],
   "publications": [
