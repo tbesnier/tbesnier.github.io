@@ -19,7 +19,10 @@ et la compréhension de texte.
 
 ## Sujets de TP
 
-[TP1](https://drive.google.com/file/d/1_Ku_R0jJMOrhG8xHkcJl1B6IommVIbdW/view?usp=sharing)
+TP1: [Sujet](https://drive.google.com/file/d/1_Ku_R0jJMOrhG8xHkcJl1B6IommVIbdW/view?usp=sharing) - [Correction](https://colab.research.google.com/drive/19_Gy91ZpiUh49kTMY72jSmk1WFbYP-dw?usp=sharing)
+
+TP2: [Sujet](https://drive.google.com/file/d/1lFZz49HPL6m9XyPBlL3R-jr7uML_JIW4/view?usp=sharing) - À rendre le 11/10/2024 à 23h59 ! [Correction]
+
 
 ## Références
 
