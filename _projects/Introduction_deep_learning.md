@@ -14,8 +14,8 @@ et la compréhension de texte.
 
 ## Slides du cours
 
-[Partie 1](../../assets/pdf/courses_slides/deep_learning/part1.pdf)
-
+[Partie 1: Introduction, réseaux de neuronnes et optimisation](../../assets/pdf/courses_slides/deep_learning/part1.pdf)
+[Partie 2: Vision par ordinateur avec les réseaux convolutionnels](../../assets/pdf/courses_slides/deep_learning/part2.pdf)
 
 ## Sujets de TP
 
