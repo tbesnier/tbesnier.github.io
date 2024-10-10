@@ -6,7 +6,7 @@
         content="">
   <meta name="keywords" content="Partial Non-isometric Deformations with soft constrained Jacobian Fields">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>ScanTalk</title>
+  <title>PaNDAS</title>
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script> -->
@@ -89,36 +89,30 @@
       <div class="columns is-centered">
         <div class="column has-text-centered">
           <!-- <h1 class="title is-1 publication-title">ECCV 2024</h1>-->
-          <h1 class="title is-1 publication-title">ScanTalk: 3D Talking Heads from Unregistered Scans</h1>
+          <h1 class="title is-1 publication-title">PaNDAS-JF: Partial Deformations with Adaptive Soft Constraints on Jacobian Fields</h1>
           <div class="is-size-5 publication-authors">
             <span class="author-block">
-              <a href="https://fedenoce.github.io/">Federico Nocentini</a><sup>1,*</sup>,</span>
+                <a href="https://tbesnier.github.io/">Thomas Besnier</a><sup>1</sup>,</span>
             <span class="author-block">
-                <a href="https://tbesnier.github.io/">Thomas Besnier</a><sup>2,*</sup>,</span>
+                <a href="https://clferrari.github.io/">Emery Pierson</a><sup>2</sup>,</span>
             <span class="author-block">
-                <a href="https://clferrari.github.io/">Claudio Ferrari</a><sup>4</sup>,</span>
+                <a href="https://dblp.org/pid/161/6737.html">Sylvain Arguillere</a><sup>3</sup>,</span>
             <span class="author-block">
-                <a href="https://dblp.org/pid/161/6737.html">Sylvain Arguillere</a><sup>5</sup>,</span>
-            <span class="author-block">
-                <a href="https://scholar.google.com/citations?user=3GPTAGQAAAAJ&hl=en">Stefano Berretti</a><sup>1</sup>,</span>
-            <span class="author-block">
-                <a href="https://sites.google.com/view/mohameddaoudi">Mohamed Daoudi</a><sup>2,3</sup>.</span>
+                <a href="https://sites.google.com/view/mohameddaoudi">Mohamed Daoudi</a><sup>1,4</sup>.</span>
           </div>
 
           <div class="is-size-5 publication-authors">
-            <span class="author-block"><sup>1</sup>Media Integration and Communication Center (MICC), University of Florence, Italy,</span>
-            <span class="author-block"><sup>2</sup>Univ. Lille, CNRS, Centrale Lille, UMR 9189 CRIStAL, F-59000 Lille, France,</span>
-            <span class="author-block"><sup>3</sup>IMT Nord Europe, Institut Mines-Télécom, Centre for Digital Systems,</span>
-            <span class="author-block"><sup>4</sup>Department of Architecture and Engineering University of Parma, Italy,</span>
-            <span class="author-block"><sup>5</sup>Univ. Lille, CNRS, UMR 8524 Laboratoire Paul Painlevé, Lille, F-59000, France,</span>
-            <span class="author-block"><sup>*</sup>Equal Contribution.</span>
+            <span class="author-block"><sup>1</sup>Univ. Lille, CNRS, Centrale Lille, UMR 9189 CRIStAL, F-59000 Lille, France,</span>
+            <span class="author-block"><sup>2</sup>LIX, Ecole Polytechnique, IP Paris, France,</span>
+            <span class="author-block"><sup>3</sup>Univ. Lille, CNRS, UMR 8524 Laboratoire Paul Painlevé, Lille, F-59000, France,</span>
+            <span class="author-block"><sup>4</sup>IMT Nord Europe, Institut Mines-Télécom, Centre for Digital Systems,</span>
           </div>
 
           <div class="column has-text-centered">
             <div class="publication-links">
               <!-- PDF Link. -->
               <span class="link-block">
-                <a href="https://arxiv.org/abs/2403.10942"
+                <a href="#"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="ai ai-arxiv"></i>
@@ -138,7 +132,7 @@
               </span> -->
               <!-- Dataset Link. -->
               <span class="link-block">
-                <a href="https://github.com/miccunifi/ScanTalk/"
+                <a href="#"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fab fa-github"></i>
@@ -158,12 +152,10 @@
 <div class="columns is-centered has-text-centered">
   <div class="column is-four-fifths">
     <div class="content has-text-justified">
-      <img src="./static/videos/scantalk_idea.png" alt="scantalk_idea">
+      <img src="#" alt="project_idea">
       <p>
         <br>
-        We present <strong>ScanTalk</strong>, a deep learning architecture to animate <strong>any</strong> 3D face
-        mesh driven by a speech. ScanTalk is robust enough to learn on multiple unrelated
-        datasets with a unique model, whilst allowing us to infer on unregistered face meshes.
+        We present ...
 
       </p>
       <!-- <p>
@@ -187,22 +179,9 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Speech-driven 3D talking heads generation has emerged as a significant area of interest among researchers, 
-            presenting numerous challenges. Existing methods are constrained by animating faces with fixed topologies, 
-            wherein point-wise correspondence is established, 
-            and the number and order of points remains consistent across all identities the model can animate. 
+            ...
             <br>
-            <br>
-            In this work, we present ScanTalk, a novel framework capable of animating 3D 
-            faces in arbitrary topologies including scanned data. Our approach relies on 
-            the DiffusionNet architecture to overcome the fixed topology constraint, offering 
-            promising avenues for more flexible and realistic 3D animations. By leveraging the power of DiffusionNet, 
-            ScanTalk not only adapts to diverse facial structures but also maintains fidelity when dealing with scanned data, 
-            thereby enhancing the authenticity and versatility of generated 3D talking heads. Through comprehensive comparisons 
-            with state-of-the-art methods, we validate the efficacy of our approach, demonstrating its capacity to generate realistic 
-            talking heads comparable to existing techniques. While our primary objective is to develop a generic method free from 
-            topological constraints, all state-of-the-art methodologies are bound by such limitations.
-
+            ...
 
           </p>
         </div>
@@ -216,17 +195,9 @@
       <div class="column is-four-fifths">
         <h2 class="title is-3 centered-title">Proposed Method</h2>
         <div class="content has-text-justified">
-          <img src="./static/videos/scantalk.png" alt="scantalk">
+          <img src="#" alt="architecture">
           <p>
             <br>
-            Architecture of <strong>ScanTalk</strong> A novel Encoder-Decoder framework designed to dynamically animate any
-             3D face based on a spoken sentence from an audio file. The Encoder integrates the 3D neutral face, per-vertex 
-             surface features (crucial for DiffusionNet and precomputed by the operators OP), 
-            and the audio file, yielding a fusion of per-vertex and audio features. 
-          These combined descriptors, alongside per-vertex 
-          surface features, are then passed to the Decoder, which mirrors a reversed
-           DiffusionNet encoder structure. The Decoder predicts the deformation of the 3D neutral face, which is then 
-           combined with the original 3D neutral face to generate the animated sequence.
 
           </p>
           <!-- <p>
@@ -246,7 +217,7 @@
     <h2 class="title is-3 centered-title">Intro Video</h2>
     <div class="hero-body">
       <video id="teaser" controls playsinline height="100%">
-        <source src="./static/videos/ScanTalk_Intro.mp4"
+        <source src="#"
                 type="video/mp4">
       </video>
     </div>
@@ -257,7 +228,7 @@
   <div class="container is-max-desktop">
     <h2 class="title is-3 centered-title">Qualitative Examples</h2>
     
-    <!-- First row of videos -->
+    <!-- First row of videos
     <div class="hero-body video-row">
       <video id="teaser1" class="video-item" controls playsinline>
         <source src="./static/videos/Thanos_20s.mp4" type="video/mp4">
@@ -268,9 +239,9 @@
       <video id="teaser3" class="video-item" controls playsinline>
         <source src="./static/videos/test_thanks_long.mp4" type="video/mp4">
       </video>
-    </div>
+    </div> -->
     
-    <!-- Second row of videos -->
+    <!-- Second row of videos
     <div class="hero-body video-row">
       <video id="teaser4" class="video-item" controls playsinline>
         <source src="./static/videos/VOCA_rock.mp4" type="video/mp4">
@@ -281,23 +252,19 @@
       <video id="teaser6" class="video-item" controls playsinline>
         <source src="./static/videos/BIWI_photo.mp4" type="video/mp4">
       </video>
-    </div>
+    </div>  -->
   </div>
 </section>
-
-
-
-
 
 
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
     <pre><code>
-  @inproceedings{nocentini2024scantalk3dtalkingheads,
-    title = {ScanTalk: 3D Talking Heads from Unregistered Scans},
-    author = {Nocentini, F. and Besnier, T. and Ferrari, C. and Arguillere, S. and Berretti, S. and Daoudi, M.},
-    booktitle = {Proceedings of the European Conference on Computer Vision (ECCV)},
+  @inproceedings{name_of_project,
+    title = {},
+    author = {Besnier, T. and Pierson, E. and Arguillere, S. and Daoudi, M.},
+    booktitle = {arXiv},
     year = {2024},
   }
 </code></pre>
@@ -310,10 +277,10 @@
 <footer class="footer">
   <div class="container">
       <div class="content has-text-centered">
-          <a class="icon-link" href="./media/scantalk.pdf">
+          <a class="icon-link" href="#">
               <i class="fas fa-file-pdf"></i>
           </a>
-          <a class="icon-link" href="https://github.com/miccunifi/ScanTalk/" class="external-link" disabled>
+          <a class="icon-link" href="#" class="external-link" disabled>
               <i class="fab fa-github"></i>
           </a>
       </div>
