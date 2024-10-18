@@ -33,3 +33,5 @@ TP3: [Sujet] - À rendre le 25/10/2024 avant 21h00 ! [Correction]
 TP4: [Sujet] - À rendre le 08/11/2024 à 21h00 ! [Correction]
 ## Références
 
+Excellentes vidéos de Grant Sanderson pour visualiser ce qui se passe: https://www.youtube.com/watch?v=aircAruvnKk&list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi
+
