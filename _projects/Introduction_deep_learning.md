@@ -28,6 +28,8 @@ TP1: [Sujet](https://drive.google.com/file/d/1_Ku_R0jJMOrhG8xHkcJl1B6IommVIbdW/v
 
 TP2: [Sujet](https://drive.google.com/file/d/1lFZz49HPL6m9XyPBlL3R-jr7uML_JIW4/view?usp=sharing) - À rendre le 11/10/2024 à 23h59 ! [Correction]
 
+TP3: [Sujet] - À rendre le 25/10/2024 avant 21h00 ! [Correction]
 
+TP4: [Sujet] - À rendre le 08/11/2024 à 21h00 ! [Correction]
 ## Références
 
