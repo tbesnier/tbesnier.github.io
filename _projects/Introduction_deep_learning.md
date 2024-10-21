@@ -18,7 +18,7 @@ et la compréhension de texte.
 
 [Partie 2: Vision par ordinateur avec les réseaux convolutionnels](../../assets/pdf/courses_slides/deep_learning/part2.pdf)
 
-[Partie 3: Modèles séquentiels et introduction au NLP]
+[Partie 3: Modèles séquentiels et introduction au NLP](../../assets/pdf/courses_slides/deep_learning/part3.pdf)
 
 [Partie 4: Modèles génératifs]
 
@@ -28,9 +28,9 @@ TP1: [Sujet](https://drive.google.com/file/d/1_Ku_R0jJMOrhG8xHkcJl1B6IommVIbdW/v
 
 TP2: [Sujet](https://drive.google.com/file/d/1lFZz49HPL6m9XyPBlL3R-jr7uML_JIW4/view?usp=sharing) - À rendre le 11/10/2024 à 23h59 ! [Correction]
 
-TP3: [Sujet] - À rendre le 25/10/2024 avant 21h00 ! [Correction]
+TP3: [Sujet](https://drive.google.com/drive/folders/1KZY3MgUl8jqdqXVMXlpd6GmeUB8YTfUu?usp=sharing) - À rendre le 08/11/2024 avant 21h00 ! [Correction]
 
-TP4: [Sujet] - À rendre le 08/11/2024 à 21h00 ! [Correction]
+TP4: [Sujet] - À rendre le 15/11/2024 à 21h00 ! [Correction]
 ## Références
 
 Excellentes vidéos de Grant Sanderson pour visualiser ce qui se passe: https://www.youtube.com/watch?v=aircAruvnKk&list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi
