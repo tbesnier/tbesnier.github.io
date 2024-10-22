@@ -20,7 +20,7 @@ et la compréhension de texte.
 
 [Partie 3: Modèles séquentiels et introduction au NLP](../../assets/pdf/courses_slides/deep_learning/part3.pdf)
 
-[Partie 4: Modèles génératifs]
+[Partie 4: Modèles génératifs à variable latente](../../assets/pdf/courses_slides/deep_learning/part4.pdf)
 
 ## Sujets de TP
 
@@ -30,8 +30,9 @@ TP2: [Sujet](https://drive.google.com/file/d/1lFZz49HPL6m9XyPBlL3R-jr7uML_JIW4/v
 
 TP3: [Sujet](https://drive.google.com/drive/folders/1KZY3MgUl8jqdqXVMXlpd6GmeUB8YTfUu?usp=sharing) - À rendre le 08/11/2024 avant 21h00 ! [Correction]
 
-TP4: [Sujet] - À rendre le 15/11/2024 à 21h00 ! [Correction]
+TP4: [Sujet](https://drive.google.com/file/d/1LzFspV3eWKa5yQcOhKO4LXNaUA1cHzYG/view?usp=sharing) - À rendre le 15/11/2024 à 21h00 ! [Correction]
+
 ## Références
 
-Excellentes vidéos de Grant Sanderson pour visualiser ce qui se passe: https://www.youtube.com/watch?v=aircAruvnKk&list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi
+Excellentes vidéos de Grant Sanderson pour visualiser ce qui se passe: [3Blue1Brown - YouTube](https://www.youtube.com/watch?v=aircAruvnKk&list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi)
 
