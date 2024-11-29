@@ -22,7 +22,7 @@ et la compréhension de texte.
 
 [Partie 4: Modèles génératifs à variable latente](../../assets/pdf/courses_slides/deep_learning/part4.pdf)
 
-Partie 5: Récap et aller plus loin
+[Partie 5: Récap et aller plus loin](../../assets/pdf/courses_slides/deep_learning/part5.pdf)
 
 ## Sujets de TP
 
