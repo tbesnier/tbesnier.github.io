@@ -28,9 +28,9 @@ et la compréhension de texte.
 
 TP1: [Sujet](https://drive.google.com/file/d/1_Ku_R0jJMOrhG8xHkcJl1B6IommVIbdW/view?usp=sharing) - [Correction](https://colab.research.google.com/drive/19_Gy91ZpiUh49kTMY72jSmk1WFbYP-dw?usp=sharing)
 
-TP2: [Sujet](https://drive.google.com/file/d/1lFZz49HPL6m9XyPBlL3R-jr7uML_JIW4/view?usp=sharing) - À rendre le 11/10/2024 à 23h59 ! [Correction]
+TP2: [Sujet](https://drive.google.com/file/d/1lFZz49HPL6m9XyPBlL3R-jr7uML_JIW4/view?usp=sharing) - À rendre le 11/10/2024 à 23h59 ! [Correction](https://drive.google.com/file/d/1NJaaqDgLeEJohzuvsM-R3GEGn5WC8SOu/view?usp=sharing)
 
-TP3: [Sujet](https://drive.google.com/drive/folders/1KZY3MgUl8jqdqXVMXlpd6GmeUB8YTfUu?usp=sharing) - À rendre le 08/11/2024 avant 21h00 ! [Correction]
+TP3: [Sujet](https://drive.google.com/drive/folders/1KZY3MgUl8jqdqXVMXlpd6GmeUB8YTfUu?usp=sharing) - À rendre le 08/11/2024 avant 21h00 ! [Correction](https://drive.google.com/file/d/18NCL0hlsHCodoihfdxwpeC4v3DqwQK-Q/view?usp=sharing)
 
 TP4: [Sujet](https://drive.google.com/file/d/1LzFspV3eWKa5yQcOhKO4LXNaUA1cHzYG/view?usp=sharing) - À rendre le 15/11/2024 à 21h00 ! [Correction]
 
