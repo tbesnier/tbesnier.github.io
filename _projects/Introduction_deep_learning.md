@@ -38,7 +38,9 @@ TP4: [Sujet](https://drive.google.com/file/d/1LzFspV3eWKa5yQcOhKO4LXNaUA1cHzYG/v
 
 2023/2024: [Sujet de Kévin Feghoul](../../assets/pdf/courses_slides/deep_learning/examen_2023.pdf)
 
-2024/2025: [Sujet]
+2024/2025: [Sujet] Consignes: Il faudra répondre aux questions sur le sujet ou sur une feuille à part (comme vous préférez).
+Pour les documents, vous n'aurez droit qu'à une feuille A4 recto verso.
+En particulier, je vous conseille de bien réviser/noter sur votre feuille ce qu'est la régularisation, le MLP, CNN, LSTM et le principe de self attention. 
 
 ## Références
 
