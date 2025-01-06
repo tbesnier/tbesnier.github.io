@@ -2,7 +2,7 @@
 layout: page
 title: Introduction au deep learning (FR)
 description: Cours introductif sur l'apprentissage profond
-img: 
+img: ../assets/img/courses_preview/deep_learning.jpg
 importance: 1
 category: IS5 Polytech Lille
 related_publications: false
