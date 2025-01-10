@@ -29,7 +29,7 @@
       "startDate": "2022-11-01",
       "endDate": "2025-10-31",
       "summary": "Research on geometric deep learning, teaching computer science courses at Polytech Lille",
-      "highlights": ["Shapes, Deep learning"]
+      "highlights": ["Shapes, Geometric Deep learning"]
     }
   ],
   "education": [
@@ -115,6 +115,7 @@
       "name": "Physics",
       "icon": "fa-solid fa-tag",
       "keywords": [
+        "Celestial Mechanics",
         "Quantum Mechanics"
       ]
     }
@@ -123,7 +124,7 @@
     {
       "name": "Professor Mohamed Daoudi",
       "icon": "fa-solid fa-laptop",
-      "reference": "https://sites.google.com/view/mohameddaoudi/home?authuser=0"
+      "reference": ""
     }
   ]
 }
