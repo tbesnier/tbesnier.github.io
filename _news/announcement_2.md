@@ -5,4 +5,3 @@ inline: true
 related_posts: false
 ---
 
-:warning: **Offre de stage: Digital Human Modelling** with Décathlon and IMT Nord-Europe. [More information](../assets/pdf/offers/decathlon_internship_2025.pdf)
