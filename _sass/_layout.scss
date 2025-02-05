@@ -46,10 +46,30 @@ body.sticky-bottom-footer {
 .publication-category {
   font-size: 14px;
   font-weight: bold;
-  color: #444;
+  color: white;
   text-align: center;
-  margin-bottom: 5px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  display: inline-block;
 }
+
+/* Category-specific colors */
+.preprints {
+  background-color: #f39c12; /* Orange */
+}
+
+.journal-articles {
+  background-color: #3498db; /* Blue */
+}
+
+.conference-papers {
+  background-color: #27ae60; /* Green */
+}
+
+.workshop-communications {
+  background-color: #9b59b6; /* Purple */
+}
+
 
 // TODO: redefine publications layout.
 

@@ -26,10 +26,11 @@
         {% endif %}
       {% endif %}
       {% if entry.category %}
-        <div class="publication-category text-center">
-        <strong>{{ entry.category }}</strong>
-        </div>
-      {% endif %}
+          {% assign category_class = entry.category | downcase | replace: " ", "-" %}
+          <div class="publication-category {{ category_class }}">
+            <strong>{{ entry.category }}</strong>
+          </div>
+       {% endif %}
       {% if entry.preview %}
         {% if entry.preview contains '://' %}
           <img class="preview z-depth-1 rounded" src="{{ entry.preview }}">
