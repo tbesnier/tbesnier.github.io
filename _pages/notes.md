@@ -30,15 +30,23 @@ pagination:
   </div>
   {% endif %}
 
-{% for category in notes_by_category %}
-  <h2>{{ category.name }}</h2>
-  <ul>
-    {% for note in category.items %}
-      <li>
-        <a href="{{ note.url }}">{{ note.title }}</a> - <small>{{ note.date | date: "%B %d, %Y" }}</small>
-      </li>
-    {% endfor %}
-  </ul>
-{% endfor %}
+<div class="notes-container">
+  {% for note in site.notes %}
+    <div class="note-tile">
+      <a href="{{ note.url }}">
+        <div class="note-thumbnail">
+          {% if note.image %}
+            <img src="{{ note.image }}" alt="{{ note.title }}">
+          {% else %}
+            <img src="/assets/img/default-thumbnail.jpg" alt="No image available">
+          {% endif %}
+        </div>
+        <div class="note-title">
+          {{ note.title }}
+        </div>
+      </a>
+    </div>
+  {% endfor %}
+</div>
 
 </div>
