@@ -37,10 +37,15 @@ pagination:
         <div class="note-thumbnail">
           {% if note.image %}
             <img src="{{ note.image }}" alt="{{ note.title }}">
+          {% else %}
+            <img src="/assets/img/default-thumbnail.jpg" alt="No image available">
           {% endif %}
         </div>
-        <div class="note-title">
-          {{ note.title }}
+        <div class="note-content">
+          <h2 class="note-title">{{ note.title }}</h2>
+          {% if note.description %}
+            <p class="note-description">{{ note.description }}</p>
+          {% endif %}
         </div>
       </a>
     </div>
