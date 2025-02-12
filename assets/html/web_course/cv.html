@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CV</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="index.html">Home</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">CV</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="links.html">Links</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="miscellaneous.html">Miscellaneous</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-md-6 offset-md-3 text-center">
+        <h1 class="mb-3">CV</h1>
+        <button class="btn btn-primary mb-2" onclick="showFrenchCV()">French CV</button>
+        <button class="btn btn-primary mb-2" onclick="showEnglishCV()">English CV</button>
+      </div>
+    </div>
+    
+    <div id="cvContent" class="row d-none mt-3">
+      <div class="col-md-6 offset-md-3">
+        <!-- Educational Background -->
+        <div class="card mb-3">
+          <div class="card-header">
+            <h5 class="mb-0" id="eduBackgroundTitle">Educational Background</h5>
+          </div>
+          <div class="card-body" id="eduBackgroundContent">
+            <div id="eduBackgroundContentFrench" style="display:none;">
+              <ul>
+                <li>Licence</li><li>Master</li><li>Doctorat</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Jobs -->
+        <div class="card mb-3">
+          <div class="card-header">
+            <h5 class="mb-0" id="jobsTitle">Jobs</h5>
+          </div>
+          <div class="card-body" id="jobsContent">
+          </div>
+        </div>
+        
+        <!-- Acquired Skills -->
+        <div class="card mb-3">
+          <div class="card-header">
+            <h5 class="mb-0" id="skillsTitle">Acquired Skills</h5>
+          </div>
+          <div class="card-body" id="skillsContent">
+          </div>
+        </div>
+        
+        <!-- Hobbies -->
+        <div class="card">
+          <div class="card-header">
+            <h5 class="mb-0" id="hobbiesTitle">Hobbies</h5>
+          </div>
+          <div class="card-body" id="hobbiesContent">
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="eduBackgroundContentFrench" style="display:none;">
+    <ul>
+      <li>Licence</li><li>Master</li><li>Doctorat</li>
+    </ul>
+  </div>
+
+
+  <!-- Bootstrap JS and dependencies -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <script>
+    function showFrenchCV() {
+      document.getElementById("cvContent").classList.remove("d-none");
+
+      document.getElementById("eduBackgroundTitle").innerText = "Formation";
+      document.getElementById("jobsTitle").innerText = "Expériences Professionnelles";
+      document.getElementById("skillsTitle").innerText = "Compétences Acquises";
+      document.getElementById("hobbiesTitle").innerText = "Loisirs";
+
+      document.getElementById("eduBackgroundContent").innerHTML = document.getElementById("eduBackgroundContentFrench").innerHTML;
+      document.getElementById("jobsContent").innerHTML = "";
+      document.getElementById("skillsContent").innerHTML = "";
+      document.getElementById("hobbiesContent").innerHTML = "";
+    }
+
+    function showEnglishCV() {
+      document.getElementById("cvContent").classList.remove("d-none");
+
+      document.getElementById("eduBackgroundTitle").innerText = "Educational Background";
+      document.getElementById("jobsTitle").innerText = "Jobs";
+      document.getElementById("skillsTitle").innerText = "Acquired Skills";
+      document.getElementById("hobbiesTitle").innerText = "Hobbies";
+
+      document.getElementById("eduBackgroundContent").innerHTML = "<ul><li>Bachelor</li><li>Master degree</li><li>PhD</li></ul>";
+      document.getElementById("jobsContent").innerHTML = "";
+      document.getElementById("skillsContent").innerHTML = "";
+      document.getElementById("hobbiesContent").innerHTML = "";
+    }
+  </script>
+</body>
+</html>

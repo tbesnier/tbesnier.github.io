@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Exercice 2</title>
+<style>
+    html {
+      font-family: sans-serif;
+    }
+
+    body {
+      width: 50%;
+      max-width: 800px;
+      min-width: 480px;
+      margin: 0 auto;
+    }
+    
+    .form input[type="number"] {
+      width: 200px;
+    }
+
+    .lastResult {
+      color: white;
+      padding: 3px;
+    }
+  </style>
+</head>
+<body>
+    <h1>Exercice 2</h1>
+    <p>Entrer un texte:</p>
+    <textarea id="textInput" rows="10" cols="50"></textarea>
+    <button onclick="colorizeText()">Coloriser le texte</button>
+
+    <div id="classicText" style="display: none;"></div>
+    <div id="artisticText" style="display: none;"></div>
+
+    <script>
+        function colorizeText() {
+            const textInput = document.getElementById('textInput').value.trim();
+            const words = textInput.split(/\s+/); // Sépare le texte en liste de mots
+
+            // texte original
+            const classicTextDiv = document.getElementById('classicText');
+            classicTextDiv.innerHTML = "<h2>Texte original:</h2>" + words.join(' ');
+            classicTextDiv.style.display = 'block';
+
+            // text stylisé
+            const artisticTextDiv = document.getElementById('artisticText');
+            let artisticHTML = "<h2>Texte stylisé:</h2>";
+            const red = Math.pow(words.length, 2) % 256;
+            for (let i = 0; i < words.length; i++) {
+                const word = words[i].replace(/[^\wà-úÀ-Ú]/g, ''); // ponctuation + accents
+                const green = Math.pow(word.length, 3) % 256;
+                const blue = (10 * (i + 1)) % 256;
+                const color = `rgb(${red}, ${green}, ${blue})`;
+                artisticHTML += `<div style="color: ${color};">${word}</div>`;
+            }
+          
+            artisticTextDiv.innerHTML = artisticHTML;
+
+            artisticTextDiv.style.display = 'block';
+        }
+    </script>
+</body>
+</html>
