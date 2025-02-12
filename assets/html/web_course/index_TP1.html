@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Number Guessing Game</title>
+<style>
+    html {
+      font-family: sans-serif;
+    }
+
+    body {
+      width: 50%;
+      max-width: 800px;
+      min-width: 480px;
+      margin: 0 auto;
+    }
+    
+    .form input[type="number"] {
+      width: 200px;
+    }
+
+    .lastResult {
+      color: white;
+      padding: 3px;
+    }
+  </style>
+</head>
+<body>
+    <h1>Exercice 1</h1>
+    <p>Balance initiale:</p>
+    <input type="number" id="balanceInput">
+    <button onclick="startGame()">Commencer</button>
+    
+    <div id="zoneJeu" style="display: none;">
+        <p>Votre balance totale: <span id="balanceDisplay"></span></p>
+        <p>Entrer votre pari:</p>
+        <input type="number" id="betInput" min="1">
+        <button onclick="playRound()">Jouer</button>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        let balance = 0;
+        
+        function startGame() {
+            balance = parseInt(document.getElementById('balanceInput').value);
+            if (isNaN(balance) || balance <= 0) {
+                alert("Please enter a valid positive number for balance.");
+                return;
+            }
+            document.getElementById('balanceDisplay').textContent = balance;
+            document.getElementById('zoneJeu').style.display = 'block';
+        }
+
+        function playRound() {
+            const bet = parseInt(document.getElementById('betInput').value);
+
+            secretNumber = Math.floor(Math.random() * 21); // Nb aléatoire entre 0 et 20
+            const playerNumber = prompt("Donnez votre pari (entre 1 et 25):");
+
+            const playerGuess = parseInt(playerNumber);
+
+            let resultMessage = "";
+            if (playerGuess < secretNumber || (playerGuess > secretNumber && playerGuess - secretNumber > 5)) {
+                resultMessage = `Perdu ! Le nombre secret était ${secretNumber}.`;
+                balance -= bet;
+            } else if (playerGuess > secretNumber && playerGuess - secretNumber <= 5) {
+                resultMessage = `Vous gagnez $${bet * 2}.`;
+                balance += bet * 2;
+            } else {
+                resultMessage = "Egalité.";
+            }
+
+            document.getElementById('result').textContent = resultMessage;
+            document.getElementById('balanceDisplay').textContent = balance;
+
+            if (balance <= 0) {
+                document.getElementById('zoneJeu').style.display = 'none';
+                alert("Vous n'avez plus d'argent !");
+            }
+        }
+    </script>
+</body>
+</html>
