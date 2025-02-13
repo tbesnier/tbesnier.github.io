@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pixel Art Application</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    #title-description {
+      text-align: center;
+      margin-top: 20px;
+    }
+    #grid-container {
+      display: grid;
+      grid-template-columns: repeat(25, 20px);
+      grid-template-rows: repeat(25, 20px);
+      gap: 1px;
+      margin-top: 20px;
+    }
+    .pixel {
+      width: 20px;
+      height: 20px;
+      background-color: #ffffff;
+      border: 1px solid #ccc;
+    }
+    #color-buttons {
+      margin-top: 20px;
+    }
+    .color-button {
+      width: 50px;
+      height: 30px;
+      margin-right: 5px;
+      border: 1px solid black;
+    }
+    #selected-color {
+      margin-top: 20px;
+      font-size: 18px;
+      display: inline-block;
+      padding: 5px;
+    }
+    #selected-color-box {
+      width: 50px;
+      height: 30px;
+      display: inline-block;
+      margin-left: 10px;
+      border: 1px solid #000;
+    }
+    #num-colors-input {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div id="title-description">
+    <h1>Pixel Art Application</h1>
+    <p>Le pixel-art consiste en la réalisation d'image d'une résolution volontairement faible et avec un nombre de couleurs limité, permettant de reproduire l'effet "retro" des premières machines à affichage numérique colorisé.</p>
+  </div>
+  
+  <div id="grid-container">
+  </div>
+
+  <form id="num-colors-form">
+    <label for="num-colors-input">Number of Colors:</label>
+    <input type="number" id="num-colors-input" name="num-colors" min="1" max="20" value="9">
+    <input type="submit" value="Apply">
+  </form>
+
+  <div id="color-buttons">
+  </div>
+
+  <div id="selected-color">
+    Selected Color:
+    <div id="selected-color-box"></div>
+  </div>
+
+  <button id="reset-button">Reset Grid</button>
+  <button id="random-color-button">Generate random coloring</button>
+
+  <script>
+    function getRandomColor() {
+      const r = Math.floor(Math.random() * 256);
+      const g = Math.floor(Math.random() * 256);
+      const b = Math.floor(Math.random() * 256);
+      return `rgb(${r}, ${g}, ${b})`;
+    }
+
+    function getRandomGrey() {
+      const greyValue = Math.floor(Math.random() * 256);
+      return `rgb(${greyValue}, ${greyValue}, ${greyValue})`;
+    }
+
+    const gridContainer = document.getElementById('grid-container');
+    for (let i = 0; i < 25; i++) {
+      for (let j = 0; j < 25; j++) {
+        const pixel = document.createElement('div');
+        pixel.classList.add('pixel');
+        pixel.addEventListener('click', () => {
+          const selectedColorBox = document.getElementById('selected-color-box');
+          const selectedColor = selectedColorBox.style.backgroundColor;
+          pixel.style.backgroundColor = selectedColor;
+        });
+        gridContainer.appendChild(pixel);
+      }
+    }
+
+    const numColorsForm = document.getElementById('num-colors-form');
+    numColorsForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const numColorsInput = document.getElementById('num-colors-input');
+      const numColors = parseInt(numColorsInput.value);
+      updateColorButtons(numColors);
+    });
+
+    // Update nb color buttons
+    function updateColorButtons(numColors) {
+      const colorButtonsContainer = document.getElementById('color-buttons');
+      colorButtonsContainer.innerHTML = ''; // Efface les boutons existants
+      for (let i = 0; i < numColors; i++) {
+        const button = document.createElement('button');
+        button.classList.add('color-button');
+        if (i === numColors - 1) {
+          button.style.backgroundColor = 'white'; // Dernier bouton
+        } else {
+          button.style.backgroundColor = getRandomColor();
+        }
+        button.addEventListener('click', () => {
+          const color = button.style.backgroundColor;
+          const selectedColorBox = document.getElementById('selected-color-box');
+          selectedColorBox.style.backgroundColor = color;
+        });
+        colorButtonsContainer.appendChild(button);
+      }
+    }
+
+    updateColorButtons(9);
+
+    // Reset grid
+    const resetButton = document.getElementById('reset-button');
+    resetButton.addEventListener('click', () => {
+      const pixels = document.querySelectorAll('.pixel');
+      pixels.forEach(pixel => {
+        pixel.style.backgroundColor = 'white';
+      });
+    });
+
+    // Random coloring
+    const randomColorButton = document.getElementById('random-color-button');
+    randomColorButton.addEventListener('click', () => {
+      const pixels = document.querySelectorAll('.pixel');
+      pixels.forEach(pixel => {
+        const colorButtons = document.querySelectorAll('.color-button');
+        const randomButtonIndex = Math.floor(Math.random() * colorButtons.length);
+        const randomColor = colorButtons[randomButtonIndex].style.backgroundColor;
+        pixel.style.backgroundColor = randomColor;
+      });
+    });
+  </script>
+</body>
+</html>
