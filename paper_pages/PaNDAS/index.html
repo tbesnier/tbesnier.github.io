@@ -2,8 +2,7 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <meta name="description"
-        content="">
+  <meta name="description" content="">
   <meta name="keywords" content="Partial Non-isometric Deformations with soft constrained Jacobian Fields">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>PaNDAS</title>
@@ -12,27 +11,31 @@
   <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script> -->
   <script>
     window.dataLayer = window.dataLayer || [];
-
-    function gtag() {
-      dataLayer.push(arguments);
-    }
-
+    function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
-
     gtag('config', 'G-PYVRSFMDRL');
   </script>
 
-  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
-        rel="stylesheet">
-
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
   <link rel="stylesheet" href="./static/css/bulma.min.css">
   <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
   <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
   <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
-  <link rel="stylesheet"
-        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="./static/css/index.css">
   <link rel="icon" href="./static/images/icon.svg">
+
+  <!-- Three.js and loaders for 3D viewer -->
+  <script src="https://unpkg.com/three@0.158.0/build/three.min.js"></script>
+  <script src="https://unpkg.com/three@0.158.0/examples/js/controls/OrbitControls.js"></script>
+  <script src="https://unpkg.com/three@0.158.0/examples/js/loaders/PLYLoader.js"></script>
+
+  <style>
+    /* Styles for 3D viewer container */
+    #viewer { width: 100%; height: 600px; margin: 2rem 0; }
+    body { margin: 0; overflow-x: hidden; }
+    canvas { display: block; }
+  </style>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script defer src="./static/js/fontawesome.all.min.js"></script>
@@ -42,103 +45,37 @@
 </head>
 <body>
 
-<!-- <nav class="navbar" role="navigation" aria-label="main navigation">
-  <div class="navbar-brand">
-    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-    </a>
-  </div>
-  <div class="navbar-menu">
-    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
-      <a class="navbar-item" href="https://keunhong.com">
-      <span class="icon">
-          <i class="fas fa-home"></i>
-      </span>
-      </a>
-
-      <div class="navbar-item has-dropdown is-hoverable">
-        <a class="navbar-link">
-          More Research
-        </a>
-        <div class="navbar-dropdown">
-          <a class="navbar-item" href="https://hypernerf.github.io">
-            HyperNeRF
-          </a>
-          <a class="navbar-item" href="https://nerfies.github.io">
-            Nerfies
-          </a>
-          <a class="navbar-item" href="https://latentfusion.github.io">
-            LatentFusion
-          </a>
-          <a class="navbar-item" href="https://photoshape.github.io">
-            PhotoShape
-          </a>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</nav> -->
-
-
 <section class="hero">
   <div class="hero-body">
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <!-- <h1 class="title is-1 publication-title">ECCV 2024</h1>-->
           <h1 class="title is-1 publication-title">PaNDAS-JF: Partial Deformations with Adaptive Soft Constraints on Jacobian Fields</h1>
           <div class="is-size-5 publication-authors">
-            <span class="author-block">
-                <a href="https://tbesnier.github.io/">Thomas Besnier</a><sup>1</sup>,</span>
-            <span class="author-block">
-                <a href="https://daidedou.github.io/">Emery Pierson</a><sup>2</sup>,</span>
-            <span class="author-block">
-                <a href="https://dblp.org/pid/161/6737.html">Sylvain Arguillere</a><sup>3</sup>,</span>
-            <span class="author-block">
-                <a href="https://sites.google.com/view/mohameddaoudi">Mohamed Daoudi</a><sup>1,4</sup>.</span>
+            <span class="author-block"><a href="https://tbesnier.github.io/">Thomas Besnier</a><sup>1</sup>,</span>
+            <span class="author-block"><a href="https://daidedou.github.io/">Emery Pierson</a><sup>2</sup>,</span>
+            <span class="author-block"><a href="https://dblp.org/pid/161/6737.html">Sylvain Arguillere</a><sup>3</sup>,</span>
+            <span class="author-block"><a href="https://sites.google.com/view/mohameddaoudi">Mohamed Daoudi</a><sup>1,4</sup>.</span>
           </div>
-
           <div class="is-size-5 publication-authors">
             <span class="author-block"><sup>1</sup>Univ. Lille, CNRS, Centrale Lille, UMR 9189 CRIStAL, F-59000 Lille, France,</span>
             <span class="author-block"><sup>2</sup>LIX, Ecole Polytechnique, IP Paris, France,</span>
             <span class="author-block"><sup>3</sup>Univ. Lille, CNRS, UMR 8524 Laboratoire Paul Painlevé, Lille, F-59000, France,</span>
             <span class="author-block"><sup>4</sup>IMT Nord Europe, Institut Mines-Télécom, Centre for Digital Systems,</span>
           </div>
-
           <div class="column has-text-centered">
             <div class="publication-links">
-              <!-- PDF Link. -->
               <span class="link-block">
-                <a href="#"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="ai ai-arxiv"></i>
-                  </span>
+                <a href="#" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="ai ai-arxiv"></i></span>
                   <span>arXiv</span>
                 </a>
               </span>
-              <!-- Video Link.
               <span class="link-block">
-                <a href="#teaser"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fab fa-youtube"></i>
-                  </span>
-                  <span>Video</span>
-                </a>
-              </span> -->
-              <!-- Dataset Link. -->
-              <span class="link-block">
-                <a href="#"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fab fa-github"></i>
-                  </span>
+                <a href="#" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fab fa-github"></i></span>
                   <span>Code</span>
-                  </a>
+                </a>
               </span>
             </div>
           </div>
@@ -148,69 +85,38 @@
   </div>
 </section>
 
-<!-- Proposed Method. -->
 <section class="section">
-<div class="columns is-centered has-text-centered">
-  <div class="column is-four-fifths">
-    <div class="content has-text-justified">
-      <img src="#" alt="project_idea">
-      <p>
-        <br>
-        We present ...
-
-      </p>
-      <!-- <p>
-        
-      </p>
-      <p>
-        
-      </p> -->
+  <div class="columns is-centered has-text-centered">
+    <div class="column is-four-fifths">
+      <div class="content has-text-justified">
+        <img src="#" alt="project_idea">
+        <p><br>We present ...</p>
+      </div>
     </div>
   </div>
-</div>
 </section>
 
-
-<!--/ Proposed Method. -->  
 <section class="section">
   <div class="container is-max-desktop">
-    <!-- Abstract. -->
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
-          <p>
-            ...
-            <br>
-            ...
-
-          </p>
+          <p>...<br>...</p>
         </div>
       </div>
     </div>
-    <br>
-    <br>
-    
-    <!-- Proposed Method. -->
+    <br><br>
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <h2 class="title is-3 centered-title">Proposed Method</h2>
         <div class="content has-text-justified">
           <img src="#" alt="architecture">
-          <p>
-            <br>
-
-          </p>
-          <!-- <p>
-            
-          </p>
-          <p>
-            
-          </p> -->
+          <p><br>...</p>
         </div>
       </div>
     </div>
-    <!--/ Proposed Method. -->  
+  </div>
 </section>
 
 <section class="hero teaser">
@@ -218,8 +124,7 @@
     <h2 class="title is-3 centered-title">Intro Video</h2>
     <div class="hero-body">
       <video id="teaser" controls playsinline height="100%">
-        <source src="#"
-                type="video/mp4">
+        <source src="#" type="video/mp4">
       </video>
     </div>
   </div>
@@ -228,81 +133,103 @@
 <section class="hero teaser">
   <div class="container is-max-desktop">
     <h2 class="title is-3 centered-title">Qualitative Examples</h2>
-    
-    <!-- First row of videos
-    <div class="hero-body video-row">
-      <video id="teaser1" class="video-item" controls playsinline>
-        <source src="./static/videos/Thanos_20s.mp4" type="video/mp4">
-      </video>
-      <video id="teaser2" class="video-item" controls playsinline>
-        <source src="./static/videos/test_arnold_shrek.mp4" type="video/mp4">
-      </video>
-      <video id="teaser3" class="video-item" controls playsinline>
-        <source src="./static/videos/test_thanks_long.mp4" type="video/mp4">
-      </video>
-    </div> -->
-    
-    <!-- Second row of videos
-    <div class="hero-body video-row">
-      <video id="teaser4" class="video-item" controls playsinline>
-        <source src="./static/videos/VOCA_rock.mp4" type="video/mp4">
-      </video>
-      <video id="teaser5" class="video-item" controls playsinline>
-        <source src="./static/videos/Anime_Cold_Dip.mp4" type="video/mp4">
-      </video>
-      <video id="teaser6" class="video-item" controls playsinline>
-        <source src="./static/videos/BIWI_photo.mp4" type="video/mp4">
-      </video>
-    </div>  -->
   </div>
 </section>
 
+<!-- New 3D Viewer Section -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 centered-title">3D Mesh Viewer</h2>
+    <div id="viewer"></div>
+  </div>
+</section>
 
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
-    <pre><code>
-  @inproceedings{name_of_project,
-    title = {},
-    author = {Besnier, T. and Pierson, E. and Arguillere, S. and Daoudi, M.},
-    booktitle = {arXiv},
-    year = {2024},
-  }
-</code></pre>
+    <pre><code>@inproceedings{name_of_project,
+  title = {},
+  author = {Besnier, T. and Pierson, E. and Arguillere, S. and Daoudi, M.},
+  booktitle = {arXiv},
+  year = {2024},
+}</code></pre>
   </div>
 </section>
- 
-
-
 
 <footer class="footer">
   <div class="container">
-      <div class="content has-text-centered">
-          <a class="icon-link" href="#">
-              <i class="fas fa-file-pdf"></i>
-          </a>
-          <a class="icon-link" href="#" class="external-link" disabled>
-              <i class="fab fa-github"></i>
-          </a>
+    <div class="content has-text-centered">
+      <a class="icon-link" href="#"><i class="fas fa-file-pdf"></i></a>
+      <a class="icon-link" href="#" class="external-link" disabled><i class="fab fa-github"></i></a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content" style="text-align:center">
+          <p>This website is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</p>
+          <p>Website source code based on the <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a> project page.</p>
+        </div>
       </div>
-      <div class="columns is-centered">
-          <div class="column is-8">
-              <div class="content">
-                  <p style="text-align:center">
-                    This website is licensed under a <a rel="license"
-                    href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
-                    Commons Attribution-ShareAlike 4.0 International License</a>.
-                  </p>
-                  <p style="text-align:center">
-                    Website source code based on the <a
-                    href="https://github.com/nerfies/nerfies.github.io">Nerfies</a> project page.
-                  </p>
-
-              </div>
-          </div>
-      </div>
+    </div>
   </div>
 </footer>
+
+<!-- 3D viewer initialization script -->
+<script>
+  // Basic Three.js scene setup
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
+  const renderer = new THREE.WebGLRenderer({ antialias: true });
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  document.getElementById('viewer').appendChild(renderer.domElement);
+
+  // OrbitControls for interaction
+  const controls = new THREE.OrbitControls(camera, renderer.domElement);
+  controls.enableDamping = true;
+  controls.dampingFactor = 0.05;
+  controls.screenSpacePanning = false;
+  controls.minDistance = 0.1;
+  controls.maxDistance = 500;
+
+  // Lighting
+  const ambient = new THREE.AmbientLight(0x888888);
+  scene.add(ambient);
+  const dirLight = new THREE.DirectionalLight(0xffffff, 0.8);
+  dirLight.position.set(1, 1, 1);
+  scene.add(dirLight);
+
+  // Load .ply file (update the path to your mesh file)
+  const loader = new THREE.PLYLoader();
+  loader.load('../../assets/obj/MANO/01_01r.ply', function(geometry) {
+    geometry.computeVertexNormals();
+    const material = new THREE.MeshStandardMaterial({ color: 0xcccccc, flatShading: false, side: THREE.DoubleSide });
+    const mesh = new THREE.Mesh(geometry, material);
+    scene.add(mesh);
+
+    // Center mesh
+    const box = new THREE.Box3().setFromObject(mesh);
+    const center = box.getCenter(new THREE.Vector3());
+    mesh.position.sub(center);
+
+    // Position camera
+    camera.position.set(0, 0, box.getSize(new THREE.Vector3()).length() * 1.5);
+    controls.target.copy(new THREE.Vector3(0, 0, 0));
+  });
+
+  // Handle resize
+  window.addEventListener('resize', function() {
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+  });
+
+  // Animation loop
+  function animate() {
+    requestAnimationFrame(animate);
+    controls.update();
+    renderer.render(scene, camera);
+  }
+  animate();
+</script>
 
 </body>
 </html>
