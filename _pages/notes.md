@@ -30,21 +30,5 @@ pagination:
   </div>
   {% endif %}
 
-<div class="notes-container">
-  {% for note in site.notes %}
-    <div class="note-tile">
-      <a href="{{ note.url }}">
-        <div class="note-thumbnail">
-        </div>
-        <div class="note-content">
-          <h2 class="note-title">{{ note.title }}</h2>
-          {% if note.description %}
-            <p class="note-description">{{ note.description }}</p>
-          {% endif %}
-        </div>
-      </a>
-    </div>
-  {% endfor %}
-</div>
 
 </div>
