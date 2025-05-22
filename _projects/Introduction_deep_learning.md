@@ -38,7 +38,7 @@ TP4: [Sujet](https://drive.google.com/file/d/1LzFspV3eWKa5yQcOhKO4LXNaUA1cHzYG/v
 
 2023/2024: [Sujet de Kévin Feghoul](../../assets/pdf/courses_slides/deep_learning/examen_2023.pdf)
 
-2024/2025: [Sujet](../../assets/pdf/courses_slides/deep_learning/examen_2024.pdf)
+2024/2025: [Sujet](/assets/pdf/courses_slides/deep_learning/examen_2024.pdf)
 
 ## Références
 
