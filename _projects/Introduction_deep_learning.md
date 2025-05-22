@@ -14,15 +14,15 @@ et la compréhension de texte.
 
 ## Slides du cours
 
-[Partie 1: Introduction, réseaux de neuronnes et optimisation](../../assets/pdf/courses_slides/deep_learning/part1.pdf)
+[Partie 1: Introduction, réseaux de neuronnes et optimisation](/assets/pdf/courses_slides/deep_learning/part1.pdf)
 
-[Partie 2: Vision par ordinateur avec les réseaux convolutionnels](../../assets/pdf/courses_slides/deep_learning/part2.pdf)
+[Partie 2: Vision par ordinateur avec les réseaux convolutionnels](/assets/pdf/courses_slides/deep_learning/part2.pdf)
 
-[Partie 3: Modèles séquentiels et introduction au NLP](../../assets/pdf/courses_slides/deep_learning/part3.pdf)
+[Partie 3: Modèles séquentiels et introduction au NLP](/assets/pdf/courses_slides/deep_learning/part3.pdf)
 
-[Partie 4: Modèles génératifs à variable latente](../../assets/pdf/courses_slides/deep_learning/part4.pdf)
+[Partie 4: Modèles génératifs à variable latente](/assets/pdf/courses_slides/deep_learning/part4.pdf)
 
-[Partie 5: Récap et aller plus loin](../../assets/pdf/courses_slides/deep_learning/part5.pdf)
+[Partie 5: Récap et aller plus loin](/assets/pdf/courses_slides/deep_learning/part5.pdf)
 
 ## Sujets de TP
 
@@ -36,7 +36,7 @@ TP4: [Sujet](https://drive.google.com/file/d/1LzFspV3eWKa5yQcOhKO4LXNaUA1cHzYG/v
 
 ## Sujet d'examen
 
-2023/2024: [Sujet de Kévin Feghoul](../../assets/pdf/courses_slides/deep_learning/examen_2023.pdf)
+2023/2024: [Sujet de Kévin Feghoul](/assets/pdf/courses_slides/deep_learning/examen_2023.pdf)
 
 2024/2025: [Sujet](/assets/pdf/courses_slides/deep_learning/examen_2024.pdf)
 
