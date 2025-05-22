@@ -35,7 +35,6 @@ pagination:
     <div class="note-tile">
       <a href="{{ note.url }}">
         <div class="note-thumbnail">
-          <img src="../assets/img/template_error.png" alt="No image available">
         </div>
         <div class="note-content">
           <h2 class="note-title">{{ note.title }}</h2>
