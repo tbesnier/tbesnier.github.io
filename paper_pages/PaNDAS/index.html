@@ -25,16 +25,62 @@
   <link rel="stylesheet" href="./static/css/index.css">
   <link rel="icon" href="./static/images/icon.svg">
 
-  <!-- Three.js and loaders for 3D viewer -->
-  <script src="https://unpkg.com/three@0.158.0/build/three.min.js"></script>
-  <script src="https://unpkg.com/three@0.158.0/examples/js/controls/OrbitControls.js"></script>
-  <script src="https://unpkg.com/three@0.158.0/examples/js/loaders/PLYLoader.js"></script>
+  <!-- Model Viewer for 3D models -->
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 
   <style>
     /* Styles for 3D viewer container */
-    #viewer { width: 100%; height: 600px; margin: 2rem 0; }
+    #viewer {
+      width: 100%;
+      height: 600px;
+      margin: 2rem 0;
+      border: 2px solid #ddd;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    /* Model viewer styles */
+    model-viewer {
+      width: 100%;
+      height: 600px;
+      background-color: #f8f9fa;
+      border-radius: 8px;
+      --poster-color: #f8f9fa;
+    }
+
+    /* Viewer controls styling */
+    .viewer-controls {
+      margin: 1rem 0;
+      text-align: center;
+    }
+
+    .viewer-controls button {
+      margin: 0 0.5rem;
+      padding: 0.5rem 1rem;
+      border: 1px solid #ddd;
+      background: white;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .viewer-controls button:hover {
+      background: #f0f0f0;
+      border-color: #999;
+    }
+
+    .viewer-controls button.active {
+      background: #007bff;
+      color: white;
+      border-color: #007bff;
+    }
+
     body { margin: 0; overflow-x: hidden; }
     canvas { display: block; }
+
+    .centered-title {
+      text-align: center;
+    }
   </style>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -139,8 +185,63 @@
 <!-- New 3D Viewer Section -->
 <section class="section">
   <div class="container is-max-desktop">
-    <h2 class="title is-3 centered-title">3D Mesh Viewer</h2>
-    <div id="viewer"></div>
+    <h2 class="title is-3 centered-title">Interactive 3D Mesh Viewer</h2>
+
+    <!-- Model viewer with sample glTF model -->
+    <model-viewer
+      id="mesh-viewer"
+      src="https://modelviewer.dev/shared-assets/models/Astronaut.glb"
+      alt="3D Mesh Model"
+      auto-rotate
+      camera-controls
+      touch-action="pan-y"
+      environment-image="https://modelviewer.dev/shared-assets/environments/moon_1k.hdr"
+      shadow-intensity="1"
+      exposure="1"
+      shadow-softness="0.5">
+
+      <!-- Loading placeholder -->
+      <div slot="poster" style="background: #f8f9fa; display: flex; align-items: center; justify-content: center; height: 100%; font-family: 'Google Sans', sans-serif; color: #666;">
+        <div style="text-align: center;">
+          <div style="font-size: 1.2em; margin-bottom: 0.5em;">Loading 3D Model...</div>
+          <div style="font-size: 0.9em;">Drag to rotate • Scroll to zoom • Right-click to pan</div>
+        </div>
+      </div>
+
+      <!-- Error fallback -->
+      <div slot="error" style="background: #fff3cd; display: flex; align-items: center; justify-content: center; height: 100%; font-family: 'Google Sans', sans-serif; color: #856404; border: 1px solid #ffeaa7; border-radius: 8px;">
+        <div style="text-align: center;">
+          <div style="font-size: 1.1em; margin-bottom: 0.5em;">⚠️ Could not load 3D model</div>
+          <div style="font-size: 0.9em;">Please check your internet connection</div>
+        </div>
+      </div>
+    </model-viewer>
+
+    <!-- Viewer controls -->
+    <div class="viewer-controls">
+      <button onclick="toggleAutoRotate()">Toggle Auto-Rotate</button>
+      <button onclick="resetCamera()">Reset View</button>
+      <button onclick="toggleEnvironment()">Toggle Environment</button>
+      <button onclick="switchModel()">Switch Model</button>
+    </div>
+
+    <p class="has-text-centered">
+      <small>
+        <strong>Controls:</strong> Drag to rotate • Scroll to zoom • Right-click to pan • Double-click to focus
+      </small>
+    </p>
+
+    <!-- Model information -->
+    <div class="content has-text-centered" style="margin-top: 2rem;">
+      <p>
+        <strong>Interactive 3D Viewer Features:</strong><br>
+        • High-quality PBR rendering<br>
+        • Real-time shadows and lighting<br>
+        • Touch and mouse controls<br>
+        • Auto-rotation and animations<br>
+        • Mobile and VR ready
+      </p>
+    </div>
   </div>
 </section>
 
@@ -173,62 +274,89 @@
   </div>
 </footer>
 
-<!-- 3D viewer initialization script -->
+<!-- Model Viewer JavaScript Controls -->
 <script>
-  // Basic Three.js scene setup
-  const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
-  const renderer = new THREE.WebGLRenderer({ antialias: true });
-  renderer.setSize(window.innerWidth, window.innerHeight);
-  document.getElementById('viewer').appendChild(renderer.domElement);
+  // Model viewer controls
+  const modelViewer = document.querySelector('#mesh-viewer');
+  let autoRotateEnabled = true;
+  let currentEnvironment = true;
+  let currentModelIndex = 0;
 
-  // OrbitControls for interaction
-  const controls = new THREE.OrbitControls(camera, renderer.domElement);
-  controls.enableDamping = true;
-  controls.dampingFactor = 0.05;
-  controls.screenSpacePanning = false;
-  controls.minDistance = 0.1;
-  controls.maxDistance = 500;
+  // Array of different models to cycle through
+  const models = [
+    {
+      src: "https://modelviewer.dev/shared-assets/models/Astronaut.glb",
+      name: "Astronaut"
+    },
+    {
+      src: "https://modelviewer.dev/shared-assets/models/shishkebab.glb",
+      name: "Shishkebab"
+    },
+    {
+      src: "https://modelviewer.dev/shared-assets/models/Horse.glb",
+      name: "Horse"
+    }
+  ];
 
-  // Lighting
-  const ambient = new THREE.AmbientLight(0x888888);
-  scene.add(ambient);
-  const dirLight = new THREE.DirectionalLight(0xffffff, 0.8);
-  dirLight.position.set(1, 1, 1);
-  scene.add(dirLight);
+  function toggleAutoRotate() {
+    autoRotateEnabled = !autoRotateEnabled;
+    if (autoRotateEnabled) {
+      modelViewer.setAttribute('auto-rotate', '');
+    } else {
+      modelViewer.removeAttribute('auto-rotate');
+    }
 
-  // Load .ply file (update the path to your mesh file)
-  const loader = new THREE.PLYLoader();
-  loader.load('../../assets/obj/MANO/01_01r.ply', function(geometry) {
-    geometry.computeVertexNormals();
-    const material = new THREE.MeshStandardMaterial({ color: 0xcccccc, flatShading: false, side: THREE.DoubleSide });
-    const mesh = new THREE.Mesh(geometry, material);
-    scene.add(mesh);
-
-    // Center mesh
-    const box = new THREE.Box3().setFromObject(mesh);
-    const center = box.getCenter(new THREE.Vector3());
-    mesh.position.sub(center);
-
-    // Position camera
-    camera.position.set(0, 0, box.getSize(new THREE.Vector3()).length() * 1.5);
-    controls.target.copy(new THREE.Vector3(0, 0, 0));
-  });
-
-  // Handle resize
-  window.addEventListener('resize', function() {
-    camera.aspect = window.innerWidth / window.innerHeight;
-    camera.updateProjectionMatrix();
-    renderer.setSize(window.innerWidth, window.innerHeight);
-  });
-
-  // Animation loop
-  function animate() {
-    requestAnimationFrame(animate);
-    controls.update();
-    renderer.render(scene, camera);
+    // Update button appearance
+    const buttons = document.querySelectorAll('.viewer-controls button');
+    buttons[0].classList.toggle('active', autoRotateEnabled);
   }
-  animate();
+
+  function resetCamera() {
+    modelViewer.resetTurntableRotation();
+    modelViewer.jumpCameraToGoal();
+  }
+
+  function toggleEnvironment() {
+    currentEnvironment = !currentEnvironment;
+    if (currentEnvironment) {
+      modelViewer.setAttribute('environment-image', 'https://modelviewer.dev/shared-assets/environments/moon_1k.hdr');
+    } else {
+      modelViewer.removeAttribute('environment-image');
+    }
+
+    // Update button appearance
+    const buttons = document.querySelectorAll('.viewer-controls button');
+    buttons[2].classList.toggle('active', currentEnvironment);
+  }
+
+  function switchModel() {
+    currentModelIndex = (currentModelIndex + 1) % models.length;
+    const newModel = models[currentModelIndex];
+    modelViewer.setAttribute('src', newModel.src);
+
+    // Show loading state
+    console.log(`Loading model: ${newModel.name}`);
+  }
+
+  // Initialize button states
+  document.addEventListener('DOMContentLoaded', function() {
+    const buttons = document.querySelectorAll('.viewer-controls button');
+    buttons[0].classList.add('active'); // auto-rotate is on by default
+    buttons[2].classList.add('active'); // environment is on by default
+
+    // Add event listeners for model viewer events
+    modelViewer.addEventListener('load', function() {
+      console.log('Model loaded successfully');
+    });
+
+    modelViewer.addEventListener('error', function(error) {
+      console.error('Error loading model:', error);
+    });
+
+    modelViewer.addEventListener('camera-change', function() {
+      // Optional: React to camera changes
+    });
+  });
 </script>
 
 </body>
