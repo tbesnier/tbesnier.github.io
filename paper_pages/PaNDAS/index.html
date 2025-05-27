@@ -364,30 +364,66 @@
         directionalLight.position.set(1, 1, 1);
         scene.add(directionalLight);
 
-        // Create sphere with vertex colors
-        const geometry = new THREE.SphereGeometry(2, 32, 32);
-        const material = new THREE.MeshPhongMaterial({
-            vertexColors: true,
-            side: THREE.DoubleSide
-        });
+        // Load PLY mesh
+        const loader = new THREE.PLYLoader();
+        let mesh;
+        let geometry;
 
-        // Initialize vertex colors
-        const colors = [];
-        const color = new THREE.Color();
-        for (let i = 0; i < geometry.attributes.position.count; i++) {
-            color.setHSL(0.6, 0.5, 0.5); // Blue-ish color
-            colors.push(color.r, color.g, color.b);
-        }
-        geometry.setAttribute('color', new THREE.Float32BufferAttribute(colors, 3));
+        loader.load('assets/obj/MANO/01_01r.ply',
+            function (loadedGeometry) {
+                geometry = loadedGeometry;
 
-        const sphere = new THREE.Mesh(geometry, material);
-        scene.add(sphere);
+                // Center and scale the geometry
+                geometry.computeBoundingBox();
+                const center = new THREE.Vector3();
+                geometry.boundingBox.getCenter(center);
+                geometry.center();
 
-        // Add wireframe to see vertices better
-        const wireframeGeometry = new THREE.WireframeGeometry(geometry);
-        const wireframeMaterial = new THREE.LineBasicMaterial({ color: 0x444444 });
-        const wireframe = new THREE.LineSegments(wireframeGeometry, wireframeMaterial);
-        sphere.add(wireframe);
+                // Scale to fit in view
+                const size = new THREE.Vector3();
+                geometry.boundingBox.getSize(size);
+                const maxDim = Math.max(size.x, size.y, size.z);
+                const scale = 4 / maxDim;
+                geometry.scale(scale, scale, scale);
+
+                // Initialize vertex colors
+                const colors = [];
+                const color = new THREE.Color();
+                for (let i = 0; i < geometry.attributes.position.count; i++) {
+                    color.setHSL(0.6, 0.5, 0.5); // Blue-ish color
+                    colors.push(color.r, color.g, color.b);
+                }
+                geometry.setAttribute('color', new THREE.Float32BufferAttribute(colors, 3));
+
+                // Create material and mesh
+                const material = new THREE.MeshPhongMaterial({
+                    vertexColors: true,
+                    side: THREE.DoubleSide
+                });
+
+                mesh = new THREE.Mesh(geometry, material);
+                scene.add(mesh);
+
+                // Add wireframe to see vertices better
+                const wireframeGeometry = new THREE.WireframeGeometry(geometry);
+                const wireframeMaterial = new THREE.LineBasicMaterial({ color: 0x444444 });
+                const wireframe = new THREE.LineSegments(wireframeGeometry, wireframeMaterial);
+                mesh.add(wireframe);
+
+                // Hide loading status
+                document.getElementById('loadingStatus').style.display = 'none';
+
+                // Start animation
+                animate();
+            },
+            function (xhr) {
+                console.log((xhr.loaded / xhr.total * 100) + '% loaded');
+            },
+            function (error) {
+                console.error('Error loading PLY file:', error);
+                alert('Error loading PLY file. Please ensure the file exists at: assets/obj/MANO/01_01r.ply');
+            }
+        );
 
         // Camera controls
         let isRotating = false;
