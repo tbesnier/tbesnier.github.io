@@ -80,14 +80,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script>
         // PLYLoader implementation
-        THREE.PLYLoader = function (manager) {
-            THREE.Loader.call(this, manager);
-        };
+        THREE.PLYLoader = class PLYLoader extends THREE.Loader {
+            constructor(manager) {
+                super(manager);
+            }
 
-        THREE.PLYLoader.prototype = Object.assign(Object.create(THREE.Loader.prototype), {
-            constructor: THREE.PLYLoader,
-
-            load: function (url, onLoad, onProgress, onError) {
+            load(url, onLoad, onProgress, onError) {
                 const scope = this;
                 const loader = new THREE.FileLoader(this.manager);
                 loader.setPath(this.path);
@@ -106,9 +104,9 @@
                         scope.manager.itemError(url);
                     }
                 }, onProgress, onError);
-            },
+            }
 
-            parse: function (data) {
+            parse(data) {
                 function parseHeader(data) {
                     const patternHeader = /^ply([\s\S]*)end_header\r?\n/;
                     let headerText = '';
@@ -331,19 +329,20 @@
                     const header = parseHeader(text);
                     geometry = parseASCII(text.substring(header.headerLength), header);
                 } else {
-                    const header = parseHeader(THREE.LoaderUtils.decodeText(new Uint8Array(data)));
+                    const decoder = new TextDecoder();
+                    const text = decoder.decode(new Uint8Array(data));
+                    const header = parseHeader(text);
 
                     if (header.format === 'binary_little_endian' || header.format === 'binary_big_endian') {
                         geometry = parseBinary(data, header);
                     } else {
-                        const text = THREE.LoaderUtils.decodeText(new Uint8Array(data));
                         geometry = parseASCII(text.substring(header.headerLength), header);
                     }
                 }
 
                 return geometry;
             }
-        });
+        };
     </script>
     <script>
         // Scene setup
@@ -369,7 +368,7 @@
         let mesh;
         let geometry;
 
-        loader.load('assets/obj/MANO/01_01r.ply',
+        loader.load('01_01r.ply',
             function (loadedGeometry) {
                 geometry = loadedGeometry;
 
