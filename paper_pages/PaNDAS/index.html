@@ -10,6 +10,7 @@
             padding: 0;
             font-family: Arial, sans-serif;
             overflow: hidden;
+            background: #ffffff;
         }
         #container {
             position: relative;
@@ -23,13 +24,15 @@
             position: absolute;
             top: 10px;
             left: 10px;
-            background: rgba(0, 0, 0, 0.7);
-            color: white;
-            padding: 10px;
-            border-radius: 5px;
+            background: rgba(255, 255, 255, 0.9);
+            color: #333;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            border: 1px solid #ddd;
         }
         #controls button {
-            background: #4CAF50;
+            background: #2196F3;
             color: white;
             border: none;
             padding: 8px 16px;
@@ -37,17 +40,21 @@
             border-radius: 4px;
             cursor: pointer;
             font-size: 14px;
+            transition: background 0.3s;
         }
         #controls button:hover {
-            background: #45a049;
+            background: #1976D2;
         }
         #controls button.active {
-            background: #f44336;
+            background: #ff5252;
+        }
+        #controls button.active:hover {
+            background: #d32f2f;
         }
         #selection-box {
             position: absolute;
-            border: 2px dashed #fff;
-            background: rgba(255, 255, 255, 0.1);
+            border: 2px dashed #2196F3;
+            background: rgba(33, 150, 243, 0.1);
             pointer-events: none;
             display: none;
         }
@@ -56,7 +63,7 @@
             font-size: 12px;
         }
         #loadingStatus {
-            color: #4CAF50;
+            color: #FF6B35;
             font-weight: bold;
         }
     </style>
@@ -70,7 +77,7 @@
             <div id="info">
                 <p>Rotate: Left Mouse + Drag</p>
                 <p>Zoom: Mouse Wheel</p>
-                <p>Selection Mode: OFF</p>
+                <p id="selectionModeText">Selection Mode: OFF</p>
                 <p id="loadingStatus">Loading mesh...</p>
             </div>
         </div>
@@ -347,21 +354,54 @@
     <script>
         // Scene setup
         const scene = new THREE.Scene();
-        scene.background = new THREE.Color(0x222222);
+        scene.background = new THREE.Color(0xffffff); // White background
 
         const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
         camera.position.z = 5;
 
         const renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('canvas'), antialias: true });
         renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.shadowMap.enabled = true;
+        renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 
-        // Lighting
-        const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
+        // Improved lighting setup
+        const ambientLight = new THREE.AmbientLight(0xffffff, 0.4);
         scene.add(ambientLight);
 
-        const directionalLight = new THREE.DirectionalLight(0xffffff, 0.4);
-        directionalLight.position.set(1, 1, 1);
+        const directionalLight = new THREE.DirectionalLight(0xffffff, 0.8);
+        directionalLight.position.set(5, 5, 5);
+        directionalLight.castShadow = true;
+        directionalLight.shadow.mapSize.width = 2048;
+        directionalLight.shadow.mapSize.height = 2048;
+        directionalLight.shadow.camera.near = 0.1;
+        directionalLight.shadow.camera.far = 50;
+        directionalLight.shadow.camera.left = -10;
+        directionalLight.shadow.camera.right = 10;
+        directionalLight.shadow.camera.top = 10;
+        directionalLight.shadow.camera.bottom = -10;
         scene.add(directionalLight);
+
+        // Add a second light from the opposite direction for better shading
+        const directionalLight2 = new THREE.DirectionalLight(0xffffff, 0.3);
+        directionalLight2.position.set(-3, -3, -3);
+        scene.add(directionalLight2);
+
+        // Add rim light for better edge definition
+        const rimLight = new THREE.DirectionalLight(0xffffff, 0.2);
+        rimLight.position.set(0, 0, -5);
+        scene.add(rimLight);
+
+        // Add a subtle ground plane for depth reference
+        const groundGeometry = new THREE.PlaneGeometry(20, 20);
+        const groundMaterial = new THREE.ShadowMaterial({
+            opacity: 0.1,
+            color: 0x000000
+        });
+        const ground = new THREE.Mesh(groundGeometry, groundMaterial);
+        ground.rotation.x = -Math.PI / 2;
+        ground.position.y = -2;
+        ground.receiveShadow = true;
+        scene.add(ground);
 
         // Load PLY mesh
         const loader = new THREE.PLYLoader();
@@ -389,23 +429,38 @@
                 const colors = [];
                 const color = new THREE.Color();
                 for (let i = 0; i < geometry.attributes.position.count; i++) {
-                    color.setHSL(0.6, 0.5, 0.5); // Blue-ish color
+                    color.setRGB(0.7, 0.7, 0.8); // Light gray-blue color
                     colors.push(color.r, color.g, color.b);
                 }
                 geometry.setAttribute('color', new THREE.Float32BufferAttribute(colors, 3));
 
+                // Ensure normals are computed for proper shading
+                if (!geometry.attributes.normal) {
+                    geometry.computeVertexNormals();
+                }
+
                 // Create material and mesh
                 const material = new THREE.MeshPhongMaterial({
                     vertexColors: true,
-                    side: THREE.DoubleSide
+                    side: THREE.DoubleSide,
+                    shininess: 100,
+                    specular: new THREE.Color(0x222222),
+                    emissive: new THREE.Color(0x000000),
+                    flatShading: false
                 });
 
                 mesh = new THREE.Mesh(geometry, material);
+                mesh.castShadow = true;
+                mesh.receiveShadow = true;
                 scene.add(mesh);
 
                 // Add wireframe to see vertices better
                 const wireframeGeometry = new THREE.WireframeGeometry(geometry);
-                const wireframeMaterial = new THREE.LineBasicMaterial({ color: 0x444444 });
+                const wireframeMaterial = new THREE.LineBasicMaterial({
+                    color: 0x888888,  // Darker gray for better contrast on white
+                    opacity: 0.2,
+                    transparent: true
+                });
                 const wireframe = new THREE.LineSegments(wireframeGeometry, wireframeMaterial);
                 mesh.add(wireframe);
 
@@ -420,7 +475,7 @@
             },
             function (error) {
                 console.error('Error loading PLY file:', error);
-                alert('Error loading PLY file. Please ensure the file exists at: assets/obj/MANO/01_01r.ply');
+                alert('Error loading PLY file. Please ensure the file exists at: 01_01r.ply');
             }
         );
 
@@ -439,7 +494,7 @@
         const toggleButton = document.getElementById('toggleMode');
         const clearButton = document.getElementById('clearSelection');
         const selectionBox = document.getElementById('selection-box');
-        const infoText = document.querySelector('#info p:last-child');
+        const infoText = document.getElementById('selectionModeText');
 
         // Toggle selection mode
         toggleButton.addEventListener('click', () => {
@@ -454,7 +509,7 @@
             const colorAttribute = geometry.attributes.color;
             const color = new THREE.Color();
             for (let i = 0; i < colorAttribute.count; i++) {
-                color.setHSL(0.6, 0.5, 0.5);
+                color.setRGB(0.7, 0.7, 0.8); // Light gray-blue color
                 colorAttribute.setXYZ(i, color.r, color.g, color.b);
             }
             colorAttribute.needsUpdate = true;
@@ -545,7 +600,7 @@
                 const y = (-vector.y * 0.5 + 0.5) * window.innerHeight;
 
                 if (x >= minX && x <= maxX && y >= minY && y <= maxY) {
-                    colorAttribute.setXYZ(i, 1, 0, 0); // Red color
+                    colorAttribute.setXYZ(i, 0.9, 0.1, 0.1); // Bright red color for selected vertices
                 }
             }
 
