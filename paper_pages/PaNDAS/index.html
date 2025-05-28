@@ -225,8 +225,6 @@
 
                     if (normals.length > 0) {
                         geometry.setAttribute('normal', new THREE.Float32BufferAttribute(normals, 3));
-                    } else {
-                        geometry.computeVertexNormals();
                     }
 
                     if (colors.length > 0) {
@@ -313,8 +311,6 @@
 
                     if (normals.length > 0) {
                         geometry.setAttribute('normal', new THREE.Float32BufferAttribute(normals, 3));
-                    } else {
-                        geometry.computeVertexNormals();
                     }
 
                     if (colors.length > 0) {
@@ -361,47 +357,10 @@
 
         const renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('canvas'), antialias: true });
         renderer.setSize(window.innerWidth, window.innerHeight);
-        renderer.shadowMap.enabled = true;
-        renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 
-        // Improved lighting setup
-        const ambientLight = new THREE.AmbientLight(0xffffff, 0.4);
+        // Simple lighting - just ambient light
+        const ambientLight = new THREE.AmbientLight(0xffffff, 1.0);
         scene.add(ambientLight);
-
-        const directionalLight = new THREE.DirectionalLight(0xffffff, 0.8);
-        directionalLight.position.set(5, 5, 5);
-        directionalLight.castShadow = true;
-        directionalLight.shadow.mapSize.width = 2048;
-        directionalLight.shadow.mapSize.height = 2048;
-        directionalLight.shadow.camera.near = 0.1;
-        directionalLight.shadow.camera.far = 50;
-        directionalLight.shadow.camera.left = -10;
-        directionalLight.shadow.camera.right = 10;
-        directionalLight.shadow.camera.top = 10;
-        directionalLight.shadow.camera.bottom = -10;
-        scene.add(directionalLight);
-
-        // Add a second light from the opposite direction for better shading
-        const directionalLight2 = new THREE.DirectionalLight(0xffffff, 0.3);
-        directionalLight2.position.set(-3, -3, -3);
-        scene.add(directionalLight2);
-
-        // Add rim light for better edge definition
-        const rimLight = new THREE.DirectionalLight(0xffffff, 0.2);
-        rimLight.position.set(0, 0, -5);
-        scene.add(rimLight);
-
-        // Add a subtle ground plane for depth reference
-        const groundGeometry = new THREE.PlaneGeometry(20, 20);
-        const groundMaterial = new THREE.ShadowMaterial({
-            opacity: 0.1,
-            color: 0x000000
-        });
-        const ground = new THREE.Mesh(groundGeometry, groundMaterial);
-        ground.rotation.x = -Math.PI / 2;
-        ground.position.y = -2;
-        ground.receiveShadow = true;
-        scene.add(ground);
 
         // Load PLY mesh
         const loader = new THREE.PLYLoader();
@@ -429,36 +388,25 @@
                 const colors = [];
                 const color = new THREE.Color();
                 for (let i = 0; i < geometry.attributes.position.count; i++) {
-                    color.setRGB(0.7, 0.7, 0.8); // Light gray-blue color
+                    color.setRGB(0.6, 0.6, 0.7); // Simple gray-blue color
                     colors.push(color.r, color.g, color.b);
                 }
                 geometry.setAttribute('color', new THREE.Float32BufferAttribute(colors, 3));
 
-                // Ensure normals are computed for proper shading
-                if (!geometry.attributes.normal) {
-                    geometry.computeVertexNormals();
-                }
-
-                // Create material and mesh
-                const material = new THREE.MeshPhongMaterial({
+                // Create simple material and mesh
+                const material = new THREE.MeshBasicMaterial({
                     vertexColors: true,
-                    side: THREE.DoubleSide,
-                    shininess: 100,
-                    specular: new THREE.Color(0x222222),
-                    emissive: new THREE.Color(0x000000),
-                    flatShading: false
+                    side: THREE.DoubleSide
                 });
 
                 mesh = new THREE.Mesh(geometry, material);
-                mesh.castShadow = true;
-                mesh.receiveShadow = true;
                 scene.add(mesh);
 
                 // Add wireframe to see vertices better
                 const wireframeGeometry = new THREE.WireframeGeometry(geometry);
                 const wireframeMaterial = new THREE.LineBasicMaterial({
-                    color: 0x888888,  // Darker gray for better contrast on white
-                    opacity: 0.2,
+                    color: 0x444444,  // Dark gray
+                    opacity: 0.5,
                     transparent: true
                 });
                 const wireframe = new THREE.LineSegments(wireframeGeometry, wireframeMaterial);
@@ -509,7 +457,7 @@
             const colorAttribute = geometry.attributes.color;
             const color = new THREE.Color();
             for (let i = 0; i < colorAttribute.count; i++) {
-                color.setRGB(0.7, 0.7, 0.8); // Light gray-blue color
+                color.setRGB(0.6, 0.6, 0.7); // Simple gray-blue color
                 colorAttribute.setXYZ(i, color.r, color.g, color.b);
             }
             colorAttribute.needsUpdate = true;
@@ -600,7 +548,7 @@
                 const y = (-vector.y * 0.5 + 0.5) * window.innerHeight;
 
                 if (x >= minX && x <= maxX && y >= minY && y <= maxY) {
-                    colorAttribute.setXYZ(i, 0.9, 0.1, 0.1); // Bright red color for selected vertices
+                    colorAttribute.setXYZ(i, 1, 0, 0); // Pure red for selected vertices
                 }
             }
 
