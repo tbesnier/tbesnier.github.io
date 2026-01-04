@@ -9,8 +9,7 @@ profile:
   image: photo.jpeg
   image_circular: True # crops the image to make it circular
   more_info: >
-    <p>Øster Voldgade 3</p>
-    <p>Copenhagen, Denmark</p>
+    <p>Øster Voldgade 3, Copenhagen, Denmark</p>
 
 news: true # includes a list of news items
 selected_papers: true # includes a list of papers marked as "selected={true}"
