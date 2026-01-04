@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-Attending ECCV in Milan to present _ScanTalk: 3D Talking Heads from Unregistered Scans_ !
+Attending [ECCV in Milan](https://eccv.ecva.net/Conferences/2024) to present _ScanTalk: 3D Talking Heads from Unregistered Scans_ !
