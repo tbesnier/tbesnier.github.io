@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-subtitle: 
+subtitle:
 
 profile:
   align: right
@@ -17,7 +17,7 @@ social: true # includes social icons at the bottom of the page
 ---
 
 Freshly graduated from [CRIStAL](https://www.cristal.univ-lille.fr/?rubrique9) at the University of Lille, in France. I am working on developping algorithms and new
-methods for 3D/4D deformation models of non-rigid shapes. My work was supervised by Prof. [Mohamed Daoudi](https://scholar.google.com/citations?user=7UoD6McAAAAJ&hl=en) (IMT Nord-Europe) and 
+methods for 3D/4D deformation models of non-rigid shapes. My work was supervised by Prof. [Mohamed Daoudi](https://scholar.google.com/citations?user=7UoD6McAAAAJ&hl=en) (IMT Nord-Europe) and
 [Sylvain Arguillère](https://cv.hal.science/sylvain-arguillere) (Laboratoire Painlevé, CNRS).
 
 I am currently enrolled as a Postdoc at the University of Copenhagen, in the [Pioneer Centre for AI](https://www.aicentre.dk/people) under the supervision of [Stefan Sommer](https://scholar.google.com/citations?user=GGh0haAAAAAJ&hl=da).

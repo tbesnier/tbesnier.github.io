@@ -16,4 +16,3 @@ TP 2: Traitement de texte - [Correction](/assets/html/web_course/TP2/index_TP2.h
 TP 3: Site web perso - [Correction](/assets/html/web_course/TP3/index_TP3.html)
 
 TP 4: Grille de pixels - [Correction](/assets/html/web_course/TP4/index_TP4.html)
-

@@ -26,20 +26,20 @@
         {% endif %}
       {% endif %}
       {% if entry.category %}
-          {% assign category_class = entry.category | downcase | replace: " ", "-" %}
-          {% assign display_category = entry.category %}
+        {% assign category_class = entry.category | downcase | replace: ' ', '-' %}
+        {% assign display_category = entry.category %}
 
-          {% if category_class == "journal-articles" %}
-            {% assign display_category = "Journal" %}
-          {% elsif category_class == "conference-papers" %}
-            {% assign display_category = "Conference" %}
-          {% elsif category_class == "preprints" %}
-            {% assign display_category = "Preprint" %}
-          {% endif %}
+        {% if category_class == 'journal-articles' %}
+          {% assign display_category = 'Journal' %}
+        {% elsif category_class == 'conference-papers' %}
+          {% assign display_category = 'Conference' %}
+        {% elsif category_class == 'preprints' %}
+          {% assign display_category = 'Preprint' %}
+        {% endif %}
 
-          <div class="publication-category {{ category_class }}">
-            <strong>{{ display_category }}</strong>
-          </div>
+        <div class="publication-category {{ category_class }}">
+          <strong>{{ display_category }}</strong>
+        </div>
       {% endif %}
       {% if entry.preview %}
         {% if entry.preview contains '://' %}

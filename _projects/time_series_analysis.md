@@ -6,5 +6,3 @@ img: ../assets/img/courses_preview/time_series.jpg
 importance: 3
 category: IS2A5
 ---
-
-

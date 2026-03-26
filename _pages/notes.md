@@ -30,5 +30,4 @@ pagination:
   </div>
   {% endif %}
 
-
 </div>

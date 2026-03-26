@@ -81,21 +81,13 @@
       "name": "Mathematics",
       "level": "Master",
       "icon": "fa-solid fa-hashtag",
-      "keywords": [
-        "Differential Geometry",
-        "Functional analysis",
-        "Probability theory"
-      ]
+      "keywords": ["Differential Geometry", "Functional analysis", "Probability theory"]
     },
     {
       "name": "Computer Science",
       "level": "Master",
       "icon": "fa-solid fa-hashtag",
-      "keywords": [
-        "Deep learning",
-        "Python",
-        "C++"
-      ]
+      "keywords": ["Deep learning", "Python", "C++"]
     }
   ],
   "languages": [
@@ -114,10 +106,7 @@
     {
       "name": "Physics",
       "icon": "fa-solid fa-tag",
-      "keywords": [
-        "Celestial Mechanics",
-        "Quantum Mechanics"
-      ]
+      "keywords": ["Celestial Mechanics", "Quantum Mechanics"]
     }
   ],
   "references": [

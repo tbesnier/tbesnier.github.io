@@ -43,4 +43,3 @@ TP4: [Sujet](https://drive.google.com/file/d/1LzFspV3eWKa5yQcOhKO4LXNaUA1cHzYG/v
 ## Références
 
 Excellentes vidéos de Grant Sanderson pour visualiser ce qui se passe: [3Blue1Brown - YouTube](https://www.youtube.com/watch?v=aircAruvnKk&list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi)
-
