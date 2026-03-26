@@ -3,95 +3,130 @@
   contents:
     - name: Full Name
       value: Thomas Besnier
-    - name: Date of Birth
-      value: 23rd January 1998
-    - name: Languages
-      value: French, English
+    - name: Email
+      value: thobsn1@gmail.com
+    - name: Website
+      value: https://tbesnier.github.io/
+    - name: X
+      value: "@ThomasBesnier11"
+
+- title: Employment History
+  type: time_table
+  contents:
+    - title: Postdoc
+      institution: Pioneer Centre for AI, University of Copenhagen, DK
+      year: Jan 2026 - Dec 2027
+    - title: Visiting Scholar
+      institution: Center for Imaging Science (CIS), Johns Hopkins University, US
+      year: May 2023 - Jul 2023
+    - title: Ph.D.
+      institution: CRIStAL, University of Lille, FR
+      year: Nov 2022 - Nov 2025
+    - title: Research Internship
+      institution: DIKU, University of Copenhagen, DK
+      year: Apr 2022 - Sep 2022
+    - title: Data Scientist Intern
+      institution: Electro Depot (retail company)
+      year: Feb 2020 - Jan 2021
 
 - title: Education
   type: time_table
   contents:
-    - title: PhD
-      institution: University of Lille, Lille, France
+    - title: Ph.D.
+      institution: University of Lille
       year: 2022 - 2025
       description:
-        - Description 1.
-        - Description 2.
-        - title: Description 3.
-          contents:
-            - Sub-description 1.
-            - Sub-description 2.
-    - title: Federal teaching diploma
-      institution: Eidgenössische Technische Hochschule, Zurich, Switzerland
-      year: 1900
+        - "Thesis title: Reparametrization invariance in geometric deep learning: applications to human body and face motion synthesis."
+    - title: M.Sc. Computer Science Engineering
+      institution: Centrale Lille Institut
+      year: 2018 - 2022
       description:
-        - Description 1.
-        - Description 2.
-
-- title: Experience
-  type: time_table
-  contents:
-    - title: Professor of Theoretical Physics
-      institution: Institute for Advanced Study, Princeton University
-      year: 1933 - 1955
+        - "Research internship title: On stochastic shape analysis and applications to phylogenetics."
+    - title: M.Sc. Mathematics
+      institution: University of Lille
+      year: 2018 - 2022
       description:
-        - Description 1.
-        - Description 2.
-        - title: Description 3.
-          contents:
-            - Sub-description 1.
-            - Sub-description 2.
-    - title: Visiting Professor
-      institution: California Institute of Technology, Pasadena, California, US
-      year: 1933
-      description:
-        - Description 1.
-        - Description 2.
+        - "Thesis title: On reparameterization invariance and applications to geometric neural networks."
 
-    - title: Director
-      institution: Kaiser Wilhelm Institute for Physics, Berlin, Germany.
-      year: 1917-1933
-
-    - title: Professor of Theoretical Physics
-      institution: Karl-Ferdinand University, Prague, Czechoslovakia
-      year: 1911 - 1917
-      description:
-
-    - title: Associate Professor of Theoretical Physics
-      institution: University of Zurich, Zurich, Switzerland
-      year: 1909 - 1911
-
-- title: Open Source Projects
-  type: time_table
-  contents:
-    - title: <a href="https://github.com/alshedivat/al-folio">al-folio</a>
-      year: 2015-now
-      description: A beautiful, simple, clean, and responsive Jekyll theme for academics.
-
-- title: Honors and Awards
-  type: time_table
-  contents:
-    - year: 1921
-      items:
-        - Nobel Prize in Physics
-        - Matteucci Medal
-    - year: 2029
-      items:
-        - Max Planck Medal
-
-- title: Academic Interests
+- title: Research Publications
   type: nested_list
   contents:
-    - title: Topic 1.
+    - title: Preprint
       items:
-        - Description 1.
-        - Description 2.
-    - title: Topic 2.
+        - 'F. Nocentini, T. Besnier, C. Ferrari, S. Berretti, and M. Daoudi, "Freetalk: Emotional topology-free 3D talking heads," 2026. arXiv: 2603.15512 [cs.CV]. URL: https://arxiv.org/abs/2603.15512.'
+    - title: Journal Articles
       items:
-        - Description 1.
-        - Description 2.
+        - 'F. Nocentini, T. Besnier, C. Ferrari, S. Arguillere, S. Berretti, and M. Daoudi, "Beyond fixed topologies: Unregistered training and comprehensive evaluation metrics for 3D talking heads," International Journal of Computer Vision, vol. 134, 2026. eprint: 2410.11041 [cs.CV]. URL: https://link.springer.com/article/10.1007/s11263-025-02726-7.'
+        - 'T. Besnier, S. Arguillere, and M. Daoudi, "Scanmove: Motion prediction and transfer for unregistered body meshes," Computers & Graphics, vol. 132, p. 104409, 2025. DOI: https://doi.org/10.1016/j.cag.2025.104409.'
+        - 'T. Besnier, E. Pierson, S. Arguillere, and M. Daoudi, "Toward mesh-invariant 3D generative deep learning with geometric measures," Computers & Graphics, 2023. DOI: https://doi.org/10.1016/j.cag.2023.06.027.'
+    - title: Conference Proceedings
+      items:
+        - 'T. Besnier, E. Pierson, S. Arguillere, M. Ovsjanikov, and M. Daoudi, "Partial non-rigid deformations and interpolations of human body surfaces," in Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), 2026. arXiv: 2412.02306 [cs.CV]. URL: https://arxiv.org/abs/2412.02306.'
+        - 'F. Nocentini, T. Besnier, C. Ferrari, S. Arguillere, S. Berretti, and M. Daoudi, "Scantalk: 3D talking heads from unregistered scans," in Proceedings of the European Conference on Computer Vision (ECCV), 2024.'
+        - 'E. Baker, T. Besnier, and S. Sommer, "A function space perspective on stochastic shape evolution," in Image Analysis, R. Gade, M. Felsberg, and J.-K. Kamarainen, Eds., Cham: Springer Nature Switzerland, 2023, pp. 278-292.'
+        - 'E. Pierson, T. Besnier, M. Daoudi, and S. Arguillere, "Parameterization Robustness of 3D Auto-Encoders," in Eurographics Workshop on 3D Object Retrieval, S. Berretti, T. Theoharis, M. Daoudi, C. Ferrari, and R. C. Veltkamp, Eds., The Eurographics Association, 2022. DOI: 10.2312/3dor.20221180.'
 
-- title: Other Interests
+- title: Skills
+  type: map
+  contents:
+    - name: Languages
+      value: Strong reading, writing and speaking competencies in English and French (mother tongue).
+    - name: Coding
+      value: Python, C++, SQL, LaTeX, ...
+    - name: Databases
+      value: MySQL, PostgreSQL, SparkSQL
+    - name: Web Dev
+      value: HTML, CSS, JavaScript
+    - name: Misc.
+      value: Academic research, teaching, LaTeX typesetting and publishing.
+
+- title: Teaching
+  type: time_table
+  contents:
+    - title: Time Series Analysis
+      institution: Teaching Assistant
+      maindescription: 12h
+    - title: Web Development
+      institution: Teaching Assistant
+      maindescription: 32h
+    - title: Machine Learning
+      institution: Teaching Assistant
+      maindescription: 10h
+    - title: Databases
+      institution: Teaching Assistant
+      maindescription: 12h
+    - title: Introduction to Deep Learning
+      institution: Lead Instructor
+      maindescription: 20h
+
+- title: Professional Service
+  type: time_table
+  contents:
+    - title: 3DOR2023
+      institution: Conference Event Organization
+      year: 2023
+      description:
+        - "Local organizer for the Symposium on 3D Object Retrieval 2023 (3DOR'23)."
+    - title: Joint CAP/RFIAP 2024
+      institution: Conference Event Organization
+      year: 2024
+      description:
+        - "Local organizer for CAP (Conference sur l'Apprentissage automatique) and RFIAP (Reconnaissance des Formes, Image, Apprentissage et Perception), held on July 1st-3rd 2024."
+    - title: FG 2025
+      institution: Conference Event Organization
+      year: 2025
+      description:
+        - "Web Chair for the 19th IEEE International Conference on Automatic Face and Gesture Recognition (FG 2025)."
+
+- title: Talks
   type: list
   contents:
-    - <u>Hobbies:</u> Hobby 1, Hobby 2, etc.
+    - Geometry for Statistics and AI (G-StAI) workshop. On robust learning of surface deformations.
+
+- title: Reviewing Experience
+  type: list
+  contents:
+    - Computers & Graphics
+    - IEEE Transactions on Circuits and Systems for Video Technology
+    - Computer Vision and Image Understanding (CVIU)
+    - IEEE International Conference on Automatic Face and Gesture Recognition (FG)
