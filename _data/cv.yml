@@ -2,7 +2,8 @@
   type: map
   contents:
     - name: Full Name
-      value: Thomas Besn    - name: Email
+      value: Thomas Besn    
+    - name: Email
       value: thobsn1@gmail.com
     - name: Website
       value: https://tbesnier.github.io/
