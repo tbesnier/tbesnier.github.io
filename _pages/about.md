@@ -12,6 +12,7 @@ profile:
     <p>Øster Voldgade 3, Copenhagen, Denmark</p>
 
 news: true # includes a list of news items
+ongoing_projects: true
 selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
 ---
@@ -21,7 +22,3 @@ methods for 3D/4D deformation models of non-rigid shapes. My work was supervised
 [Sylvain Arguillère](https://cv.hal.science/sylvain-arguillere) (Laboratoire Painlevé, CNRS).
 
 I am currently enrolled as a Postdoc at the University of Copenhagen, in the [Pioneer Centre for AI](https://www.aicentre.dk/people) under the supervision of [Stefan Sommer](https://scholar.google.com/citations?user=GGh0haAAAAAJ&hl=da).
-
-## Ongoing Projects
-
-<!-- Intentionally left empty for now. -->

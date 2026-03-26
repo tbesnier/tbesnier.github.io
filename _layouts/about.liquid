@@ -56,6 +56,12 @@ layout: default
       {% include latest_posts.liquid %}
     {% endif %}
 
+    <!-- Ongoing projects -->
+    {% if page.ongoing_projects %}
+      <h2>ongoing projects</h2>
+      {% include ongoing_projects.liquid %}
+    {% endif %}
+
     <!-- Selected papers -->
     {% if page.selected_papers %}
       <h2>
