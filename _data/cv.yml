@@ -2,13 +2,10 @@
   type: map
   contents:
     - name: Full Name
-      value: Thomas Besnier
-    - name: Email
+      value: Thomas Besn    - name: Email
       value: thobsn1@gmail.com
     - name: Website
       value: https://tbesnier.github.io/
-    - name: X
-      value: "@ThomasBesnier11"
 
 - title: Employment History
   type: time_table
@@ -53,18 +50,18 @@
   contents:
     - title: Preprint
       items:
-        - 'F. Nocentini, T. Besnier, C. Ferrari, S. Berretti, and M. Daoudi, "Freetalk: Emotional topology-free 3D talking heads," 2026. arXiv: 2603.15512 [cs.CV]. URL: https://arxiv.org/abs/2603.15512.'
+        - "F. Nocentini, T. Besnier, C. Ferrari, S. Berretti, and M. Daoudi, \"Freetalk: Emotional topology-free 3D talking heads,\" 2026. arXiv: 2603.15512 [cs.CV]. URL: https://arxiv.org/abs/2603.15512."
     - title: Journal Articles
       items:
-        - 'F. Nocentini, T. Besnier, C. Ferrari, S. Arguillere, S. Berretti, and M. Daoudi, "Beyond fixed topologies: Unregistered training and comprehensive evaluation metrics for 3D talking heads," International Journal of Computer Vision, vol. 134, 2026. eprint: 2410.11041 [cs.CV]. URL: https://link.springer.com/article/10.1007/s11263-025-02726-7.'
-        - 'T. Besnier, S. Arguillere, and M. Daoudi, "Scanmove: Motion prediction and transfer for unregistered body meshes," Computers & Graphics, vol. 132, p. 104409, 2025. DOI: https://doi.org/10.1016/j.cag.2025.104409.'
-        - 'T. Besnier, E. Pierson, S. Arguillere, and M. Daoudi, "Toward mesh-invariant 3D generative deep learning with geometric measures," Computers & Graphics, 2023. DOI: https://doi.org/10.1016/j.cag.2023.06.027.'
+        - "F. Nocentini, T. Besnier, C. Ferrari, S. Arguillere, S. Berretti, and M. Daoudi, \"Beyond fixed topologies: Unregistered training and comprehensive evaluation metrics for 3D talking heads,\" International Journal of Computer Vision, vol. 134, 2026. eprint: 2410.11041 [cs.CV]. URL: https://link.springer.com/article/10.1007/s11263-025-02726-7."
+        - "T. Besnier, S. Arguillere, and M. Daoudi, \"Scanmove: Motion prediction and transfer for unregistered body meshes,\" Computers & Graphics, vol. 132, p. 104409, 2025. DOI: https://doi.org/10.1016/j.cag.2025.104409."
+        - "T. Besnier, E. Pierson, S. Arguillere, and M. Daoudi, \"Toward mesh-invariant 3D generative deep learning with geometric measures,\" Computers & Graphics, 2023. DOI: https://doi.org/10.1016/j.cag.2023.06.027."
     - title: Conference Proceedings
       items:
-        - 'T. Besnier, E. Pierson, S. Arguillere, M. Ovsjanikov, and M. Daoudi, "Partial non-rigid deformations and interpolations of human body surfaces," in Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), 2026. arXiv: 2412.02306 [cs.CV]. URL: https://arxiv.org/abs/2412.02306.'
-        - 'F. Nocentini, T. Besnier, C. Ferrari, S. Arguillere, S. Berretti, and M. Daoudi, "Scantalk: 3D talking heads from unregistered scans," in Proceedings of the European Conference on Computer Vision (ECCV), 2024.'
-        - 'E. Baker, T. Besnier, and S. Sommer, "A function space perspective on stochastic shape evolution," in Image Analysis, R. Gade, M. Felsberg, and J.-K. Kamarainen, Eds., Cham: Springer Nature Switzerland, 2023, pp. 278-292.'
-        - 'E. Pierson, T. Besnier, M. Daoudi, and S. Arguillere, "Parameterization Robustness of 3D Auto-Encoders," in Eurographics Workshop on 3D Object Retrieval, S. Berretti, T. Theoharis, M. Daoudi, C. Ferrari, and R. C. Veltkamp, Eds., The Eurographics Association, 2022. DOI: 10.2312/3dor.20221180.'
+        - "T. Besnier, E. Pierson, S. Arguillere, M. Ovsjanikov, and M. Daoudi, \"Partial non-rigid deformations and interpolations of human body surfaces,\" in Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), 2026. arXiv: 2412.02306 [cs.CV]. URL: https://arxiv.org/abs/2412.02306."
+        - "F. Nocentini, T. Besnier, C. Ferrari, S. Arguillere, S. Berretti, and M. Daoudi, \"Scantalk: 3D talking heads from unregistered scans,\" in Proceedings of the European Conference on Computer Vision (ECCV), 2024."
+        - "E. Baker, T. Besnier, and S. Sommer, \"A function space perspective on stochastic shape evolution,\" in Image Analysis, R. Gade, M. Felsberg, and J.-K. Kamarainen, Eds., Cham: Springer Nature Switzerland, 2023, pp. 278-292."
+        - "E. Pierson, T. Besnier, M. Daoudi, and S. Arguillere, \"Parameterization Robustness of 3D Auto-Encoders,\" in Eurographics Workshop on 3D Object Retrieval, S. Berretti, T. Theoharis, M. Daoudi, C. Ferrari, and R. C. Veltkamp, Eds., The Eurographics Association, 2022. DOI: 10.2312/3dor.20221180."
 
 - title: Skills
   type: map
