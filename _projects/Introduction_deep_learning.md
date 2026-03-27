@@ -8,7 +8,7 @@ category: IS5 Polytech Lille
 related_publications: false
 ---
 
-Ce cours est dispensé à Polytech Lille, Master 2 en 2024. Il aborde les principes de bases du deep learning
+Ce cours est dispensé en dernière année (Master 2) à [Polytech Lille](https://www.polytech-lille.fr/) en 2024. Il aborde les principes de bases du deep learning
 et son utilisation en tant qu'outil dans différents domaine tels que la vision par ordinateur (images, vidéos)
 et la compréhension de texte.
 
