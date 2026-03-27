@@ -40,39 +40,6 @@ body.sticky-bottom-footer {
 
 // TODO: redefine content layout.
 
-/******************************************************************************
- * Publications
- ******************************************************************************/
-.publication-category {
-  font-size: 14px;
-  font-weight: bold;
-  color: white;
-  text-align: center;
-  padding: 5px 10px;
-  border-radius: 5px;
-  display: inline-block;
-}
-
-/* Category-specific colors */
-.preprints {
-  background-color: #e74c3c; /* Red */
-}
-
-.journal-articles {
-  background-color: #f1c40f; /* Yellow */
-  color: black; /* Ensure readability on yellow */
-}
-
-.conference-papers {
-  background-color: #3498db; /* Blue */
-}
-
-.workshop-communications {
-  background-color: #2980b9; /* Blue */
-}
-
-// TODO: redefine publications layout.
-
 /*****************************************************************************
 * Projects
 *****************************************************************************/

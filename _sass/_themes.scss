@@ -21,6 +21,14 @@
   --global-back-to-top-text-color: #{$white-color};
   --global-newsletter-bg-color: #fbfbf8;
   --global-newsletter-text-color: #111111;
+  --pub-category-journal-bg: #d8ddd9;
+  --pub-category-journal-text: #161616;
+  --pub-category-conference-bg: #d7dce4;
+  --pub-category-conference-text: #161616;
+  --pub-category-preprint-bg: #e2d8d3;
+  --pub-category-preprint-text: #161616;
+  --pub-category-workshop-bg: #ddd8e5;
+  --pub-category-workshop-text: #161616;
 
   --global-tip-block: #42b983;
   --global-tip-block-bg: #e2f5ec;
@@ -85,6 +93,14 @@ html[data-theme="dark"] {
   --global-back-to-top-text-color: #{$black-color};
   --global-newsletter-bg-color: #{$grey-color-light};
   --global-newsletter-text-color: #{$grey-color-dark};
+  --pub-category-journal-bg: #2d342f;
+  --pub-category-journal-text: #edf2ee;
+  --pub-category-conference-bg: #293140;
+  --pub-category-conference-text: #eef3ff;
+  --pub-category-preprint-bg: #3a2c28;
+  --pub-category-preprint-text: #fff1ec;
+  --pub-category-workshop-bg: #342d3c;
+  --pub-category-workshop-text: #f3ecff;
 
   --global-tip-block: #42b983;
   --global-tip-block-bg: #e2f5ec;

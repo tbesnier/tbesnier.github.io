@@ -1219,9 +1219,37 @@ footer.sticky-bottom {
       }
 
       .publication-category {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 1.9rem;
+        padding: 0.3rem 0.7rem;
+        border-radius: 999px;
+        background: color-mix(in srgb, var(--global-text-color) 6%, var(--global-bg-color));
+        color: var(--global-text-color-light);
         font-size: 0.74rem;
         letter-spacing: 0.04em;
         text-transform: uppercase;
+
+        &.journal-articles {
+          background: var(--pub-category-journal-bg);
+          color: var(--pub-category-journal-text);
+        }
+
+        &.conference-papers {
+          background: var(--pub-category-conference-bg);
+          color: var(--pub-category-conference-text);
+        }
+
+        &.preprints {
+          background: var(--pub-category-preprint-bg);
+          color: var(--pub-category-preprint-text);
+        }
+
+        &.workshop-communications {
+          background: var(--pub-category-workshop-bg);
+          color: var(--pub-category-workshop-text);
+        }
       }
 
       .publication-year {
