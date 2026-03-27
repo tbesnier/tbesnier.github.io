@@ -1,7 +1,8 @@
 ---
 layout: default
 permalink: /blog/
-title: Blog
+title: Research Notes
+nav_title: Blog
 nav: true
 nav_order: 1
 ---
