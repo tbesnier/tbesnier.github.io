@@ -1,7 +1,7 @@
 ---
 layout: default
-permalink: /notes/
-title: Research Notes
+permalink: /blog/
+title: Blog
 nav: true
 nav_order: 1
 ---

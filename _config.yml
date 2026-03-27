@@ -176,7 +176,7 @@ collections:
     permalink: /:collection/:title/
   notes:
     output: true
-    permalink: /notes/:title/
+    permalink: /blog/:title/
 
 announcements:
   enabled: true
