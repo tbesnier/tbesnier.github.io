@@ -124,8 +124,8 @@ bing_site_verification: # out your bing-site-verification ID (Bing Webmaster)
 # Blog
 # -----------------------------------------------------------------------------
 
-blog_name: Notes # blog_name will be displayed in your blog page
-blog_description: Random notes about random stuff
+blog_name: Research Notes # blog_name will be displayed in your blog page
+blog_description: Visual and technical essays on shape analysis, deformation modeling, and 3D generative methods
 permalink: /blog/:year/:title/
 lsi: false # produce an index for related posts
 
