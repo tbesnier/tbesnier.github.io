@@ -6,6 +6,8 @@ categories: [Statistical Shape Analysis]
 tags: [kendall shape space, procrustes analysis, landmarks, shape statistics, geometry]
 keywords: [Kendall shape space, statistical shape analysis, Procrustes distance, landmark configurations, shape manifolds]
 description: "A structured sketch of the main ideas behind Kendall shape space: from landmark configurations and pre-shapes to quotient geometry, distances, and statistical summaries."
+preview_image: /assets/img/blog/kendall-shape-space-preview.svg
+preview_alt: "Preview illustration for Kendall shape space with landmark constellations, a pre-shape sphere, and quotient geometry cues"
 featured: true
 reading_time: 12 min
 difficulty: Advanced

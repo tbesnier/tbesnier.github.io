@@ -3,40 +3,50 @@
 {% if note_category == blank and note.category %}
   {% assign note_category = note.category %}
 {% endif %}
+{% assign note_preview = note.preview_image | default: note.image %}
+{% assign note_preview_alt = note.preview_alt | default: note.title %}
 
 <article class="note-card{% if include.compact %} compact{% endif %}">
-  <div class="note-card-top">
-    {% if note_category %}
-      <span class="note-card-kicker">{{ note_category }}</span>
-    {% endif %}
-    {% if note.difficulty %}
-      <span class="note-card-chip">{{ note.difficulty }}</span>
-    {% endif %}
-  </div>
-
-  <h3 class="note-card-title">
-    <a href="{{ note.url | relative_url }}">{{ note.title }}</a>
-  </h3>
-
-  {% if note.description %}
-    <p class="note-card-summary">{{ note.description }}</p>
+  {% if note_preview %}
+    <a class="note-card-figure" href="{{ note.url | relative_url }}" aria-label="{{ note.title | escape }}">
+      <img src="{{ note_preview | relative_url }}" alt="{{ note_preview_alt | escape }}" loading="lazy">
+    </a>
   {% endif %}
 
-  <div class="note-card-meta">
-    <span>{{ note.date | date: '%b %d, %Y' }}</span>
-    {% if note.reading_time %}
-      <span>{{ note.reading_time }} read</span>
-    {% endif %}
-    {% if note.series %}
-      <span>{{ note.series }}</span>
-    {% endif %}
-  </div>
-
-  {% if note.tags %}
-    <div class="note-card-tags">
-      {% for tag in note.tags limit: 4 %}
-        <span>{{ tag }}</span>
-      {% endfor %}
+  <div class="note-card-body">
+    <div class="note-card-top">
+      {% if note_category %}
+        <span class="note-card-kicker">{{ note_category }}</span>
+      {% endif %}
+      {% if note.difficulty %}
+        <span class="note-card-chip">{{ note.difficulty }}</span>
+      {% endif %}
     </div>
-  {% endif %}
+
+    <h3 class="note-card-title">
+      <a href="{{ note.url | relative_url }}">{{ note.title }}</a>
+    </h3>
+
+    {% if note.description %}
+      <p class="note-card-summary">{{ note.description }}</p>
+    {% endif %}
+
+    <div class="note-card-meta">
+      <span>{{ note.date | date: '%b %d, %Y' }}</span>
+      {% if note.reading_time %}
+        <span>{{ note.reading_time }} read</span>
+      {% endif %}
+      {% if note.series %}
+        <span>{{ note.series }}</span>
+      {% endif %}
+    </div>
+
+    {% if note.tags %}
+      <div class="note-card-tags">
+        {% for tag in note.tags limit: 4 %}
+          <span>{{ tag }}</span>
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
 </article>

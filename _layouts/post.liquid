@@ -8,6 +8,8 @@ layout: default
 {% if page.collection == 'notes' %}
   {% assign is_note = true %}
 {% endif %}
+{% assign note_preview = page.preview_image | default: page.image %}
+{% assign note_preview_alt = page.preview_alt | default: page.title %}
 
 {% if page._styles %}
   <!-- Page/Post style -->
@@ -20,50 +22,58 @@ layout: default
 
 <div class="post{% if is_note %} post-shell research-note{% endif %}">
   {% if is_note %}
-    <header class="post-header note-post-header">
-      <div class="post-kicker-row">
-        <span class="post-kicker">{{ page.eyebrow | default: 'Research Note' }}</span>
-        {% if page.series %}
-          <span class="post-chip subtle">{{ page.series }}</span>
-        {% endif %}
-      </div>
-
-      <h1 class="post-title">{{ page.title }}</h1>
-
-      {% if page.description %}
-        <p class="post-deck">{{ page.description }}</p>
-      {% endif %}
-
-      <div class="post-meta-row">
-        <span class="post-chip">{{ page.date | date: '%B %d, %Y' }}</span>
-        {% if page.reading_time %}
-          <span class="post-chip">{{ page.reading_time }} read</span>
-        {% endif %}
-        {% if page.difficulty %}
-          <span class="post-chip">{{ page.difficulty }}</span>
-        {% endif %}
-        {% if page.meta %}
-          <span class="post-chip">{{ page.meta }}</span>
-        {% endif %}
-      </div>
-
-      {% if page.tags %}
-        <div class="post-topic-row">
-          {% for tag in page.tags %}
-            <span class="post-topic">{{ tag }}</span>
-          {% endfor %}
+    <header class="post-header note-post-header{% if note_preview %} has-preview{% endif %}">
+      <div class="note-post-header-copy">
+        <div class="post-kicker-row">
+          <span class="post-kicker">{{ page.eyebrow | default: 'Research Note' }}</span>
+          {% if page.series %}
+            <span class="post-chip subtle">{{ page.series }}</span>
+          {% endif %}
         </div>
-      {% endif %}
 
-      {% if page.key_takeaways %}
-        <div class="post-takeaways">
-          <p class="post-takeaways-label">What this note covers</p>
-          <ul>
-            {% for takeaway in page.key_takeaways %}
-              <li>{{ takeaway }}</li>
+        <h1 class="post-title">{{ page.title }}</h1>
+
+        {% if page.description %}
+          <p class="post-deck">{{ page.description }}</p>
+        {% endif %}
+
+        <div class="post-meta-row">
+          <span class="post-chip">{{ page.date | date: '%B %d, %Y' }}</span>
+          {% if page.reading_time %}
+            <span class="post-chip">{{ page.reading_time }} read</span>
+          {% endif %}
+          {% if page.difficulty %}
+            <span class="post-chip">{{ page.difficulty }}</span>
+          {% endif %}
+          {% if page.meta %}
+            <span class="post-chip">{{ page.meta }}</span>
+          {% endif %}
+        </div>
+
+        {% if page.tags %}
+          <div class="post-topic-row">
+            {% for tag in page.tags %}
+              <span class="post-topic">{{ tag }}</span>
             {% endfor %}
-          </ul>
-        </div>
+          </div>
+        {% endif %}
+
+        {% if page.key_takeaways %}
+          <div class="post-takeaways">
+            <p class="post-takeaways-label">What this note covers</p>
+            <ul>
+              {% for takeaway in page.key_takeaways %}
+                <li>{{ takeaway }}</li>
+              {% endfor %}
+            </ul>
+          </div>
+        {% endif %}
+      </div>
+
+      {% if note_preview %}
+        <figure class="note-post-preview">
+          <img src="{{ note_preview | relative_url }}" alt="{{ note_preview_alt | escape }}" loading="eager">
+        </figure>
       {% endif %}
     </header>
   {% else %}
