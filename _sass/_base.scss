@@ -49,17 +49,17 @@ table.table a {
   }
 }
 
-.clearfix a:not(.btn):not(.badge),
-#markdown-content a:not(.btn):not(.badge) {
-  color: var(--global-link-color);
-  font-weight: 700;
+.post article .clearfix a:not(.btn):not(.badge),
+.post article #markdown-content a:not(.btn):not(.badge) {
+  color: var(--global-link-color) !important;
+  font-weight: 700 !important;
   text-decoration: underline;
   text-decoration-color: color-mix(in srgb, currentColor 38%, transparent);
   text-decoration-thickness: 0.08em;
   text-underline-offset: 0.16em;
 
   &:hover {
-    color: var(--global-link-hover-color);
+    color: var(--global-link-hover-color) !important;
     text-decoration-color: currentColor;
   }
 }
