@@ -1,0 +1,109 @@
+<svg width="1200" height="750" viewBox="0 0 1200 750" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="72" y1="64" x2="1125" y2="700" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#f6f7f8" />
+      <stop offset="1" stop-color="#dee2e6" />
+    </linearGradient>
+    <linearGradient id="panel" x1="128" y1="118" x2="1056" y2="614" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#ffffff" stop-opacity="0.96" />
+      <stop offset="1" stop-color="#f0f2f4" stop-opacity="0.98" />
+    </linearGradient>
+    <linearGradient id="sphere" x1="689" y1="201" x2="981" y2="505" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#fdfdfd" />
+      <stop offset="1" stop-color="#d6dde2" />
+    </linearGradient>
+    <linearGradient id="accent" x1="264" y1="220" x2="884" y2="470" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#4c5a66" />
+      <stop offset="1" stop-color="#88939c" />
+    </linearGradient>
+    <filter id="shadow" x="93" y="83" width="1011" height="579" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feFlood flood-opacity="0" result="BackgroundImageFix" />
+      <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
+      <feOffset dy="14" />
+      <feGaussianBlur stdDeviation="17.5" />
+      <feComposite in2="hardAlpha" operator="out" />
+      <feColorMatrix type="matrix" values="0 0 0 0 0.117647 0 0 0 0 0.133333 0 0 0 0 0.14902 0 0 0 0.15 0" />
+      <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_0_1" />
+      <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_0_1" result="shape" />
+    </filter>
+  </defs>
+
+  <rect width="1200" height="750" rx="34" fill="url(#bg)" />
+
+  <g filter="url(#shadow)">
+    <rect x="128" y="118" width="944" height="512" rx="30" fill="url(#panel)" />
+    <rect x="128" y="118" width="944" height="512" rx="30" stroke="#C4CCD2" />
+  </g>
+
+  <g opacity="0.7">
+    <path d="M204 186H468" stroke="#CBD2D8" stroke-width="2" />
+    <path d="M204 564H468" stroke="#CBD2D8" stroke-width="2" />
+    <path d="M566 186H998" stroke="#CBD2D8" stroke-width="2" />
+    <path d="M566 564H998" stroke="#CBD2D8" stroke-width="2" />
+  </g>
+
+  <g opacity="0.72">
+    <rect x="188" y="160" width="120" height="34" rx="17" fill="#20242A" />
+    <text x="248" y="182" text-anchor="middle" fill="#F6F7F8" font-size="17" font-family="Georgia, 'Times New Roman', serif">landmarks</text>
+
+    <rect x="482" y="160" width="146" height="34" rx="17" fill="#4C5A66" />
+    <text x="555" y="182" text-anchor="middle" fill="#F6F7F8" font-size="17" font-family="Georgia, 'Times New Roman', serif">pre-shape sphere</text>
+
+    <rect x="884" y="160" width="98" height="34" rx="17" fill="#20242A" />
+    <text x="933" y="182" text-anchor="middle" fill="#F6F7F8" font-size="17" font-family="Georgia, 'Times New Roman', serif">quotient</text>
+  </g>
+
+  <g transform="translate(198 250)">
+    <path d="M0 160C44 62 129 18 220 0" stroke="#AEB7BF" stroke-width="2.5" stroke-dasharray="8 8" />
+    <path d="M22 126L126 26L204 86L177 181L78 198L22 126Z" stroke="#20242A" stroke-width="5" stroke-linejoin="round" />
+    <path d="M42 158L142 54L226 116L198 206L103 224L42 158Z" stroke="#7C8790" stroke-width="3.5" stroke-linejoin="round" />
+    <circle cx="22" cy="126" r="10" fill="#20242A" />
+    <circle cx="126" cy="26" r="10" fill="#20242A" />
+    <circle cx="204" cy="86" r="10" fill="#20242A" />
+    <circle cx="177" cy="181" r="10" fill="#20242A" />
+    <circle cx="78" cy="198" r="10" fill="#20242A" />
+    <circle cx="42" cy="158" r="8" fill="#7C8790" />
+    <circle cx="142" cy="54" r="8" fill="#7C8790" />
+    <circle cx="226" cy="116" r="8" fill="#7C8790" />
+    <circle cx="198" cy="206" r="8" fill="#7C8790" />
+    <circle cx="103" cy="224" r="8" fill="#7C8790" />
+  </g>
+
+  <g transform="translate(560 214)">
+    <circle cx="210" cy="170" r="148" fill="url(#sphere)" stroke="#B1BAC1" stroke-width="2.5" />
+    <ellipse cx="210" cy="170" rx="102" ry="148" stroke="#C7D0D6" stroke-width="2" />
+    <ellipse cx="210" cy="170" rx="148" ry="44" stroke="#C7D0D6" stroke-width="2" />
+    <path d="M96 117C155 150 229 152 314 124" stroke="#8A959E" stroke-width="3" stroke-linecap="round" />
+    <path d="M116 238C164 206 241 201 300 232" stroke="#4C5A66" stroke-width="4" stroke-linecap="round" />
+    <circle cx="120" cy="236" r="9" fill="#20242A" />
+    <circle cx="178" cy="141" r="9" fill="#20242A" />
+    <circle cx="245" cy="129" r="9" fill="#20242A" />
+    <circle cx="296" cy="224" r="9" fill="#20242A" />
+    <circle cx="222" cy="258" r="9" fill="#20242A" />
+    <circle cx="314" cy="124" r="7" fill="#7C8790" />
+    <circle cx="96" cy="117" r="7" fill="#7C8790" />
+  </g>
+
+  <g opacity="0.95">
+    <path d="M444 374H510" stroke="url(#accent)" stroke-width="5" stroke-linecap="round" />
+    <path d="M498 356L526 374L498 392" stroke="url(#accent)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" />
+    <path d="M918 374H982" stroke="url(#accent)" stroke-width="5" stroke-linecap="round" />
+    <path d="M970 356L998 374L970 392" stroke="url(#accent)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" />
+  </g>
+
+  <g transform="translate(916 252)">
+    <circle cx="0" cy="0" r="10" fill="#20242A" />
+    <circle cx="44" cy="66" r="10" fill="#20242A" />
+    <circle cx="-26" cy="112" r="10" fill="#20242A" />
+    <circle cx="62" cy="150" r="10" fill="#20242A" />
+    <circle cx="16" cy="214" r="10" fill="#20242A" />
+    <path d="M0 0L44 66L-26 112L62 150L16 214" stroke="#20242A" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" />
+    <path d="M-54 46C10 42 46 23 91 -35" stroke="#B3BBC2" stroke-width="2.5" stroke-dasharray="8 8" />
+    <path d="M-68 188C8 210 73 195 126 136" stroke="#B3BBC2" stroke-width="2.5" stroke-dasharray="8 8" />
+  </g>
+
+  <text x="171" y="604" fill="#20242A" font-size="42" font-family="Georgia, 'Times New Roman', serif">Kendall shape space</text>
+  <text x="173" y="636" fill="#66717A" font-size="22" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
+    landmarks • pre-shapes • quotient geometry • Procrustes distance
+  </text>
+</svg>
