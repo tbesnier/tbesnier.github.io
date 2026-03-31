@@ -679,11 +679,10 @@ footer.sticky-bottom {
   display: flex;
   flex-wrap: wrap;
   gap: 0.8rem;
-  margin-bottom: 1.6rem;
+  margin-bottom: 0;
 }
 
-.notes-primary-action,
-.notes-secondary-action {
+.notes-primary-action {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -692,9 +691,6 @@ footer.sticky-bottom {
   border-radius: 999px;
   border: 1px solid var(--notes-border);
   text-decoration: none;
-}
-
-.notes-primary-action {
   background: var(--global-theme-color);
   color: var(--global-bg-color);
 
@@ -705,17 +701,6 @@ footer.sticky-bottom {
   }
 }
 
-.notes-secondary-action {
-  background: var(--global-bg-color);
-  color: var(--global-text-color);
-
-  &:hover {
-    text-decoration: none;
-    border-color: var(--global-theme-color);
-  }
-}
-
-.notes-stat-grid,
 .note-card-grid,
 .concept-grid,
 .comparison-grid {
@@ -723,11 +708,6 @@ footer.sticky-bottom {
   gap: 1rem;
 }
 
-.notes-stat-grid {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-}
-
-.notes-stat-card,
 .concept-card,
 .comparison-card,
 .technical-callout {
@@ -735,23 +715,6 @@ footer.sticky-bottom {
   border-radius: 1.2rem;
   background: var(--notes-surface);
   box-shadow: 0 18px 40px -34px rgba(0, 0, 0, 0.45);
-}
-
-.notes-stat-card {
-  padding: 1rem;
-}
-
-.notes-stat-value {
-  display: block;
-  margin-bottom: 0.2rem;
-  font-size: 1.35rem;
-  font-weight: 700;
-}
-
-.notes-stat-label {
-  color: var(--global-text-color-light);
-  font-size: 0.92rem;
-  line-height: 1.5;
 }
 
 .notes-hero-panel {
@@ -839,6 +802,10 @@ footer.sticky-bottom {
   }
 }
 
+.notes-section-heading.simple {
+  grid-template-columns: 1fr;
+}
+
 .notes-section-copy {
   margin-bottom: 0;
   color: var(--global-text-color-light);
@@ -847,6 +814,10 @@ footer.sticky-bottom {
 
 .note-card-grid {
   grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+}
+
+.single-note-grid {
+  max-width: 760px;
 }
 
 .note-card {
@@ -1070,10 +1041,6 @@ footer.sticky-bottom {
 @media (max-width: 767px) {
   .notes-hero {
     padding: 1.35rem;
-  }
-
-  .notes-stat-grid {
-    grid-template-columns: 1fr;
   }
 
   .note-post-header {

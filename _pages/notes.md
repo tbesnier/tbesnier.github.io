@@ -8,33 +8,21 @@ nav_order: 1
 ---
 
 {% assign notes = site.notes | sort: 'date' | reverse %}
-{% assign featured_notes = notes | where: 'featured', true %}
+{% assign current_note = notes | first %}
 
 <div class="notes-page">
   <section class="notes-hero">
     <div class="notes-hero-copy">
       <p class="notes-kicker">Research Blog</p>
-      <h1>Visual explanations for geometry, motion, and learning.</h1>
-      <p class="notes-deck">Shape analysis, deformation modeling, and 3D generative methods, written with diagrams, equations, and implementation detail.</p>
+      <h1>Research notes on geometry, deformation, and learning.</h1>
+      <p class="notes-deck">
+        A small space for technical notes around shape analysis and 3D generative modeling, written visually and kept close to the underlying math.
+      </p>
 
       <div class="notes-actions">
-        <a class="notes-primary-action" href="#featured-notes">Start with featured notes</a>
-        <a class="notes-secondary-action" href="#recent-notes">Browse the full archive</a>
-      </div>
-
-      <div class="notes-stat-grid">
-        <div class="notes-stat-card">
-          <span class="notes-stat-value">{{ notes | size }}</span>
-          <span class="notes-stat-label">Research notes</span>
-        </div>
-        <div class="notes-stat-card">
-          <span class="notes-stat-value">3D</span>
-          <span class="notes-stat-label">Geometry-first topics</span>
-        </div>
-        <div class="notes-stat-card">
-          <span class="notes-stat-value">Code + Math</span>
-          <span class="notes-stat-label">Implementation-oriented explanations</span>
-        </div>
+        {% if current_note %}
+          <a class="notes-primary-action" href="{{ current_note.url | relative_url }}">Read the current note</a>
+        {% endif %}
       </div>
     </div>
 
@@ -60,37 +48,21 @@ nav_order: 1
 
   </section>
 
-  <section id="featured-notes" class="notes-section">
-    <div class="notes-section-heading">
-      <div>
-        <p class="notes-section-kicker">Featured</p>
-        <h2>Featured notes</h2>
+{% if current_note %}
+
+<section id="current-note" class="notes-section">
+<div class="notes-section-heading simple">
+<div>
+<p class="notes-section-kicker">Current note</p>
+<h2>One note to build on</h2>
+</div>
+</div>
+
+      <div class="note-card-grid single-note-grid">
+        {% include note_card.liquid note=current_note %}
       </div>
-      <p class="notes-section-copy">Three entry points into the kinds of geometric problems explored here.</p>
-    </div>
+    </section>
 
-    <div class="note-card-grid">
-      {% for note in featured_notes limit: 3 %}
-        {% include note_card.liquid note=note %}
-      {% endfor %}
-    </div>
+{% endif %}
 
-  </section>
-
-  <section id="recent-notes" class="notes-section">
-    <div class="notes-section-heading">
-      <div>
-        <p class="notes-section-kicker">Archive</p>
-        <h2>Recent notes</h2>
-      </div>
-      <p class="notes-section-copy">A growing collection of essays around geometric learning, motion, and 3D representation.</p>
-    </div>
-
-    <div class="note-card-grid">
-      {% for note in notes %}
-        {% include note_card.liquid note=note compact=true %}
-      {% endfor %}
-    </div>
-
-  </section>
 </div>
