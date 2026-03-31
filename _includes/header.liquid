@@ -109,6 +109,11 @@
               {% endif %}
             {% endif %}
           {% endfor %}
+          <li class="nav-item nav-item-coffee">
+            <a class="nav-link coffee-button" href="{{ '/coffee/' | relative_url }}" aria-label="coffee">
+              <span class="coffee-button-cup" aria-hidden="true">☕</span>
+            </a>
+          </li>
           {% if site.search_enabled %}
             <!-- Search -->
             <li class="nav-item">

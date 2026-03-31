@@ -2,7 +2,7 @@
 layout: default
 permalink: /blog/
 title: Research Notes
-nav_title: Blog
+nav_title: blog
 nav: true
 nav_order: 1
 ---
