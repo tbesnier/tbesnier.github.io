@@ -20,8 +20,9 @@
             {% if project.short_label %}
               <span class="ongoing-project-pill">{{ project.short_label }}</span>
             {% endif %}
-            {% if project.year %}
-              <span class="ongoing-project-pill subtle">{{ project.year }}</span>
+            {% assign project_dates = project.dates | default: project.year %}
+            {% if project_dates %}
+              <span class="ongoing-project-pill subtle">{{ project_dates }}</span>
             {% endif %}
           </div>
 
