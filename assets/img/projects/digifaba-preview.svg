@@ -1,0 +1,138 @@
+<svg width="1200" height="760" viewBox="0 0 1200 760" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="digifaba-bg" x1="80" y1="54" x2="1092" y2="708" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#f7f7f6" />
+      <stop offset="1" stop-color="#e5e7e8" />
+    </linearGradient>
+    <linearGradient id="digifaba-panel" x1="122" y1="102" x2="1074" y2="626" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#ffffff" />
+      <stop offset="1" stop-color="#f1f3f2" />
+    </linearGradient>
+    <linearGradient id="field" x1="170" y1="476" x2="1032" y2="642" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#d9e2d8" />
+      <stop offset="1" stop-color="#a7b7a3" />
+    </linearGradient>
+    <linearGradient id="bean" x1="226" y1="300" x2="384" y2="510" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#70856E" />
+      <stop offset="1" stop-color="#3F5545" />
+    </linearGradient>
+    <linearGradient id="signal" x1="742" y1="214" x2="952" y2="432" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#5f6974" />
+      <stop offset="1" stop-color="#8a939b" />
+    </linearGradient>
+    <filter id="panel-shadow" x="88" y="70" width="1024" height="620" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feFlood flood-opacity="0" result="BackgroundImageFix" />
+      <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
+      <feOffset dy="14" />
+      <feGaussianBlur stdDeviation="17" />
+      <feComposite in2="hardAlpha" operator="out" />
+      <feColorMatrix type="matrix" values="0 0 0 0 0.101961 0 0 0 0 0.117647 0 0 0 0 0.129412 0 0 0 0.13 0" />
+      <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_0_1" />
+      <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_0_1" result="shape" />
+    </filter>
+  </defs>
+
+  <rect width="1200" height="760" rx="34" fill="url(#digifaba-bg)" />
+
+  <g filter="url(#panel-shadow)">
+    <rect x="122" y="102" width="956" height="536" rx="30" fill="url(#digifaba-panel)" />
+    <rect x="122.5" y="102.5" width="955" height="535" rx="29.5" stroke="#C9CED1" />
+  </g>
+
+  <rect x="160" y="470" width="880" height="120" rx="28" fill="url(#field)" />
+  <path d="M160 522C292 490 441 491 585 520C726 548 887 551 1040 509" stroke="#95A393" stroke-width="3" />
+
+  <g opacity="0.9">
+    <rect x="182" y="136" width="144" height="34" rx="17" fill="#1E2327" />
+    <text x="254" y="158" text-anchor="middle" fill="#F5F6F7" font-size="17" font-family="Georgia, 'Times New Roman', serif">field imaging</text>
+
+    <rect x="462" y="136" width="168" height="34" rx="17" fill="#5D686F" />
+    <text x="546" y="158" text-anchor="middle" fill="#F5F6F7" font-size="17" font-family="Georgia, 'Times New Roman', serif">trait extraction</text>
+
+    <rect x="846" y="136" width="174" height="34" rx="17" fill="#1E2327" />
+    <text x="933" y="158" text-anchor="middle" fill="#F5F6F7" font-size="17" font-family="Georgia, 'Times New Roman', serif">yield stability</text>
+  </g>
+
+  <g transform="translate(216 224)">
+    <path d="M82 222L84 120" stroke="#516752" stroke-width="8" stroke-linecap="round" />
+    <path d="M82 176C55 160 36 132 34 102C64 101 94 118 109 149C118 169 115 182 82 176Z" fill="url(#bean)" />
+    <path d="M86 152C120 133 158 134 188 153C174 184 141 208 105 207C88 207 80 195 86 152Z" fill="#556B59" />
+    <path d="M84 120C58 110 37 88 31 58C58 54 90 69 107 95C117 111 118 123 84 120Z" fill="#768C74" />
+    <circle cx="84" cy="224" r="12" fill="#3F5545" />
+  </g>
+
+  <g transform="translate(504 248)">
+    <rect x="0" y="0" width="190" height="132" rx="22" fill="#EFF2F1" stroke="#C8CED0" stroke-width="2" />
+    <path d="M28 88L60 68L95 81L132 46L162 60" stroke="#54616B" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" />
+    <circle cx="60" cy="68" r="8" fill="#3F5545" />
+    <circle cx="95" cy="81" r="8" fill="#5B6D5F" />
+    <circle cx="132" cy="46" r="8" fill="#3F5545" />
+    <rect x="25" y="30" width="42" height="10" rx="5" fill="#C5D0C3" />
+    <rect x="74" y="30" width="56" height="10" rx="5" fill="#D5DCDD" />
+    <rect x="25" y="103" width="140" height="8" rx="4" fill="#D0D6D8" />
+  </g>
+
+  <g transform="translate(760 224)">
+    <rect x="0" y="26" width="208" height="150" rx="24" fill="#EEF1F3" stroke="#C7CDD0" stroke-width="2" />
+    <path d="M34 134C61 92 96 58 130 50C156 44 177 53 185 77C194 103 185 125 163 140C139 156 93 160 34 134Z" fill="#D5DBDF" />
+    <path d="M56 118C79 91 104 73 128 67C149 62 165 67 171 83C177 100 171 114 156 125C137 139 104 141 56 118Z" fill="url(#signal)" />
+    <path d="M28 196H184" stroke="#AEB7BE" stroke-width="3" stroke-linecap="round" />
+    <path d="M74 196V56" stroke="#AEB7BE" stroke-width="3" stroke-linecap="round" />
+  </g>
+
+  <g transform="translate(732 198)">
+    <path d="M0 58L60 16L138 34" stroke="#6F7A82" stroke-width="3.5" stroke-dasharray="8 8" />
+    <path d="M0 58L48 106L122 124" stroke="#6F7A82" stroke-width="3.5" stroke-dasharray="8 8" />
+  </g>
+
+  <g transform="translate(212 206)">
+    <rect x="0" y="0" width="162" height="112" rx="24" fill="#EFF2F1" stroke="#C8CED0" stroke-width="2" />
+    <rect x="22" y="20" width="118" height="62" rx="14" fill="#D7DFD6" />
+    <circle cx="55" cy="51" r="12" fill="#6E826D" />
+    <path d="M75 64C89 44 111 35 129 41C131 58 120 75 100 82C88 86 80 81 75 64Z" fill="#516752" />
+    <rect x="46" y="90" width="70" height="8" rx="4" fill="#D1D7D8" />
+  </g>
+
+  <g transform="translate(396 184)">
+    <path d="M0 190H84" stroke="#5F6974" stroke-width="5" stroke-linecap="round" />
+    <path d="M72 172L100 190L72 208" stroke="#5F6974" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" />
+  </g>
+
+  <g transform="translate(700 184)">
+    <path d="M0 190H84" stroke="#5F6974" stroke-width="5" stroke-linecap="round" />
+    <path d="M72 172L100 190L72 208" stroke="#5F6974" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" />
+  </g>
+
+  <g transform="translate(260 258)">
+    <rect x="0" y="0" width="108" height="38" rx="19" fill="#FFFFFF" stroke="#CDD3D5" />
+    <text
+      x="54"
+      y="24"
+      text-anchor="middle"
+      fill="#333B41"
+      font-size="16"
+      font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
+    >
+      field + drone
+    </text>
+  </g>
+
+  <g transform="translate(557 420)">
+    <rect x="0" y="0" width="164" height="40" rx="20" fill="#FFFFFF" stroke="#CDD3D5" />
+    <text
+      x="82"
+      y="25"
+      text-anchor="middle"
+      fill="#333B41"
+      font-size="16"
+      font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
+    >
+      models + statistics
+    </text>
+  </g>
+
+  <text x="167" y="678" fill="#1E2327" font-size="40" font-family="Georgia, 'Times New Roman', serif">DIGIFABA</text>
+  <text x="169" y="711" fill="#67717A" font-size="22" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
+    decoding faba bean yield stability from images to mechanistic models
+  </text>
+</svg>

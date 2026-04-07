@@ -1,1 +1,60 @@
-<div class="projects ongoing-projects"></div>
+{% assign ongoing_projects = site.data.ongoing_projects %}
+{% if ongoing_projects and ongoing_projects.size > 0 %}
+  <div class="ongoing-project-grid">
+    {% for project in ongoing_projects %}
+      <article class="ongoing-project-card">
+        {% if project.image %}
+          <a
+            class="ongoing-project-media"
+            href="{{ project.url }}"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="{{ project.title | escape }}"
+          >
+            <img src="{{ project.image | relative_url }}" alt="{{ project.image_alt | default: project.title | escape }}" loading="lazy">
+          </a>
+        {% endif %}
+
+        <div class="ongoing-project-body">
+          <div class="ongoing-project-meta">
+            {% if project.short_label %}
+              <span class="ongoing-project-pill">{{ project.short_label }}</span>
+            {% endif %}
+            {% if project.year %}
+              <span class="ongoing-project-pill subtle">{{ project.year }}</span>
+            {% endif %}
+          </div>
+
+          <h3 class="ongoing-project-title">
+            <a href="{{ project.url }}" target="_blank" rel="noopener noreferrer">
+              {{ project.title }}
+            </a>
+          </h3>
+
+          {% if project.full_title %}
+            <p class="ongoing-project-subtitle">{{ project.full_title }}</p>
+          {% endif %}
+
+          {% if project.summary %}
+            <p class="ongoing-project-summary">{{ project.summary }}</p>
+          {% endif %}
+
+          {% if project.tags %}
+            <div class="ongoing-project-tags">
+              {% for tag in project.tags %}
+                <span>{{ tag }}</span>
+              {% endfor %}
+            </div>
+          {% endif %}
+
+          <div class="ongoing-project-footer">
+            {% if project.institution %}
+              <span class="ongoing-project-institution">{{ project.institution }}</span>
+            {% endif %}
+            <a class="ongoing-project-link" href="{{ project.url }}" target="_blank" rel="noopener noreferrer"> Project page </a>
+          </div>
+        </div>
+      </article>
+    {% endfor %}
+  </div>
+{% endif %}
