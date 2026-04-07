@@ -3,8 +3,6 @@
   short_label: "Novo Nordisk Foundation"
   dates: "2024-2029"
   institution: "University of Copenhagen"
-  image: "/assets/img/projects/digifaba-preview.svg"
-  image_alt: "Stylized preview of the DIGIFABA project showing faba bean plants, in-field imaging, and modelling outputs"
   url: "https://datascience.novonordiskfonden.dk/projects/decoding-faba-bean-yield-stability-from-in-field-image-data-to-mechanistic-models-digifaba/"
   summary: "DIGIFABA combines in-field and drone imagery with statistical, machine-learning, and mechanistic modelling to identify the traits behind stable faba bean yields. The project aims to strengthen breeding strategies for drought-resilient, climate-robust faba bean varieties and support more sustainable agricultural practice."
   tags:
