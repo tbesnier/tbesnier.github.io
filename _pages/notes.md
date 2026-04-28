@@ -1,67 +1,85 @@
 ---
 layout: default
 permalink: /blog/
-title: Research Notes
+title: Blog
+description: "Research notes on applied mathematics, geometry processing, and computer vision."
 nav_title: blog
 nav: true
 nav_order: 1
 ---
 
 {% assign notes = site.notes | sort: 'date' | reverse %}
-{% assign current_note = notes | first %}
+{% assign latest_note = notes | first %}
+{% assign note_count = notes | size %}
 
 <div class="notes-page">
-  <section class="notes-hero">
+  <section class="notes-hero notes-archive-hero">
     <div class="notes-hero-copy">
-      <p class="notes-kicker">Research Blog</p>
-      <h1>Research notes on geometry, deformation, and learning.</h1>
+      <p class="notes-kicker">Research notes</p>
+      <h1>Applied mathematics, geometry processing, and computer vision.</h1>
       <p class="notes-deck">
-        A small space for technical notes around shape analysis and 3D generative modeling, written visually and kept close to the underlying math.
+        A curated archive of notes that build geometric intuition, connect it to algorithms, and keep the mathematical details close enough to be useful.
       </p>
 
       <div class="notes-actions">
-        {% if current_note %}
-          <a class="notes-primary-action" href="{{ current_note.url | relative_url }}">Read the current note</a>
+        {% if latest_note %}
+          <a class="notes-primary-action" href="{{ latest_note.url | relative_url }}">Read the latest note</a>
+          <a class="notes-secondary-action" href="#notes-index">Browse the archive</a>
         {% endif %}
       </div>
     </div>
 
-    <div class="notes-hero-panel">
-      <figure class="notes-hero-figure">
-        <img
-          src="{{ '/assets/img/blog/applied-geometry-hero.svg' | relative_url }}"
-          alt="Abstract applied geometry illustration with wireframes, contours, and point samples"
-          loading="eager"
-        >
-      </figure>
-      <div class="notes-theme-strip">
-        <div class="notes-topic-cloud">
-          <span>shape correspondence</span>
-          <span>deformation priors</span>
-          <span>localized control</span>
-          <span>3D talking heads</span>
-          <span>spectral geometry</span>
-          <span>motion synthesis</span>
+    <aside class="notes-index-panel" aria-label="Blog archive summary">
+      <p class="notes-panel-label">Archive</p>
+      {% if latest_note.preview_image %}
+        <a class="notes-latest-preview" href="{{ latest_note.url | relative_url }}" aria-label="{{ latest_note.title | escape }}">
+          <img src="{{ latest_note.preview_image | relative_url }}" alt="{{ latest_note.preview_alt | default: latest_note.title | escape }}" loading="eager">
+        </a>
+      {% endif %}
+      <div class="notes-stat-grid">
+        <div class="notes-stat">
+          <strong>{{ note_count }}</strong>
+          <span>published note{% unless note_count == 1 %}s{% endunless %}</span>
         </div>
+        {% if latest_note %}
+          <div class="notes-stat">
+            <strong>{{ latest_note.date | date: '%Y' }}</strong>
+            <span>latest update</span>
+          </div>
+        {% endif %}
       </div>
-    </div>
+
+      <div class="notes-topic-cloud" aria-label="Main themes">
+        <span>shape analysis</span>
+        <span>geometry processing</span>
+        <span>computer vision</span>
+        <span>statistical modeling</span>
+        <span>geometric learning</span>
+      </div>
+    </aside>
 
   </section>
 
-{% if current_note %}
+{% if note_count > 0 %}
 
-<section id="current-note" class="notes-section">
-<div class="notes-section-heading simple">
-<div>
-<p class="notes-section-kicker">Current note</p>
-<h2>One note to build on</h2>
-</div>
-</div>
-
-      <div class="note-card-grid single-note-grid">
-        {% include note_card.liquid note=current_note %}
+  <section id="notes-index" class="notes-section">
+    <div class="notes-section-heading">
+      <div>
+        <p class="notes-section-kicker">Index</p>
+        <h2>All notes</h2>
       </div>
-    </section>
+      <p class="notes-section-copy">
+        Entries are written as durable references: enough intuition to read them linearly, enough structure to return to a specific formula later.
+      </p>
+    </div>
+
+    <div class="note-card-grid notes-archive-grid">
+      {% for note in notes %}
+        {% include note_card.liquid note=note %}
+      {% endfor %}
+    </div>
+
+  </section>
 
 {% endif %}
 

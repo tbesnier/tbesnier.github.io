@@ -1,223 +1,304 @@
 ---
 layout: post
-title: "Kendall shape space: a working sketch"
+title: "Kendall shape space: comparing shapes after removing pose and scale"
 date: 2025-02-01
+permalink: /blog/kendall-shape-space/
 categories: [Statistical Shape Analysis]
-tags: [kendall shape space, procrustes analysis, landmarks, shape statistics, geometry]
-keywords: [Kendall shape space, statistical shape analysis, Procrustes distance, landmark configurations, shape manifolds]
-description: "A structured sketch of the main ideas behind Kendall shape space: from landmark configurations and pre-shapes to quotient geometry, distances, and statistical summaries."
+tags: [kendall shape space, procrustes analysis, landmarks, shape statistics, quotient geometry]
+keywords: [Kendall shape space, statistical shape analysis, Procrustes distance, landmark configurations, shape manifolds, quotient geometry]
+description: "An intuitive note on Kendall shape space: how landmark configurations become shapes once translation, scale, and rotation have been removed, and how this leads to Procrustes distances, mean shapes, and tangent-space statistics."
 preview_image: /assets/img/blog/kendall-shape-space-preview.svg
-preview_alt: "Preview illustration for Kendall shape space with landmark constellations, a pre-shape sphere, and quotient geometry cues"
+preview_alt: "Landmark configurations mapped to the pre-shape sphere and then to Kendall shape space"
 featured: true
-reading_time: 12 min
-difficulty: Advanced
+reading_time: 14 min
+difficulty: Intermediate
 series: Geometry for Learning
 eyebrow: Kendall Shape Space
-meta: working sketch
+meta: didactic note
 toc:
   sidebar: right
 key_takeaways:
-  - how landmark configurations become points on a quotient manifold once translation, scale, and rotation are removed
-  - why the pre-shape sphere is the natural intermediate object in Kendall's construction
-  - which geometric tools matter in practice: Procrustes distance, tangent spaces, means, and principal directions
+  - a shape is a landmark configuration after translation, global scale, and rotation have been removed
+  - centering and normalization put configurations on the pre-shape sphere
+  - Kendall shape space is the quotient of that sphere by rotations
+  - Procrustes alignment turns the quotient definition into a practical distance and averaging procedure
 ---
 
-This note is meant as a complete sketch rather than a finished tutorial. The goal is to collect the main definitions, mental pictures, and technical facts I want to use later when writing a fuller note on Kendall shape space.
+Kendall shape space is a clean answer to a deceptively simple question:
 
-## Why Kendall Shape Space Shows Up So Often
+> when two objects are represented by corresponding landmarks, what should count as the same shape?
 
-When shapes are represented by labeled landmarks, the raw coordinates still contain nuisance degrees of freedom:
+If I draw a triangle on the left side of a page and you draw the same triangle on the right, we do not want their different positions to matter. If your drawing is twice as large, we still usually want to call it the same shape. If it is rotated by 30 degrees, same story. But if one angle becomes sharper, or one landmark moves relative to the others, then the shape has changed.
 
-- translation
-- global scale
-- rotation
+Kendall's construction turns this intuition into geometry. It says: start with landmark coordinates, remove translation, remove size, then identify configurations that differ only by rotation. The remaining object is a point in **shape space**.
 
-Kendall's construction removes those transformations and asks us to study the geometry of what remains: shape itself.
+## A First Example: Triangles
 
-That is the attractive part of the framework. It turns a messy collection of landmark configurations into a geometric object on which distances, means, geodesics, and statistics make sense.
+Take three labeled landmarks in the plane:
+
+\[
+X =
+\begin{bmatrix}
+0 & 0 \\
+2 & 0 \\
+0 & 1
+\end{bmatrix}.
+\]
+
+This is a right triangle, with landmark 1 at the right angle. Now compare it with
+
+\[
+Y =
+\begin{bmatrix}
+5 & 4 \\
+5 & 6 \\
+4 & 4
+\end{bmatrix}.
+\]
+
+The coordinates look different, but \(Y\) is just the same triangle after a translation, a rotation, and a change of scale. A Euclidean distance between the raw coordinate matrices would say they are far apart. Kendall shape space says their distance is zero, because their **relative landmark arrangement** is identical.
+
+Now move the third landmark from \((0,1)\) to \((0.4,1)\). The triangle is no longer the same: one side changed relative to the others. That deformation should survive all alignment steps. Shape space is designed to keep exactly this kind of information.
 
 <div class="comparison-grid">
   <div class="comparison-card">
-    <h3>What is removed</h3>
-    <p>Absolute position, overall size, and orientation.</p>
+    <h3>Nuisance variation</h3>
+    <p>Position in the image, global size, and orientation. These usually depend on acquisition or display choices.</p>
   </div>
   <div class="comparison-card">
-    <h3>What remains</h3>
-    <p>The relative arrangement of landmarks, which is what we usually want to call shape.</p>
+    <h3>Shape variation</h3>
+    <p>Angles, relative lengths, and the arrangement of landmarks after the nuisance transformations are removed.</p>
   </div>
 </div>
 
-## The Starting Point: Landmark Configurations
+## From Coordinates to Configurations
 
-Take \(k\) ordered landmarks in \(\mathbb{R}^m\). A configuration can be written as a matrix
+Let \(k\) labeled landmarks live in \(\mathbb{R}^m\). A landmark configuration is a matrix
 
 \[
-X \in \mathbb{R}^{k \times m}.
+X \in \mathbb{R}^{k \times m},
 \]
 
-Each row corresponds to a landmark. At this stage we are not yet in shape space. We are still in the ambient Euclidean space of all configurations.
+where row \(i\) contains the coordinates of landmark \(i\). The landmarks are labeled: landmark 1 in one shape must correspond to landmark 1 in another. Kendall shape space does not solve correspondence; it assumes correspondence is already available.
 
-The first two operations are straightforward:
+For a face, the rows might be eye corners, nose tip, mouth corners, and chin. For a biological specimen, they might be anatomical points. For a silhouette, they might be consistently sampled boundary points.
 
-1. center the configuration to remove translation
-2. normalize its size to remove global scale
-
-If \(H\) is the centering operator, then the centered and normalized configuration is
+The first step is to remove translation by subtracting the centroid:
 
 \[
-Z = \frac{HX}{\|HX\|\_F}.
+X_c = X - \mathbf{1}\bar{x}^\top,
+\]
+
+where \(\bar{x}\) is the average of the landmark coordinates. Equivalently, one can write \(X_c = HX\), with
+
+\[
+H = I_k - \frac{1}{k}\mathbf{1}\mathbf{1}^\top.
+\]
+
+The second step is to remove global scale by normalizing the Frobenius norm:
+
+\[
+Z = \frac{X_c}{\operatorname{Frob}(X_c)},
+\qquad
+\operatorname{Frob}(X_c) = \sqrt{\operatorname{trace}(X_c^\top X_c)}.
 \]
 
 This \(Z\) is called a **pre-shape**.
 
 <div class="concept-grid">
   <div class="concept-card">
-    <h3>Configuration space</h3>
-    <p>All landmark coordinates, including translation, scale, and rotation.</p>
+    <h3>Configuration</h3>
+    <p>The original landmark coordinates. Translation, scale, and rotation are still present.</p>
   </div>
   <div class="concept-card">
-    <h3>Pre-shape space</h3>
-    <p>Centered, unit-norm configurations. This is already a curved object: a sphere.</p>
+    <h3>Pre-shape</h3>
+    <p>The centered, unit-size configuration. Translation and scale have been removed.</p>
   </div>
   <div class="concept-card">
-    <h3>Shape space</h3>
-    <p>Pre-shapes modulo rotation. This is Kendall's shape space.</p>
+    <h3>Shape</h3>
+    <p>An equivalence class of pre-shapes that differ only by rotation.</p>
   </div>
 </div>
 
-## The Pre-shape Sphere
+## Why the Pre-shapes Live on a Sphere
 
-The normalization step places \(Z\) on a unit sphere in a linear subspace. For centered configurations, the dimension drops by \(m\), and the unit-norm constraint removes one more degree of freedom. So pre-shapes live on
+After centering, a configuration has \(m(k-1)\) degrees of freedom: one \(m\)-dimensional centroid has been removed. Normalizing by \(\operatorname{Frob}(X_c)=1\) imposes one more constraint, so pre-shapes lie on the unit sphere
 
 \[
 S^{m(k-1)-1}.
 \]
 
-This sphere is not the final answer, but it is the crucial intermediate object. Many formulas become cleaner once we realize that landmark shape analysis first passes through this spherical geometry.
+This is not only a metaphor. The pre-shape sphere is literally the unit sphere inside the linear subspace of centered configurations.
 
-<div class="technical-callout">
-  <h3>Technical note</h3>
-  <p>Calling pre-shape space a sphere is not just a visual analogy. The unit Frobenius norm constraint really defines a sphere inside the centered configuration subspace.</p>
-</div>
-
-## Quotienting Out Rotations
-
-Two pre-shapes that differ only by a rotation should represent the same shape. So the final shape space is the quotient
+For the triangle example, \(k=3\) and \(m=2\), so pre-shapes live on
 
 \[
-\Sigma_m^k = S^{m(k-1)-1} / SO(m).
+S^{2(3-1)-1} = S^3.
 \]
 
-This is Kendall shape space for \(k\) landmarks in \(m\) dimensions.
+That is already interesting: even very simple planar triangles become points on a curved space once translation and scale are removed.
 
-That quotient notation is the compact way to say:
+<div class="technical-callout">
+  <h3>Example</h3>
+  <p>The triangle with rows \((0,0)\), \((2,0)\), \((0,1)\) has centroid \((2/3, 1/3)\). After centering, its squared Frobenius norm is \(10/3\). Dividing by \(\sqrt{10/3}\) puts it on the pre-shape sphere.</p>
+</div>
 
-- start from normalized landmark configurations
-- identify all rotated versions as equivalent
-- treat each equivalence class as one shape
+## Rotation Is Still Left
 
-This is where the geometry becomes richer. We are no longer on an ordinary Euclidean space, and many statistics need to be defined intrinsically or through tangent approximations.
+Pre-shape removes translation and scale, but a rotated copy of a configuration is still a different matrix. If \(R \in SO(m)\) is a rotation matrix, then \(Z\) and \(ZR\) should represent the same shape.
 
-## The Famous Two-dimensional Case
+Kendall shape space is therefore the quotient
 
-For planar landmarks, the quotient has a particularly elegant form:
+\[
+\Sigma_m^k = S^{m(k-1)-1}/SO(m).
+\]
+
+This notation says that a point of \(\Sigma_m^k\) is not a single pre-shape. It is the whole orbit
+
+\[
+[Z] = \{ZR : R \in SO(m)\}.
+\]
+
+In words: a shape is the collection of every rotated version of the same centered and normalized landmark configuration.
+
+There is one modeling choice hidden here. Quotienting by \(SO(m)\) removes rotations but not reflections. If mirror images should also be considered identical, one quotients by \(O(m)\) instead. In many vision and anatomy settings, orientation matters, so keeping reflections distinct is the right choice.
+
+## The Planar Case Is Especially Nice
+
+For landmarks in the plane, Kendall shape space has a beautiful closed form:
 
 \[
 \Sigma_2^k \cong \mathbb{CP}^{k-2}.
 \]
 
-So in 2D, Kendall shape space is complex projective space.
-
-This is one reason the theory is so nice in the planar case: the quotient geometry can be written very compactly, and several quantities admit closed or well-studied expressions.
-
-For 3D landmarks, the geometry is still meaningful and useful, but it is less algebraically neat than the planar setting.
-
-## Distances: Procrustes Enters the Picture
-
-One of the central quantities is the full Procrustes distance. On pre-shapes \(Z_1\) and \(Z_2\), the corresponding shape distance can be written through the optimal alignment over rotations:
+So planar shape space is complex projective space. For triangles, \(k=3\), and
 
 \[
-d([Z_1], [Z_2]) = \arccos \left( \max\_{R \in SO(m)} \langle Z_1, Z_2 R \rangle \right).
+\Sigma_2^3 \cong \mathbb{CP}^1,
 \]
 
-This expression already reveals the structure of the problem:
+which is a two-dimensional sphere.
 
-- align the two pre-shapes as well as possible
-- measure how close they are once only shape-relevant variation remains
+This gives a useful mental picture: all oriented planar triangle shapes live on a sphere. Collinear triangles form an equator. The two poles correspond to the two orientations of an equilateral triangle. Moving over the sphere continuously changes the triangle shape.
 
-The important point is that distances are not measured directly in raw coordinate space. They are measured after quotienting out nuisance transformations.
+The higher-dimensional cases remain geometrically meaningful, but the planar case is the one where the quotient has the most compact algebraic description.
 
-## Tangent Spaces and Linearization
+## Distances Come from Alignment
 
-Even though the geometry is nonlinear, local computations often happen in tangent spaces. Around a reference shape, one can:
+The quotient definition is elegant, but it also gives a practical recipe: to compare two shapes, align their pre-shapes as well as possible, then measure the remaining discrepancy.
 
-- map nearby shapes to a tangent space
-- perform linear statistics there
-- map results back when needed
+Given two pre-shapes \(Z_1\) and \(Z_2\), the Kendall angular distance is
 
-This is the basic logic behind many practical procedures:
+\[
+d([Z_1], [Z_2]) =
+\arccos\left(
+\underset{R \in SO(m)}{\max}
+\operatorname{trace}(Z_1^\top Z_2R)
+\right),
+\]
 
-- tangent PCA or principal geodesic analysis
-- approximate means and covariances
-- local regression and visualization
+where the trace term is the usual Frobenius inner product after rotating \(Z_2\).
 
-This is also where a lot of misuse can happen: once the data are spread too widely, tangent linearization may stop being a good approximation.
+The maximization is the familiar orthogonal Procrustes problem. In practice, one computes an SVD of a small \(m \times m\) matrix, obtains the best rotation, and then evaluates the angle on the pre-shape sphere.
 
-## Statistical Questions That Matter
+<div class="technical-callout">
+  <h3>Concrete check</h3>
+  <p>If \(Z_2\) is exactly \(Z_1R_0\) for some rotation \(R_0\), the maximum inner product is 1 and the distance is \(\arccos(1)=0\). If no rotation makes the two pre-shapes coincide, the maximum is smaller than 1 and the distance is positive.</p>
+</div>
 
-Once shapes live on a manifold or quotient manifold, classical Euclidean statistics need reinterpretation.
+Some papers use related chordal or full Procrustes distances instead of the angular Riemannian distance. The alignment idea is the same, but the final scalar formula changes. It is worth checking which convention a method uses before comparing numerical values.
 
-The questions I want this note to keep in focus are:
+## Means: Averaging Shapes Is Not Averaging Coordinates
 
-1. what is the right notion of mean shape?
-2. how do we describe principal directions of variation?
-3. when is a tangent approximation good enough?
-4. how much of the observed variability is geometric, and how much is due to landmarking noise?
+Suppose we have several annotated hand shapes, face shapes, or triangles. A naive coordinate-wise average depends on how the objects were positioned and oriented. Kendall geometry suggests a better procedure:
 
-The Fréchet mean becomes the natural replacement for the Euclidean average, and principal geodesic analysis becomes the curved analogue of PCA.
+1. center and normalize every configuration,
+2. choose a current estimate of the mean shape,
+3. optimally rotate each pre-shape toward that estimate,
+4. average the aligned pre-shapes,
+5. normalize again and repeat until stable.
 
-## Why This Matters For Modern Geometry Processing
+This gives a Procrustes mean, which is a practical version of a Fréchet mean on shape space:
 
-Kendall shape space is not only a classical statistics object. It is also a useful conceptual bridge for current geometric learning problems.
+\[
+\bar{s} = \arg\min_s \sum_i d(s, s_i)^2.
+\]
 
-It reminds us that:
+The important lesson is not the algorithmic detail. It is the order of operations. First respect the invariances, then compute statistics.
 
-- representation choices encode invariances
-- quotient geometry often appears before learning does
-- a good latent space should respect the symmetries of the data, not merely fit it
+## Tangent Spaces: When Linear Tools Become Useful Again
 
-That is why Kendall's construction still matters even in deep learning contexts: it gives a clean example of how to separate nuisance transformations from intrinsic variation.
+Shape space is curved, so a global PCA directly on raw coordinates is usually the wrong object. Locally, however, one can linearize.
 
-## A Minimal Computational Skeleton
+After estimating a mean shape \(\bar{s}\), nearby shapes can be mapped to the tangent space at \(\bar{s}\). In that tangent space, ordinary linear tools become meaningful approximations:
+
+- principal component analysis describes dominant local modes of shape variation,
+- regression can relate shape variation to external variables,
+- covariance estimates can quantify landmark variability.
+
+For example, in a face dataset, a leading tangent direction might open the mouth, widen the jaw, or move the eyebrows. These are not rigid motions; those have already been quotiented out. They are actual deformations of the landmark arrangement.
+
+The caution is equally important: tangent-space statistics are local. If the data cover a large region of shape space, or lie near singular configurations such as collinear planar landmarks, the linear approximation can become misleading.
+
+## A Minimal Computational Recipe
+
+The core mechanics fit in a few lines of pseudocode:
 
 ```python
+import numpy as np
+
+
 def preshape(X):
     Xc = X - X.mean(axis=0, keepdims=True)
-    return Xc / frobenius_norm(Xc)
+    return Xc / np.linalg.norm(Xc)
 
 
-def kendall_distance(Z1, Z2):
-    R = optimal_rotation(Z1, Z2)
-    return arccos(inner_product(Z1, Z2 @ R))
+def optimal_rotation(W, Z):
+    # Align W to Z by solving max_R <Z, W R>.
+    U, _, Vt = np.linalg.svd(W.T @ Z)
+    R = U @ Vt
+    if np.linalg.det(R) < 0:
+        U[:, -1] *= -1
+        R = U @ Vt
+    return R
+
+
+def kendall_distance(X, Y):
+    Zx = preshape(X)
+    Zy = preshape(Y)
+    R = optimal_rotation(Zy, Zx)
+    cosine = np.sum(Zx * (Zy @ R))
+    return np.arccos(np.clip(cosine, -1.0, 1.0))
 ```
 
-This pseudocode hides several details, but it captures the logic:
+This is only the skeleton. Real implementations need to handle degenerate configurations, reflection conventions, numerical tolerances, and the distinction between different Procrustes distances. But the main pipeline is there:
 
-1. center
-2. normalize
-3. align over rotations
-4. measure distance on the quotient
+\[
+\text{coordinates}
+\rightarrow
+\text{centered coordinates}
+\rightarrow
+\text{pre-shapes}
+\rightarrow
+\text{shapes modulo rotation}.
+\]
 
-## What I Still Want To Expand
+## Why It Matters in Geometry Processing and Vision
 
-This sketch is complete enough to orient the note, but the full version should still add:
+Kendall shape space is classical, but the idea behind it is very modern: do not ask a learning algorithm to rediscover invariances that can be built into the representation.
 
-- a clean derivation of the tangent space constraint
-- the difference between full and partial Procrustes viewpoints
-- more intuition for geodesics on the pre-shape sphere versus the quotient
-- one concrete worked example with a tiny landmark dataset
-- a short discussion of how Kendall geometry compares with diffeomorphic or correspondence-based shape spaces
+In computer vision, this appears whenever objects are detected with different positions, scales, or camera orientations. In medical or biological shape analysis, it appears when comparing anatomical landmark sets across subjects. In geometry processing, it gives a small but rigorous model of a broader theme: many useful spaces are quotient spaces, because we care about geometry after removing nuisance transformations.
 
-## Keywords
+That is why Kendall shape space remains a useful mental model. It separates three questions that are often mixed together:
 
-Kendall shape space, statistical shape analysis, Procrustes analysis, landmark configurations, pre-shape sphere, quotient geometry, Fréchet mean, principal geodesic analysis.
+- what data representation do we start from?
+- which transformations should be ignored?
+- what geometry remains after those transformations are removed?
+
+Once those choices are explicit, distances, averages, variability, and learning objectives become much easier to reason about.
+
+## Summary
+
+Kendall shape space takes labeled landmarks and removes translation, scale, and rotation in a principled order. Centering and normalization produce pre-shapes on a sphere. Quotienting by rotations turns each rotation orbit into one shape. The resulting geometry supports Procrustes distances, mean shapes, and tangent-space statistics.
+
+The construction is small enough to understand through triangles, but broad enough to guide practical work with faces, anatomical landmarks, outlines, and geometric data. Its main message is simple: before measuring variation, decide which variation is real shape variation.
