@@ -8,12 +8,13 @@ nav: true
 nav_order: 1
 ---
 
-<!-- 
+
 {% assign notes = site.notes | sort: 'date' | reverse %}
 {% assign latest_note = notes | first %}
 {% assign note_count = notes | size %}
-
+<!-- 
 <div class="notes-page">
+
   <section class="notes-hero notes-archive-hero">
     <div class="notes-hero-copy">
       <p class="notes-kicker">Research notes</p>
@@ -83,5 +84,5 @@ nav_order: 1
   </section>
 
 {% endif %} 
-
-</div> -->
+-->
+</div> 
