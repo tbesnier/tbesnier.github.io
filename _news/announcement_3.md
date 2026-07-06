@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-Our paper _PaNDaS: Learnable Deformation Modeling with Localized Control_ has been accepted to [CVPR 2026](https://cvpr.thecvf.com/Conferences/2026) and will be presented in Denver in June!
+Attended [CVPR 2026](https://cvpr.thecvf.com/Conferences/2026) in Denver, CO to present _PaNDaS: Learnable Deformation Modeling with Localized Control_ !

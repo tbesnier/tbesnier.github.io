@@ -4,7 +4,7 @@ permalink: /blog/
 title: Blog
 description: "Research notes on applied mathematics, geometry processing, and computer vision."
 nav_title: blog
-nav: true
+nav: false
 nav_order: 1
 ---
 
@@ -12,7 +12,7 @@ nav_order: 1
 {% assign notes = site.notes | sort: 'date' | reverse %}
 {% assign latest_note = notes | first %}
 {% assign note_count = notes | size %}
-<!-- 
+ 
 <div class="notes-page">
 
   <section class="notes-hero notes-archive-hero">
@@ -84,5 +84,5 @@ nav_order: 1
   </section>
 
 {% endif %} 
--->
+
 </div> 
