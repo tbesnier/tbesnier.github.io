@@ -8,6 +8,7 @@ nav: true
 nav_order: 1
 ---
 
+<!-- 
 {% assign notes = site.notes | sort: 'date' | reverse %}
 {% assign latest_note = notes | first %}
 {% assign note_count = notes | size %}
@@ -81,6 +82,6 @@ nav_order: 1
 
   </section>
 
-{% endif %}
+{% endif %} 
 
-</div>
+</div> -->
